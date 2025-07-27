@@ -1,5 +1,5 @@
 // store/products.js
-import { getAllProducts, categoryApis } from '@/api'
+import { getAllProducts, categoryApis } from '@/api/productmenu2'
 
 export default {
   namespaced: true,

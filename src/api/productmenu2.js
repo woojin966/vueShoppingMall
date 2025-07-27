@@ -1,4 +1,4 @@
-// api/index.js
+// 메뉴2 api
 import { getProducts as getApparel } from './apparel'
 import { getProducts as getBag } from './bag'
 // import { getProducts as getFashion } from './fashion'
