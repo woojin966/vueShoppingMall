@@ -1,5 +1,5 @@
 // store/products.js
-import { getAllProducts, categoryApis } from '@/api/productmenu2'
+import { getAllProducts } from '@/api/productmenu2'
 
 export default {
   namespaced: true,
@@ -15,17 +15,11 @@ export default {
     async fetchProducts({ commit }, payload) {
       try {
         const { category = 'all' } = payload || {}
-        let products = []
+        let products = await getAllProducts()
 
-        if (category === 'all') {
-          products = await getAllProducts()
-        } else {
-          const fetchCategory = categoryApis[category]
-          if (fetchCategory) {
-            products = await fetchCategory()
-          } else {
-            console.warn(`알 수 없는 카테고리: ${category}`)
-          }
+        // 'all'이 아니면 category 필터링
+        if (category !== 'all') {
+          products = products.filter((p) => p.category === category)
         }
 
         commit('setProducts', products)

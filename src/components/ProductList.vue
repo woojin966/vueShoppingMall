@@ -69,11 +69,12 @@ const setupObserver = async () => {
 onMounted(async () => {
   observer = new IntersectionObserver(handleIntersect, { threshold: 0.1 })
 
-  // 카테고리별 상품 불러오기
+  // 💡 카테고리별 상품 불러오기
   await store.dispatch('products/fetchProducts', { category: props.category })
 
-  isLoaded.value = true
+  // 💡 데이터 로딩 이후 batchIndex 초기화
   batchIndex.value = 1
+  isLoaded.value = true
 
   await setupObserver()
 
@@ -81,6 +82,27 @@ onMounted(async () => {
     ignoreIntersection.value = false
   }, 1500)
 })
+
+// 💡 카테고리 바뀔 때마다 다시 불러오기 및 batchIndex 초기화
+watch(
+  () => props.category,
+  async (newCat) => {
+    isLoaded.value = false
+    ignoreIntersection.value = true
+
+    await store.dispatch('products/fetchProducts', { category: newCat })
+
+    // 💡 여기서 초기화
+    batchIndex.value = 1
+    isLoaded.value = true
+
+    await setupObserver()
+
+    setTimeout(() => {
+      ignoreIntersection.value = false
+    }, 1500)
+  },
+)
 
 // 카테고리 바뀔 때마다 다시 불러오기 및 batchIndex 초기화
 watch(

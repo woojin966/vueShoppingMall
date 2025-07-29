@@ -32,9 +32,12 @@ const props = defineProps({
 
 const hover = ref(false)
 
-const getImgUrl = (filename) => new URL(`../assets/img/apparel/${filename}`, import.meta.url).href
+const getImgUrl = (category, filename) =>
+  new URL(`../assets/img/${category}/${filename}`, import.meta.url).href
 // hover상태에 따라 img src변경
 const currentImage = computed(() =>
-  hover.value ? getImgUrl(props.product.hoverImage) : getImgUrl(props.product.image),
+  hover.value
+    ? getImgUrl(props.product.category, props.product.hoverImage)
+    : getImgUrl(props.product.category, props.product.image),
 )
 </script>
