@@ -1,5 +1,5 @@
 <template>
-  <li class="product">
+  <li v-if="product" class="product">
     <div class="img_box">
       <img :src="currentImage" @mouseover="hover = true" @mouseleave="hover = false" />
       <div class="badges">

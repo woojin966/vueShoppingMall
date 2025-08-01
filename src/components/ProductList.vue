@@ -45,7 +45,7 @@ const hasMore = computed(() => batchIndex.value < maxBatchIndex.value)
 
 const displayedItems = computed(() => {
   if (!isLoaded.value || !items.value.length) return []
-  return items.value.slice(0, batchIndex.value * batchSize)
+  return items.value.slice(0, batchIndex.value * batchSize).filter((item) => item && item.id) // undefined 또는 잘못된 항목 제거
 })
 
 const observerTarget = ref(null)
@@ -83,7 +83,7 @@ onMounted(async () => {
   }, 1500)
 })
 
-// 💡 카테고리 바뀔 때마다 다시 불러오기 및 batchIndex 초기화
+// 카테고리 바뀔 때마다 다시 불러오기 및 batchIndex 초기화
 watch(
   () => props.category,
   async (newCat) => {
@@ -92,7 +92,6 @@ watch(
 
     await store.dispatch('products/fetchProducts', { category: newCat })
 
-    // 💡 여기서 초기화
     batchIndex.value = 1
     isLoaded.value = true
 
