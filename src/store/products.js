@@ -17,42 +17,52 @@ export default {
       try {
         const { category = 'all' } = payload || {}
         const pathname = window.location.pathname
-
         let rawProducts = []
 
-        // 1. /kitchen/summerdish → menu1 only, isSummerdish:true
-        if (pathname === '/kitchen/summerdish') {
+        // ✅ 1. /selection/new → new: true
+        if (pathname === '/selection/new') {
+          const menu1 = await getMenu1Products()
+          const menu2 = await getMenu2Products()
+          rawProducts = [...menu1, ...menu2].filter((p) => p.new)
+        }
+
+        // ✅ 2. /selection/best → best: true, 최대 30개
+        else if (pathname === '/selection/best') {
+          const menu1 = await getMenu1Products()
+          const menu2 = await getMenu2Products()
+          rawProducts = [...menu1, ...menu2].filter((p) => p.best).slice(0, 30) // 최대 30개로 제한
+        }
+
+        // ✅ 3. /selection/sale → clearance: true
+        else if (pathname === '/selection/sale') {
+          const menu1 = await getMenu1Products()
+          const menu2 = await getMenu2Products()
+          rawProducts = [...menu1, ...menu2].filter((p) => p.clearance)
+        }
+
+        // ✅ 기존 조건들...
+        else if (pathname === '/kitchen/summerdish') {
           const menu1 = await getMenu1Products()
           rawProducts = menu1.filter((p) => p.isSummerdish)
-        }
-
-        // 2. /kitchen → menu1만
-        else if (pathname.startsWith('/kitchen')) {
+        } else if (pathname.startsWith('/kitchen')) {
           rawProducts = await getMenu1Products()
-        }
-
-        // 3. /uncommon → menu2만
-        else if (pathname === '/uncommon' || pathname === '/uncommon/') {
+        } else if (pathname === '/uncommon' || pathname === '/uncommon/') {
           rawProducts = await getMenu2Products()
-        }
-
-        // 4. /uncommon/thai-it → menu1 + menu2 중 isThai:true
-        else if (pathname === '/uncommon/thai-it') {
+        } else if (pathname === '/uncommon/thai-it') {
           const menu1 = await getMenu1Products()
           const menu2 = await getMenu2Products()
           rawProducts = [...menu1, ...menu2].filter((p) => p.isThai)
-        }
-
-        // 5. 기타 → menu1 + menu2 전체
-        else {
+        } else {
           const menu1 = await getMenu1Products()
           const menu2 = await getMenu2Products()
           rawProducts = [...menu1, ...menu2]
         }
 
-        // 6. 카테고리 필터 적용 (특수한 조건들은 이미 필터됨)
+        // ✅ category 필터링 (탭용)
         const filteredProducts =
-          pathname === '/kitchen/summerdish' || pathname === '/uncommon/thai-it'
+          pathname.startsWith('/selection/') ||
+          pathname === '/kitchen/summerdish' ||
+          pathname === '/uncommon/thai-it'
             ? rawProducts
             : category === 'all'
               ? rawProducts
