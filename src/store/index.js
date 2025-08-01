@@ -16,7 +16,7 @@ const store = createStore({
   modules: {
     // 이후 여기에 모듈 추가
     // 추후 products.js, cart.js, order.js 로 분리해서 inex.js에 등록
-    products,
+    product: products,
   },
 })
 

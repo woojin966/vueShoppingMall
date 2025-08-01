@@ -52,6 +52,17 @@ export default {
           const menu1 = await getMenu1Products()
           const menu2 = await getMenu2Products()
           rawProducts = [...menu1, ...menu2].filter((p) => p.isThai)
+        } else if (/^\/brand\/([^/]+)\/?$/.test(pathname)) {
+          const match = pathname.match(/^\/brand\/([^/]+)\/?$/)
+          const brandName = match ? match[1] : ''
+          if (!brandName) return
+
+          const menu1 = await getMenu1Products()
+          const menu2 = await getMenu2Products()
+
+          const all = [...menu1, ...menu2]
+          const filtered = all.filter((p) => p.brand?.toLowerCase() === brandName.toLowerCase())
+          rawProducts = filtered
         } else {
           const menu1 = await getMenu1Products()
           const menu2 = await getMenu2Products()
