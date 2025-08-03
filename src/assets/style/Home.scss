@@ -1,0 +1,40 @@
+.home_wrapper {
+  display: flex;
+  background-color: $pointRed;
+}
+
+/* 메뉴 리스트 기본 숨김 */
+.menu_list > li {
+  transition: opacity 0.3s ease;
+  /*display: none;*/
+}
+
+/* 활성 메뉴만 보이게 */
+.menu_list > li.visible {
+  display: list-item;
+}
+
+/* 서브 메뉴 숨김 */
+.sub_menu_list {
+  /*display: none;*/
+  padding-left: 1em;
+  margin-top: 0.5em;
+}
+
+/* 활성 메뉴에 해당하는 서브 메뉴만 표시 */
+.sub_menu_list[style*='display: block'] {
+  display: block;
+}
+
+/* 메뉴 버튼 스타일 */
+.menu_btn {
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+  user-select: none;
+}
+
+/* preview_section 스타일 예시 */
+.preview_section {
+  margin-bottom: 20px;
+}

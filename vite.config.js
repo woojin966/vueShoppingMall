@@ -13,17 +13,19 @@ export default defineConfig(({ command }) => {
   const isBuild = command === 'build'
 
   return {
-    plugins: [
-    vue(),
-    vueDevTools(),
-  ],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
+    plugins: [vue(), vueDevTools()],
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+      },
     },
-  },
-  base: isBuild ? '/vueShoppingMall/' : '/',
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "@/assets/_variable.scss";`,
+        },
+      },
+    },
+    base: isBuild ? '/vueShoppingMall/' : '/',
   }
-
-})  
-
+})

@@ -107,11 +107,6 @@ onUnmounted(() => {
 })
 </script>
 
-<style scoped>
-.observer_trigger {
-  height: 1px;
-  opacity: 0;
-  pointer-events: none;
-  margin-top: 50px;
-}
+<style scoped lang="scss">
+@import '../assets/style/ProductList.scss';
 </style>

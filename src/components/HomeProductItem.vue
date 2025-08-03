@@ -1,25 +1,21 @@
 <template>
-  <li v-if="product" class="product">
+  <li v-if="product" class="home_product">
     <div class="img_box">
       <img :src="currentImage" @mouseover="hover = true" @mouseleave="hover = false" />
-      <div class="badges">
-        <span v-if="product.best" class="badge best">BEST</span>
-        <span v-if="product.clearance" class="badge clearance"
-          >CLEARANCE {{ product.percentage }}%</span
-        >
+    </div>
+    <div class="name_price_box">
+      <h3>{{ product.name }}</h3>
+      <div class="price_box">
+        <div v-if="product.clearance">
+          <p class="">{{ product.price }}원</p>
+          <p class="b_price">{{ product.beforePrice }}원</p>
+        </div>
+        <div v-else>
+          <p class="">{{ product.price }}</p>
+        </div>
       </div>
     </div>
-    <h3>{{ product.name }}</h3>
-    <div class="price_box">
-      <div v-if="product.clearance">
-        <p class="">{{ product.price }}원</p>
-        <p class="b_price">{{ product.beforePrice }}원</p>
-      </div>
-      <div v-else>
-        <p class="">{{ product.price }}</p>
-      </div>
-    </div>
-    <p class="desc">{{ product.description }}</p>
+    <a href="javascript:void(0)" class="to_detail_btn">MORE</a>
   </li>
 </template>
 
