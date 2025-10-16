@@ -4,3 +4,19 @@
   pointer-events: none;
   margin-top: 50px;
 }
+
+h2 {
+  font-family: $bbh;
+  font-size: 32px;
+  color: $pink;
+  margin-bottom: 8px;
+}
+
+.home_products_list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  li {
+    border: 2px solid $pink;
+  }
+}

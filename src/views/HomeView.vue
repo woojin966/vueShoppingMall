@@ -1,17 +1,19 @@
 <template>
   <article class="home_wrapper">
-    <section class="preview_section">
+    <section class="preview_section custom_scroll">
       <HomeProductList
         v-if="showPreview && menuType !== 'community'"
         category="all"
         :menuType="menuType"
+        class="preview_box"
       />
       <div v-else-if="menuType === 'community'">
         <!-- community일 때 보여질 내용 -->
         커뮤니티 전용 콘텐츠입니다.
       </div>
       <div class="home_img_box" v-else>
-        <img :src="imgUrl" alt="unsplash image" />
+        <p :class="randomFilter">REIAS</p>
+        <img :src="imgUrl" :class="randomFilter" alt="unsplash image" />
       </div>
     </section>
 
@@ -29,16 +31,20 @@
 
     <section class="navigation_section">
       <nav>
-        <ul class="menu_list">
+        <ul class="menu_list custom_scroll">
           <li v-for="(menu, i) in menus" :key="i">
             <a href="javascript:void(0)" class="menu_btn menu1" @click="toggleMenu(i, menu.label)">
               {{ menu.label }}
             </a>
-            <ul class="sub_menu_list" v-show="activeIndex === i">
-              <li v-for="(sub, j) in menu.subs" :key="j">
-                <router-link :to="sub.path" class="menu2">{{ sub.label }}</router-link>
-              </li>
-            </ul>
+
+            <!-- 트랜지션 래퍼 추가 -->
+            <transition name="slide-toggle">
+              <ul v-show="activeIndex === i" class="sub_menu_list">
+                <li v-for="(sub, j) in menu.subs" :key="j">
+                  <router-link :to="sub.path" class="menu2">{{ sub.label }}</router-link>
+                </li>
+              </ul>
+            </transition>
           </li>
         </ul>
       </nav>
@@ -54,6 +60,20 @@ import HomeProductList from '@/components/HomeProductList.vue'
 
 const { proxy } = getCurrentInstance()
 const imgUrl = ref('')
+const filters = [
+  'filter-clarendon',
+  'filter-gingham',
+  'filter-juno',
+  'filter-lark',
+  'filter-reyes',
+  'filter-valencia',
+  'filter-willow',
+]
+const randomFilter = ref('')
+onMounted(() => {
+  const randomIndex = Math.floor(Math.random() * filters.length)
+  randomFilter.value = filters[randomIndex]
+})
 
 const menus = ref([])
 const showPreview = ref(false)

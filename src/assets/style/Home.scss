@@ -8,15 +8,52 @@
   margin-bottom: 0;
   padding: 40px;
   height: 100dvh;
+  overflow-y: auto;
   .home_img_box {
     width: 100%;
     height: 100%;
+    position: relative;
+    p {
+      position: absolute;
+      z-index: 1;
+      font-family: $bbh;
+      font-size: 32px;
+      top: calc(50% - 16px);
+      width: 100%;
+      text-align: center;
+      color: $pointRed;
+      mix-blend-mode: overlay;
+    }
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
+      &.filter-clarendon {
+        filter: contrast(1.2) saturate(1.35);
+      }
+      &.filter-gingham {
+        filter: brightness(1.05) hue-rotate(-10deg) saturate(0.85);
+      }
+      &.filter-juno {
+        filter: contrast(1.15) saturate(1.8) brightness(1.05);
+      }
+      &.filter-lark {
+        filter: brightness(1.1) saturate(1.2);
+      }
+      &.filter-reyes {
+        filter: sepia(0.22) brightness(1.1) contrast(0.85) saturate(0.75);
+      }
+      &.filter-valencia {
+        filter: sepia(0.15) saturate(1.5) brightness(1.1);
+      }
+      &.filter-willow {
+        filter: grayscale(0.5) contrast(0.95) brightness(1.05);
+      }
     }
+  }
+  .preview_box {
+    height: 100%;
   }
 }
 
@@ -51,7 +88,7 @@
   h1 {
     font-family: $bbh;
     font-size: 40px;
-    color: #fff;
+    color: $pink;
     writing-mode: sideways-rl;
   }
   .logo {
@@ -73,35 +110,72 @@
 
 .navigation_section {
   width: 48%;
+  .menu_list {
+    height: 100dvh;
+    overflow-y: auto;
+    > li {
+      transition: opacity 0.3s ease;
+      padding: 40px;
+      min-height: 20dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      /*display: none;*/
+      border-bottom: 2px solid $pink;
+      &.visible {
+        display: list-item;
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+      .menu_btn {
+        cursor: pointer;
+        text-decoration: none;
+        color: $pink;
+        user-select: none;
+      }
+      .sub_menu_list {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        .menu2 {
+          color: #fff;
+          position: relative;
+          z-index: 0;
+          &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: $pink;
+            transition: 0.4s;
+            z-index: -1;
+          }
+          &:hover:before {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+.slide-toggle-enter-active,
+.slide-toggle-leave-active {
+  transition: all 0.4s ease;
+  overflow: hidden;
 }
 
-/* 메뉴 리스트 기본 숨김 */
-.menu_list > li {
-  transition: opacity 0.3s ease;
-  /*display: none;*/
+.slide-toggle-enter-from,
+.slide-toggle-leave-to {
+  max-height: 0;
+  opacity: 0;
 }
 
-/* 활성 메뉴만 보이게 */
-.menu_list > li.visible {
-  display: list-item;
-}
-
-/* 서브 메뉴 숨김 */
-.sub_menu_list {
-  /*display: none;*/
-  padding-left: 1em;
-  margin-top: 0.5em;
-}
-
-/* 활성 메뉴에 해당하는 서브 메뉴만 표시 */
-.sub_menu_list[style*='display: block'] {
-  display: block;
-}
-
-/* 메뉴 버튼 스타일 */
-.menu_btn {
-  cursor: pointer;
-  text-decoration: none;
-  color: #333;
-  user-select: none;
+.slide-toggle-enter-to,
+.slide-toggle-leave-from {
+  max-height: 300px; /* 서브메뉴 높이에 맞게 조절 */
+  opacity: 1;
 }
