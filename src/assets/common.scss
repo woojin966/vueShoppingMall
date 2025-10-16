@@ -2,4 +2,39 @@
 @import '_variable.scss';
 
 body {
+  font-family: -apple-system, BlinkMacSystemFont, $pretendard, 'Segoe UI', Roboto, sans-serif;
+}
+
+// font size
+.menu1 {
+  font-size: 60px;
+  font-family: $bbh;
+}
+.menu2 {
+  font-size: 32px;
+  font-weight: 200;
+}
+.big {
+  font-size: 28px;
+}
+.medium {
+  font-size: 20px;
+}
+.text {
+  font-size: 16px;
+}
+.small {
+  font-size: 14px;
+}
+.bb {
+  font-weight: 600;
+}
+.sb {
+  font-family: 500;
+}
+.n {
+  font-weight: 400;
+}
+.th {
+  font-weight: 200;
 }

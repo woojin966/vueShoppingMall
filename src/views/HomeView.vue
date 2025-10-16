@@ -10,7 +10,9 @@
         <!-- community일 때 보여질 내용 -->
         커뮤니티 전용 콘텐츠입니다.
       </div>
-      <div v-else>하하하</div>
+      <div class="home_img_box" v-else>
+        <img :src="imgUrl" alt="unsplash image" />
+      </div>
     </section>
 
     <section class="header_section">
@@ -18,21 +20,23 @@
         <h1>REIAS</h1>
       </div>
       <div>
-        <img src="../assets/img/favicon/initial.svg" />
+        <img class="logo" src="../assets/img/favicon/initial.svg" />
       </div>
-      <div>ⓒ 2025 미식부터 라이프웨어까지</div>
+      <div>
+        <p class="small n">ⓒ 2025 미식부터 라이프웨어까지</p>
+      </div>
     </section>
 
     <section class="navigation_section">
       <nav>
         <ul class="menu_list">
           <li v-for="(menu, i) in menus" :key="i">
-            <a href="javascript:void(0)" class="menu_btn" @click="toggleMenu(i, menu.label)">
+            <a href="javascript:void(0)" class="menu_btn menu1" @click="toggleMenu(i, menu.label)">
               {{ menu.label }}
             </a>
             <ul class="sub_menu_list" v-show="activeIndex === i">
               <li v-for="(sub, j) in menu.subs" :key="j">
-                <router-link :to="sub.path">{{ sub.label }}</router-link>
+                <router-link :to="sub.path" class="menu2">{{ sub.label }}</router-link>
               </li>
             </ul>
           </li>
@@ -43,10 +47,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, getCurrentInstance } from 'vue'
 import { getAllProducts as getMenu1Products } from '@/api/productmenu1'
 import { getAllProducts as getMenu2Products } from '@/api/productmenu2'
 import HomeProductList from '@/components/HomeProductList.vue'
+
+const { proxy } = getCurrentInstance()
+const imgUrl = ref('')
 
 const menus = ref([])
 const showPreview = ref(false)
@@ -54,6 +61,11 @@ const menuType = ref('') // 'kitchen' 또는 'uncommon'
 const activeIndex = ref(null)
 
 onMounted(async () => {
+  const res = await proxy.$unsplash.get('/photos/random', {
+    params: { query: 'nature' },
+  })
+  imgUrl.value = res.data.urls.regular
+
   const menu1 = await getMenu1Products()
   const menu2 = await getMenu2Products()
 
