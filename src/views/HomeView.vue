@@ -31,15 +31,19 @@
 
     <section class="navigation_section">
       <nav>
-        <ul class="menu_list custom_scroll">
+        <ul class="menu_list custom_scroll" ref="menuList">
           <li v-for="(menu, i) in menus" :key="i">
-            <a href="javascript:void(0)" class="menu_btn menu1" @click="toggleMenu(i, menu.label)">
+            <a
+              href="javascript:void(0)"
+              class="menu_btn menu1"
+              @click="toggleMenu(i, menu.label, $event)"
+            >
               {{ menu.label }}
             </a>
 
             <!-- 트랜지션 래퍼 추가 -->
             <transition name="slide-toggle">
-              <ul v-show="activeIndex === i" class="sub_menu_list">
+              <ul v-if="activeIndex === i" class="sub_menu_list">
                 <li v-for="(sub, j) in menu.subs" :key="j">
                   <router-link :to="sub.path" class="menu2">{{ sub.label }}</router-link>
                 </li>
@@ -53,7 +57,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, getCurrentInstance } from 'vue'
+import { ref, onMounted, getCurrentInstance, nextTick } from 'vue'
 import { getAllProducts as getMenu1Products } from '@/api/productmenu1'
 import { getAllProducts as getMenu2Products } from '@/api/productmenu2'
 import HomeProductList from '@/components/HomeProductList.vue'
@@ -79,6 +83,7 @@ const menus = ref([])
 const showPreview = ref(false)
 const menuType = ref('') // 'kitchen' 또는 'uncommon'
 const activeIndex = ref(null)
+const menuList = ref(null)
 
 onMounted(async () => {
   const res = await proxy.$unsplash.get('/photos/random', {
@@ -160,10 +165,12 @@ onMounted(async () => {
   ]
 })
 
-const toggleMenu = (index, label) => {
+// async로 선언해서 await 사용 가능하게 함
+const toggleMenu = async (index, label, event) => {
+  // toggle 열기/닫기
   activeIndex.value = activeIndex.value === index ? null : index
 
-  // 상품 프리뷰 보여주기
+  // preview 표시 상태 및 타입 처리
   if (label === 'KITCHEN') {
     menuType.value = 'kitchen'
     showPreview.value = true
@@ -178,9 +185,30 @@ const toggleMenu = (index, label) => {
     showPreview.value = true
   } else if (label === 'COMMUNITY') {
     menuType.value = 'community'
-    showPreview.value = true
+    showPreview.value = false
   } else {
-    //showPreview.value = false
+    showPreview.value = false
+  }
+
+  // DOM 업데이트( v-if에 의해 서브메뉴가 새로 렌더링되는 경우 )를 기다림
+  await nextTick()
+
+  // preview 섹션 맨위로 스크롤 (있으면)
+  const preview = document.querySelector('.preview_section')
+  if (preview) preview.scrollTo({ top: 0, behavior: 'smooth' })
+
+  // 메뉴 리스트를 클릭한 버튼 위치로 스크롤
+  const list = menuList.value || document.querySelector('.menu_list')
+  // event.currentTarget가 있으면 버튼 바로 참조 (권장)
+  const btn = (event && event.currentTarget) || (list && list.querySelectorAll('.menu_btn')[index])
+  if (list && btn) {
+    const listRect = list.getBoundingClientRect()
+    const btnRect = btn.getBoundingClientRect()
+    const offset = btnRect.top - listRect.top
+    list.scrollTo({
+      top: list.scrollTop + offset - listRect.height / 2 + btnRect.height / 2,
+      behavior: 'smooth',
+    })
   }
 }
 </script>
