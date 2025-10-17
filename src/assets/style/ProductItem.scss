@@ -6,6 +6,9 @@
       height: 100%;
       object-fit: cover;
     }
+    @media all and (max-width: 1024px) {
+      height: calc(100% - 156px);
+    }
   }
   .name_price_box {
     padding: 20px;

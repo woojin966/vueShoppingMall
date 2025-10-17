@@ -19,4 +19,9 @@ h2 {
   li {
     border: 2px solid $pink;
   }
+  @media all and (max-width: 1024px) {
+    li {
+      height: calc(84dvh - 128px);
+    }
+  }
 }

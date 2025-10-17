@@ -1,6 +1,9 @@
 .home_wrapper {
   display: flex;
   background-color: $pointRed;
+  @media all and (max-width: 1024px) {
+    flex-direction: column;
+  }
 }
 
 .preview_section {
@@ -9,6 +12,7 @@
   padding: 40px;
   height: 100dvh;
   overflow-y: auto;
+
   .home_img_box {
     width: 100%;
     height: 100%;
@@ -53,7 +57,10 @@
     }
   }
   .preview_box {
-    height: 100%;
+  }
+  @media all and (max-width: 1024px) {
+    width: 100%;
+    height: 84dvh;
   }
 }
 
@@ -97,6 +104,41 @@
     height: auto;
     border-radius: 100%;
     border: 2px solid $pink;
+  }
+  @media all and (max-width: 1024px) {
+    width: 100%;
+    height: 4dvh;
+    flex-direction: row;
+    border-right: none;
+    border-left: none;
+    border-top: 2px solid $pink;
+    border-bottom: 2px solid $pink;
+    > div {
+      &:first-child,
+      &:last-child {
+        width: 33.3333%;
+        height: 100%;
+        padding: 0 40px;
+        align-items: center;
+      }
+      &:first-child {
+        justify-content: flex-start;
+      }
+      &:last-child {
+        justify-content: flex-end;
+        p {
+          writing-mode: unset;
+        }
+      }
+    }
+    h1 {
+      writing-mode: unset;
+    }
+  }
+  @media all and (max-width: 768px) {
+    h1 {
+      font-size: 32px;
+    }
   }
 }
 @keyframes spin {
@@ -157,6 +199,52 @@
           &:hover:before {
             width: 100%;
           }
+        }
+      }
+    }
+  }
+  @media all and (max-width: 1024px) {
+    width: 100%;
+    height: 12dvh;
+    nav {
+      height: 100%;
+    }
+    .menu_list {
+      display: flex;
+      height: 100%;
+      > li {
+        min-height: unset;
+        padding: 0;
+        border-bottom: none;
+        &.active {
+          flex-direction: row;
+          gap: 0;
+          ul {
+            flex-direction: row;
+            width: max-content;
+            border-left: 2px solid $pink;
+            border-right: 2px solid $pink;
+            .menu2 {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 0 20px;
+              height: 100%;
+            }
+          }
+          &:last-child {
+            .menu_btn {
+              border-right: none;
+            }
+          }
+        }
+        .menu_btn {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0 40px;
+          border-right: 2px solid $pink;
         }
       }
     }

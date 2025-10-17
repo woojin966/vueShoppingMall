@@ -209,6 +209,10 @@ const toggleMenu = async (index, label, event) => {
       top: list.scrollTop + offset - listRect.height / 2 + btnRect.height / 2,
       behavior: 'smooth',
     })
+    const btnParent = btn.parentElement
+    const btnGrandParent = btnParent.parentElement
+    btnParent.classList.add('active')
+    btnGrandParent.classList.add('hide')
   }
 }
 </script>
