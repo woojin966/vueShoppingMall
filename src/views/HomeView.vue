@@ -167,10 +167,42 @@ onMounted(async () => {
 
 // async로 선언해서 await 사용 가능하게 함
 const toggleMenu = async (index, label, event) => {
-  // toggle 열기/닫기
-  activeIndex.value = activeIndex.value === index ? null : index
+  const list = menuList.value || document.querySelector('.menu_list')
+  const btn = (event && event.currentTarget) || (list && list.querySelectorAll('.menu_btn')[index])
+  const parentLi = btn.closest('li')
+  const isSame = activeIndex.value === index
 
-  // preview 표시 상태 및 타입 처리
+  // 1️⃣ 모든 서브메뉴 width 고정 (transition 중 scrollWidth 변화 방지)
+  const allSubMenus = list.querySelectorAll('.sub_menu_list')
+  allSubMenus.forEach((sub) => {
+    sub.style.transition = 'none'
+    sub.style.width = `${sub.offsetWidth}px`
+  })
+
+  // 2️⃣ 기존 메뉴 닫기
+  activeIndex.value = null
+
+  // 3️⃣ 기존 transition 끝날 때까지 기다림
+  await new Promise((resolve) => setTimeout(resolve, 100))
+
+  // 4️⃣ 새로운 메뉴 스크롤 고정 (이 시점엔 scrollWidth가 변하지 않음)
+  const listRect = list.getBoundingClientRect()
+  const liRect = parentLi.getBoundingClientRect()
+  const leftPos = list.scrollLeft + (liRect.left - listRect.left)
+  list.scrollTo({ left: leftPos, behavior: 'smooth' })
+
+  // 5️⃣ 스크롤 완료 후 메뉴 열기
+  await new Promise((resolve) => setTimeout(resolve, 100))
+  // 스크롤이 안정된 뒤 열기
+  if (!isSame) activeIndex.value = index
+
+  // 6️⃣ 서브메뉴 원래 transition 복원
+  allSubMenus.forEach((sub) => {
+    sub.style.transition = ''
+    sub.style.width = ''
+  })
+
+  // 5️⃣ preview 표시
   if (label === 'KITCHEN') {
     menuType.value = 'kitchen'
     showPreview.value = true
@@ -190,30 +222,9 @@ const toggleMenu = async (index, label, event) => {
     showPreview.value = false
   }
 
-  // DOM 업데이트( v-if에 의해 서브메뉴가 새로 렌더링되는 경우 )를 기다림
-  await nextTick()
-
-  // preview 섹션 맨위로 스크롤 (있으면)
+  // 6️⃣ preview 섹션 스크롤 맨 위로
   const preview = document.querySelector('.preview_section')
   if (preview) preview.scrollTo({ top: 0, behavior: 'smooth' })
-
-  // 메뉴 리스트를 클릭한 버튼 위치로 스크롤
-  const list = menuList.value || document.querySelector('.menu_list')
-  // event.currentTarget가 있으면 버튼 바로 참조 (권장)
-  const btn = (event && event.currentTarget) || (list && list.querySelectorAll('.menu_btn')[index])
-  if (list && btn) {
-    const listRect = list.getBoundingClientRect()
-    const btnRect = btn.getBoundingClientRect()
-    const offset = btnRect.top - listRect.top
-    list.scrollTo({
-      top: list.scrollTop + offset - listRect.height / 2 + btnRect.height / 2,
-      behavior: 'smooth',
-    })
-    const btnParent = btn.parentElement
-    const btnGrandParent = btnParent.parentElement
-    btnParent.classList.add('active')
-    btnGrandParent.classList.add('hide')
-  }
 }
 </script>
 
