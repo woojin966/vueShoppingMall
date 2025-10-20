@@ -226,6 +226,70 @@ const toggleMenu = async (index, label, event) => {
   const preview = document.querySelector('.preview_section')
   if (preview) preview.scrollTo({ top: 0, behavior: 'smooth' })
 }
+// const toggleMenu = async (index, label, event) => {
+//   const list = menuList.value || document.querySelector('.menu_list')
+//   const btn = (event && event.currentTarget) || (list && list.querySelectorAll('.menu_btn')[index])
+//   const parentLi = btn.closest('li')
+//   const isSame = activeIndex.value === index
+
+//   // 1️⃣ 기존 메뉴 닫기
+//   activeIndex.value = null
+
+//   // 2️⃣ transition 끝날 때까지 잠깐 대기
+//   await new Promise((resolve) => setTimeout(resolve, 300))
+
+//   // 3️⃣ 새로운 메뉴 열기 (같은 버튼이면 토글)
+//   if (!isSame) activeIndex.value = index
+
+//   // 4️⃣ nextTick으로 DOM 업데이트 대기 (서브메뉴 펼쳐짐)
+//   await nextTick()
+
+//   // 5️⃣ 스크롤 위치 계산
+//   const listRect = list.getBoundingClientRect()
+//   const liRect = parentLi.getBoundingClientRect()
+
+//   // 가로 스크롤: 768~1024px
+//   if (window.innerWidth >= 360 && window.innerWidth <= 1024) {
+//     let leftPos = list.scrollLeft + (liRect.left - listRect.left)
+
+//     // 마지막 메뉴일 경우 list.scrollWidth 넘지 않도록 제한
+//     leftPos = Math.min(leftPos, list.scrollWidth - list.clientWidth)
+//     list.scrollTo({ left: leftPos, behavior: 'smooth' })
+//   } else if (window.innerWidth > 1024) {
+//     // PC 기준: 클릭된 메뉴가 화면 중앙에 오도록
+//     const centerPos =
+//       list.scrollLeft + (liRect.left - listRect.left) - listRect.width / 2 + liRect.width / 2
+//     list.scrollTo({ left: centerPos, behavior: 'smooth' })
+//   } else {
+//     // 세로 스크롤 (모바일 등)
+//     // const topPos = list.scrollTop + (liRect.top - listRect.top)
+//     // list.scrollTo({ top: topPos, behavior: 'smooth' })
+//   }
+
+//   // 5️⃣ preview 표시
+//   if (label === 'KITCHEN') {
+//     menuType.value = 'kitchen'
+//     showPreview.value = true
+//   } else if (label === 'UNCOMMON') {
+//     menuType.value = 'uncommon'
+//     showPreview.value = true
+//   } else if (label === 'SELECTION') {
+//     menuType.value = 'selection'
+//     showPreview.value = true
+//   } else if (label === 'BRAND') {
+//     menuType.value = 'brand'
+//     showPreview.value = true
+//   } else if (label === 'COMMUNITY') {
+//     menuType.value = 'community'
+//     showPreview.value = false
+//   } else {
+//     showPreview.value = false
+//   }
+
+//   // 6️⃣ preview 섹션 스크롤 맨 위로
+//   const preview = document.querySelector('.preview_section')
+//   if (preview) preview.scrollTo({ top: 0, behavior: 'smooth' })
+// }
 </script>
 
 <style scoped lang="scss">
