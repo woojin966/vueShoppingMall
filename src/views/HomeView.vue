@@ -87,7 +87,7 @@ const menuList = ref(null)
 
 onMounted(async () => {
   const res = await proxy.$unsplash.get('/photos/random', {
-    params: { query: 'nature' },
+    // params: { query: 'nature' },
   })
   imgUrl.value = res.data.urls.regular
 
@@ -142,15 +142,15 @@ onMounted(async () => {
     },
     {
       label: 'BRAND',
-      // subs: [
-      //   { label: 'HAMBLEPIE', path: '/brand/hamblepie' },
-      //   { label: 'PUCO', path: '/brand/puco' },
-      //   { label: 'PHUTAWAN', path: '/brand/phutawan' },
-      //   { label: 'SMELL LEMONGRASS', path: '/brand/smell' },
-      //   { label: 'ORUMM', path: '/brand/orumm' },
-      //   { label: 'BACKSTAGE', path: '/brand/backstage' },
-      // ],
-      subs: brandSubs,
+      subs: [
+        { label: 'HAMBLEPIE', path: '/brand/hamblepie' },
+        { label: 'PUCO', path: '/brand/puco' },
+        { label: 'PHUTAWAN', path: '/brand/phutawan' },
+        { label: 'SMELL LEMONGRASS', path: '/brand/smell' },
+        { label: 'ORUMM', path: '/brand/orumm' },
+        { label: 'BACKSTAGE', path: '/brand/backstage' },
+      ],
+      //subs: brandSubs,
     },
     {
       label: 'COMMUNITY',

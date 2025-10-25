@@ -1,18 +1,6 @@
-<script setup>
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
-import ProductList from '@/components/ProductList.vue'
-
-const route = useRoute()
-
-// 경로에 따른 카테고리 매핑 (예: 전체는 'all' 처리)
-const category = computed(() => {
-  const cat = route.path.split('/')[2]
-  return cat || 'all'
-})
-</script>
-
 <template>
+  <Header />
+  <router-view />
   <div>
     <nav class="tabs">
       <router-link to="/uncommon" exact-active-class="active">전체</router-link>
@@ -27,6 +15,21 @@ const category = computed(() => {
     <ProductList :category="category" />
   </div>
 </template>
+
+<script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import Header from '@/components/Header.vue'
+import ProductList from '@/components/ProductList.vue'
+
+const route = useRoute()
+
+// 경로에 따른 카테고리 매핑 (예: 전체는 'all' 처리)
+const category = computed(() => {
+  const cat = route.path.split('/')[2]
+  return cat || 'all'
+})
+</script>
 
 <style scoped>
 .tabs {

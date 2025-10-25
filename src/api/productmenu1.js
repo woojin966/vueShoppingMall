@@ -6,7 +6,7 @@ export async function getAllProducts() {
       price: '10450',
       beforePrice: '11000',
       description:
-        '지중해의 여유와 풍요로움을 담아 좋ㅇ은 식재료로 만든 제대로 된 감바스 소개해요(냉장)',
+        '지중해의 여유와 풍요로움을 담아 좋은 식재료로 만든 제대로 된 감바스 소개해요(냉장)',
       image: '01summerdish.jpg',
       hoverImage: '01-2summerdish.jpg',
       brand: '',
