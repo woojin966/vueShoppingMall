@@ -1,10 +1,24 @@
 <template>
-  <header>
+  <header :class="{ fixed: isFixed }">
     <!-- PC 헤더 -->
     <article class="pc_header" v-if="isPc">
       <a href="javascript:void(0)" class="logo">
         <img src="@/assets/img/favicon/reias_logo.png" alt="logo" />
       </a>
+      <ul class="etc_menu_list">
+        <li><a href="javascript:void(0)" class="text n">LOGIN</a></li>
+        <li><a href="javascript:void(0)" class="text n">JOIN</a></li>
+        <li>
+          <a href="javascript:void(0)"
+            ><font-awesome-icon icon="fa-solid fa-cart-shopping" class="text n"
+          /></a>
+        </li>
+        <li>
+          <a href="javascript:void(0)"
+            ><font-awesome-icon icon="fa-solid fa-magnifying-glass" class="text n"
+          /></a>
+        </li>
+      </ul>
       <div class="nav_wrapper">
         <a
           href="javascript:void(0)"
@@ -21,34 +35,35 @@
           <li
             v-for="(menu, i) in menus"
             :key="i"
-            @mouseenter="hoverIndex = i"
-            @mouseleave="hoverIndex = null"
+            @mouseenter="onMenuMouseEnter(i)"
+            @mouseleave="onMenuMouseLeave"
           >
-            <router-link class="menu_btn menu1" :to="menu.path">{{ menu.label }}</router-link>
+            <router-link class="menu_btn menu" :to="menu.path">{{ menu.label }}</router-link>
           </li>
         </ul>
 
         <!-- PC 서브메뉴 -->
-        <ul v-if="hoverIndex !== null || isPcMenuVisible" class="sub_menu_list pc">
-          <template v-for="(menu, i) in menus" :key="i">
-            <li v-for="(sub, j) in menu.subs" :key="`${i}-${j}`">
-              <router-link :to="sub.path" class="menu2">{{ sub.label }}</router-link>
-            </li>
-          </template>
-        </ul>
-
-        <ul class="etc_menu_list">
-          <li><a href="javascript:void(0)">LOGIN</a></li>
-          <li><a href="javascript:void(0)">JOIN</a></li>
-          <li>
-            <a href="javascript:void(0)"><font-awesome-icon icon="fa-solid fa-cart-shopping" /></a>
-          </li>
-          <li>
-            <a href="javascript:void(0)"
-              ><font-awesome-icon icon="fa-solid fa-magnifying-glass"
-            /></a>
-          </li>
-        </ul>
+        <transition name="submenu-fade">
+          <div
+            v-if="hoverIndex !== null || isPcMenuVisible"
+            class="sub_group pc"
+            v-show="isPcMenuVisible || hoverIndex !== null"
+            @mouseenter="onSubMouseEnter"
+            @mouseleave="onSubMouseLeave"
+          >
+            <!-- 모든 대메뉴의 서브메뉴 ul이 항상 함께 노출됨 -->
+            <ul div v-for="(menu, i) in menus" :key="i" class="sub_menu_list">
+              <li>
+                <p class="text sb label">{{ menu.label }}</p>
+              </li>
+              <li v-for="(sub, j) in menu.subs" :key="`${i}-${j}`">
+                <router-link :to="sub.path" class="sub_menu text n">
+                  {{ sub.label }}
+                </router-link>
+              </li>
+            </ul>
+          </div>
+        </transition>
       </div>
     </article>
 
@@ -115,6 +130,9 @@ const isPcMenuVisible = ref(false)
 const isMoMenuVisible = ref(false)
 const hoverIndex = ref(null) // PC 대메뉴 호버용
 const activeIndex = ref(null) // 모바일 서브메뉴 토글용
+const subHovered = ref(false)
+let hoverClearTimer = null
+const isFixed = ref(false)
 
 const menus = ref([
   {
@@ -185,6 +203,40 @@ const toggleMenu = () => {
   }
 }
 
+// 대메뉴 mouseenter
+const onMenuMouseEnter = (i) => {
+  if (hoverClearTimer) {
+    clearTimeout(hoverClearTimer)
+    hoverClearTimer = null
+  }
+  hoverIndex.value = i
+}
+
+// 대메뉴 mouseleave: 짧은 딜레이 후 hoverIndex 제거 (서브가 호버이면 제거하지 않음)
+const onMenuMouseLeave = () => {
+  if (hoverClearTimer) clearTimeout(hoverClearTimer)
+  hoverClearTimer = setTimeout(() => {
+    // 만약 서브영역으로 들어간 상태라면 아무것도 하지 않음
+    if (!subHovered.value) hoverIndex.value = null
+    hoverClearTimer = null
+  }, 120) // 80~150ms 정도가 자연스럽습니다
+}
+
+// 서브메뉴에 마우스 들어오면 subHovered true (접힘 방지)
+const onSubMouseEnter = () => {
+  subHovered.value = true
+  if (hoverClearTimer) {
+    clearTimeout(hoverClearTimer)
+    hoverClearTimer = null
+  }
+}
+
+// 서브메뉴에서 나가면 subHovered false 이고 즉시 접히게 hoverIndex null
+const onSubMouseLeave = () => {
+  subHovered.value = false
+  hoverIndex.value = null
+}
+
 // 모바일 서브메뉴 토글
 const toggleSubMenu = (index) => {
   activeIndex.value = activeIndex.value === index ? null : index
@@ -199,38 +251,22 @@ const handleResize = () => {
   hoverIndex.value = null
   activeIndex.value = null
 }
-onMounted(() => window.addEventListener('resize', handleResize))
-onBeforeUnmount(() => window.removeEventListener('resize', handleResize))
+// 스크롤 핸들러
+const handleScroll = () => {
+  isFixed.value = window.scrollY > 50 // 50px 이상 스크롤 시 고정
+}
+
+onMounted(() => {
+  window.addEventListener('resize', handleResize)
+  window.addEventListener('scroll', handleScroll)
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize)
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <style scoped lang="scss">
-.nav_wrapper {
-  position: relative;
-}
-.menu_list {
-  display: flex;
-  gap: 30px;
-  li {
-    position: relative;
-  }
-}
-.sub_menu_list {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #fff;
-  border-top: 1px solid #eee;
-  display: flex;
-  gap: 20px;
-  padding: 10px 20px;
-  z-index: 10;
-}
-.menu_spread_btn {
-  width: 40px;
-  height: 40px;
-  background-color: tomato;
-  cursor: pointer;
-}
 .slide-toggle-enter-active,
 .slide-toggle-leave-active {
   transition: max-height 0.3s ease;
@@ -253,4 +289,8 @@ onBeforeUnmount(() => window.removeEventListener('resize', handleResize))
 .arrow.open {
   transform: rotate(180deg);
 }
+</style>
+
+<style scoped lang="scss">
+@import '../assets/style/Header.scss';
 </style>
