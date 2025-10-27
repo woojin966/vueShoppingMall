@@ -25,3 +25,16 @@ h2 {
     }
   }
 }
+
+// sub pages
+.products_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  li {
+    width: calc(33.3333% - 14px);
+    img {
+      width: 100%;
+    }
+  }
+}

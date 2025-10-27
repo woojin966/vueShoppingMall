@@ -1,19 +1,16 @@
 <template>
-  <div>
-    <article>
-      <h2>상품목록</h2>
-      <transition-group name="fade-up" tag="ul" class="products_list">
-        <ProductItem
-          v-for="item in displayedItems"
-          :key="item.id"
-          :product="item"
-          class="product_item"
-        />
-        <!-- 감지용 li -->
-        <li v-if="hasMore" ref="observerTarget" class="observer_trigger" aria-hidden="true"></li>
-      </transition-group>
-    </article>
-  </div>
+  <article>
+    <transition-group name="fade-up" tag="ul" class="products_list">
+      <ProductItem
+        v-for="item in displayedItems"
+        :key="item.id"
+        :product="item"
+        class="product_item"
+      />
+      <!-- 감지용 li -->
+      <li v-if="hasMore" ref="observerTarget" class="observer_trigger" aria-hidden="true"></li>
+    </transition-group>
+  </article>
 </template>
 
 <script setup>

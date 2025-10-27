@@ -1,8 +1,12 @@
-header.fixed {
-  position: sticky;
-  top: 0;
-  left: 0;
-  background-color: #fff;
+header {
+  position: relative;
+  z-index: 10;
+  &.fixed {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+  }
 }
 
 .pc_header {
