@@ -32,8 +32,23 @@ h2 {
   flex-wrap: wrap;
   gap: 20px;
   li {
-    width: calc(33.3333% - 14px);
+    width: calc(25% - 15px);
     img {
+      width: 100%;
+    }
+  }
+  @media all and (max-width: 1024px) {
+    li {
+      width: calc(33.3333% - 14px);
+    }
+  }
+  @media all and (max-width: 768px) {
+    li {
+      width: calc(50% - 10px);
+    }
+  }
+  @media all and (max-width: 480px) {
+    li {
       width: 100%;
     }
   }

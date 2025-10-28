@@ -98,17 +98,40 @@
     font-weight: 500;
     color: $pointRed;
   }
+  @media all and (max-width: 768px) {
+    margin: 4px 0;
+  }
 }
 .title {
   display: flex;
+  flex-direction: column;
   gap: 4px;
   .badge {
     font-size: 12px;
     border-radius: 2px;
     padding: 4px;
+    width: max-content;
     background-color: #efefef;
     &.clearance {
       color: $pointRed;
     }
+  }
+}
+.item_cart_btn {
+  margin-top: 12px;
+  text-align: center;
+  width: max-content;
+  padding: 8px;
+  border: 1px solid #000;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  @media all and (max-width: 480px) {
+    width: 100%;
+    margin-top: 8px;
   }
 }

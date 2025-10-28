@@ -2,16 +2,17 @@
   <header :class="{ fixed: isFixed }">
     <!-- PC 헤더 -->
     <article class="pc_header" v-if="isPc">
-      <a href="javascript:void(0)" class="logo">
+      <router-link to="/" class="logo">
         <img src="@/assets/img/favicon/reias_logo.png" alt="logo" />
-      </a>
+      </router-link>
       <ul class="etc_menu_list">
         <li><a href="javascript:void(0)" class="text n">LOGIN</a></li>
         <li><a href="javascript:void(0)" class="text n">JOIN</a></li>
         <li>
-          <a href="javascript:void(0)"
-            ><font-awesome-icon icon="fa-solid fa-cart-shopping" class="text n"
-          /></a>
+          <router-link to="/cart" class="cart_icon">
+            <font-awesome-icon icon="fa-solid fa-cart-shopping" />
+            <span v-if="cartCount" class="cart_count">{{ cartCount }}</span>
+          </router-link>
         </li>
         <li>
           <a href="javascript:void(0)"
@@ -69,62 +70,73 @@
 
     <!-- 모바일 헤더 -->
     <article class="mo_header" v-else>
+      <a
+        href="javascript:void(0)"
+        class="menu_spread_btn"
+        :class="{ active: isMenuOpen }"
+        @click="toggleMenu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
       <a href="javascript:void(0)" class="logo">
         <img src="@/assets/img/favicon/reias_logo.png" />
       </a>
-      <section>
-        <a
-          href="javascript:void(0)"
-          class="menu_spread_btn"
-          :class="{ active: isMenuOpen }"
-          @click="toggleMenu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </a>
-
-        <div class="nav_wrapper mo" v-show="isMoMenuVisible">
-          <ul class="etc_menu_list">
-            <li><a href="javascript:void(0)">LOGIN</a></li>
-            <li><a href="javascript:void(0)">JOIN</a></li>
-            <li>
-              <a href="javascript:void(0)"
-                ><font-awesome-icon icon="fa-solid fa-cart-shopping"
-              /></a>
-            </li>
-            <li>
-              <a href="javascript:void(0)"
-                ><font-awesome-icon icon="fa-solid fa-magnifying-glass"
-              /></a>
-            </li>
-          </ul>
-
-          <ul class="menu_list" ref="menuList">
-            <li v-for="(menu, i) in menus" :key="i">
-              <button class="menu_btn menu1" @click="toggleSubMenu(i)">
-                {{ menu.label }}
-                <span class="arrow" :class="{ open: activeIndex === i }">▼</span>
-              </button>
-              <transition name="slide-toggle">
-                <ul v-if="activeIndex === i" class="sub_menu_list mo">
-                  <li v-for="(sub, j) in menu.subs" :key="j">
-                    <router-link :to="sub.path" class="menu2">{{ sub.label }}</router-link>
-                  </li>
-                </ul>
-              </transition>
-            </li>
-          </ul>
+      <div class="menu_box">
+        <router-link to="/cart" class="cart_icon">
+          <font-awesome-icon icon="fa-solid fa-cart-shopping" />
+          <span v-if="cartCount" class="cart_count">{{ cartCount }}</span>
+        </router-link>
+        <a href="javascript:void(0)"><font-awesome-icon icon="fa-solid fa-magnifying-glass" /></a>
+      </div>
+      <div class="nav_wrapper mo" v-show="isMoMenuVisible">
+        <div class="menulist_top_box">
+          <a href="javascript:void(0)" class="login_btn">LOGIN</a>
+          <a href="javascript:void(0)" class="close_btn" @click="toggleMenu">
+            <span></span>
+            <span></span>
+          </a>
         </div>
-      </section>
+        <ul class="menu_list" ref="menuList">
+          <li v-for="(menu, i) in menus" :key="i">
+            <button class="menu_btn menu1" @click="toggleSubMenu(i)">
+              {{ menu.label }}
+              <span class="arrow" :class="{ open: activeIndex === i }">▼</span>
+            </button>
+            <transition name="slide-toggle">
+              <ul v-if="activeIndex === i" class="sub_menu_list mo">
+                <li v-for="(sub, j) in menu.subs" :key="j">
+                  <router-link :to="sub.path" class="menu2">{{ sub.label }}</router-link>
+                </li>
+              </ul>
+            </transition>
+          </li>
+        </ul>
+      </div>
     </article>
   </header>
 </template>
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { getCart } from '@/api/cart.js'
 
-const isPc = ref(window.innerWidth >= 1024)
+const cartCount = ref(0)
+
+const updateCartCount = () => {
+  cartCount.value = getCart().reduce((sum, item) => sum + item.quantity, 0)
+}
+
+// ✅ 새로고침 시 개수 유지
+onMounted(() => updateCartCount())
+
+// ✅ Storage가 바뀔 때마다 업데이트
+window.addEventListener('storage', (e) => {
+  if (e.key === 'cartItems') updateCartCount()
+})
+
+const isPc = ref(window.innerWidth > 1024)
 const isMenuOpen = ref(false)
 const isPcMenuVisible = ref(false)
 const isMoMenuVisible = ref(false)
@@ -265,31 +277,6 @@ onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 </script>
-
-<style scoped lang="scss">
-.slide-toggle-enter-active,
-.slide-toggle-leave-active {
-  transition: max-height 0.3s ease;
-}
-.slide-toggle-enter-from,
-.slide-toggle-leave-to {
-  max-height: 0;
-  overflow: hidden;
-}
-.slide-toggle-enter-to,
-.slide-toggle-leave-from {
-  max-height: 500px;
-  overflow: hidden;
-}
-.arrow {
-  margin-left: 5px;
-  display: inline-block;
-  transition: transform 0.3s;
-}
-.arrow.open {
-  transform: rotate(180deg);
-}
-</style>
 
 <style scoped lang="scss">
 @import '../assets/style/Header.scss';

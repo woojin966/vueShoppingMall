@@ -3,26 +3,31 @@
   <router-view />
   <div class="product_wrap">
     <div class="page_banner_box">
+      <p :class="randomFilter">REIAS</p>
       <img :src="imgUrl" :class="randomFilter" alt="unsplash image" />
     </div>
     <nav class="tabs">
-      <router-link to="/uncommon" exact-active-class="active" class="text n">전체</router-link>
-      <router-link to="/uncommon/life" exact-active-class="active" class="text n"
-        >라이프아이템</router-link
-      >
-      <router-link to="/uncommon/bag" exact-active-class="active" class="text n">가방</router-link>
-      <router-link to="/uncommon/apparel" exact-active-class="active" class="text n"
-        >의류</router-link
-      >
-      <router-link to="/uncommon/socks" exact-active-class="active" class="text n"
-        >양말</router-link
-      >
-      <router-link to="/uncommon/fashion" exact-active-class="active" class="text n"
-        >패션</router-link
-      >
-      <router-link to="/uncommon/thai-it" exact-active-class="active" class="text n"
-        >타이잇</router-link
-      >
+      <div>
+        <router-link to="/uncommon" exact-active-class="active" class="text n">전체</router-link>
+        <router-link to="/uncommon/life" exact-active-class="active" class="text n"
+          >라이프아이템</router-link
+        >
+        <router-link to="/uncommon/bag" exact-active-class="active" class="text n"
+          >가방</router-link
+        >
+        <router-link to="/uncommon/apparel" exact-active-class="active" class="text n"
+          >의류</router-link
+        >
+        <router-link to="/uncommon/socks" exact-active-class="active" class="text n"
+          >양말</router-link
+        >
+        <router-link to="/uncommon/fashion" exact-active-class="active" class="text n"
+          >패션</router-link
+        >
+        <router-link to="/uncommon/thai-it" exact-active-class="active" class="text n"
+          >타이잇</router-link
+        >
+      </div>
     </nav>
 
     <ProductList :category="category" />

@@ -19,14 +19,8 @@ import { useStore } from 'vuex'
 import ProductItem from '@/components/ProductItem.vue'
 
 const props = defineProps({
-  category: {
-    type: String,
-    default: 'all',
-  },
-  path: {
-    type: String,
-    required: true, // 브랜드 페이지 탭 전환 감지를 위함
-  },
+  category: { type: String, default: 'all' },
+  path: { type: String, required: true },
 })
 
 const store = useStore()
@@ -34,7 +28,6 @@ const store = useStore()
 const batchSize = 6
 const batchIndex = ref(1)
 const isLoaded = ref(false)
-const ignoreIntersection = ref(true)
 
 const items = computed(() => store.state.product.items)
 
@@ -54,15 +47,16 @@ let observer = null
 
 const handleIntersect = (entries) => {
   const [entry] = entries
-  if (entry.isIntersecting && hasMore.value && !ignoreIntersection.value) {
+  if (entry.isIntersecting && hasMore.value) {
     batchIndex.value++
   }
 }
 
+// observer 등록 함수
 const setupObserver = async () => {
-  if (observer) observer.disconnect()
   await nextTick()
   if (observerTarget.value && observer) {
+    observer.disconnect() // 이전 observer 제거
     observer.observe(observerTarget.value)
   }
 }
@@ -70,34 +64,28 @@ const setupObserver = async () => {
 const loadProducts = async () => {
   isLoaded.value = false
   batchIndex.value = 1
-  ignoreIntersection.value = true
 
-  await store.dispatch('product/fetchProducts', {
-    category: props.category,
-  })
-
+  await store.dispatch('product/fetchProducts', { category: props.category })
   isLoaded.value = true
   await setupObserver()
-
-  setTimeout(() => {
-    ignoreIntersection.value = false
-  }, 1500)
 }
 
 onMounted(async () => {
-  observer = new IntersectionObserver(handleIntersect, { threshold: 0.1 })
+  observer = new IntersectionObserver(handleIntersect, {
+    root: null,
+    threshold: 0,
+    rootMargin: '0px 0px 100px 0px', // 스크롤 끝보다 조금 일찍 감지
+  })
   await loadProducts()
 })
 
-// ✅ category나 path가 바뀌면 새로 로딩
-watch(
-  () => [props.category, props.path],
-  async () => {
-    await loadProducts()
-  },
-)
+// category나 path 바뀌면 새로 로딩
+watch([() => props.category, () => props.path], async () => {
+  await loadProducts()
+})
 
-watch([items, batchIndex], setupObserver)
+// displayedItems가 바뀌면 observer 재등록
+watch(displayedItems, setupObserver)
 
 onUnmounted(() => {
   if (observer) observer.disconnect()
