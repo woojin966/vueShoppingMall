@@ -8,13 +8,17 @@
     </div>
 
     <nav class="tabs">
-      <router-link to="/selection/new" exact-active-class="active" class="text n">NEW</router-link>
-      <router-link to="/selection/best" exact-active-class="active" class="text n"
-        >BEST</router-link
-      >
-      <router-link to="/selection/sale" exact-active-class="active" class="text n"
-        >SALE</router-link
-      >
+      <div>
+        <router-link to="/selection/new" exact-active-class="active" class="text n"
+          >NEW</router-link
+        >
+        <router-link to="/selection/best" exact-active-class="active" class="text n"
+          >BEST</router-link
+        >
+        <router-link to="/selection/sale" exact-active-class="active" class="text n"
+          >SALE</router-link
+        >
+      </div>
     </nav>
 
     <div class="filter_box">

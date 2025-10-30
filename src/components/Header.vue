@@ -2,24 +2,35 @@
   <header :class="{ fixed: isFixed }">
     <!-- PC 헤더 -->
     <article class="pc_header" v-if="isPc">
-      <router-link to="/" class="logo">
-        <img src="@/assets/img/favicon/reias_logo.png" alt="logo" />
-      </router-link>
-      <ul class="etc_menu_list">
-        <li><a href="javascript:void(0)" class="text n">LOGIN</a></li>
-        <li><a href="javascript:void(0)" class="text n">JOIN</a></li>
-        <li>
-          <router-link to="/cart" class="cart_icon">
-            <font-awesome-icon icon="fa-solid fa-cart-shopping" />
-            <span v-if="cartCount" class="cart_count">{{ cartCount }}</span>
-          </router-link>
-        </li>
-        <li>
-          <a href="javascript:void(0)"
-            ><font-awesome-icon icon="fa-solid fa-magnifying-glass" class="text n"
-          /></a>
-        </li>
-      </ul>
+      <div>
+        <router-link to="/" class="logo">
+          <img src="@/assets/img/favicon/reias_logo.png" alt="logo" />
+        </router-link>
+        <ul class="etc_menu_list">
+          <li><a href="javascript:void(0)" class="text n">LOGIN</a></li>
+          <li><a href="javascript:void(0)" class="text n">JOIN</a></li>
+          <li>
+            <router-link to="/cart" class="cart_icon">
+              <font-awesome-icon icon="fa-solid fa-cart-shopping" />
+              <span v-if="cartCount" class="cart_count">{{ cartCount }}</span>
+            </router-link>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="search_icon" @click="toggleSearch"
+              ><font-awesome-icon icon="fa-solid fa-magnifying-glass" class="text n"
+            /></a>
+          </li>
+        </ul>
+      </div>
+      <div class="search_box" v-show="showSearch">
+        <input
+          type="text"
+          v-model="keyword"
+          @keyup.enter="onSearch"
+          placeholder="상품명을 입력하세요"
+        />
+        <button @click="onSearch">검색</button>
+      </div>
       <div class="nav_wrapper">
         <a
           href="javascript:void(0)"
@@ -70,25 +81,38 @@
 
     <!-- 모바일 헤더 -->
     <article class="mo_header" v-else>
-      <a
-        href="javascript:void(0)"
-        class="menu_spread_btn"
-        :class="{ active: isMenuOpen }"
-        @click="toggleMenu"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </a>
-      <a href="javascript:void(0)" class="logo">
-        <img src="@/assets/img/favicon/reias_logo.png" />
-      </a>
-      <div class="menu_box">
-        <router-link to="/cart" class="cart_icon">
-          <font-awesome-icon icon="fa-solid fa-cart-shopping" />
-          <span v-if="cartCount" class="cart_count">{{ cartCount }}</span>
-        </router-link>
-        <a href="javascript:void(0)"><font-awesome-icon icon="fa-solid fa-magnifying-glass" /></a>
+      <div>
+        <a
+          href="javascript:void(0)"
+          class="menu_spread_btn"
+          :class="{ active: isMenuOpen }"
+          @click="toggleMenu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+        <a href="javascript:void(0)" class="logo">
+          <img src="@/assets/img/favicon/reias_logo.png" />
+        </a>
+        <div class="menu_box">
+          <router-link to="/cart" class="cart_icon">
+            <font-awesome-icon icon="fa-solid fa-cart-shopping" />
+            <span v-if="cartCount" class="cart_count">{{ cartCount }}</span>
+          </router-link>
+          <a href="javascript:void(0)" @click="toggleSearch"
+            ><font-awesome-icon icon="fa-solid fa-magnifying-glass"
+          /></a>
+        </div>
+      </div>
+      <div class="search_box" v-show="showSearch">
+        <input
+          type="text"
+          v-model="keyword"
+          @keyup.enter="onSearch"
+          placeholder="상품명을 입력하세요"
+        />
+        <button @click="onSearch">검색</button>
       </div>
       <div class="nav_wrapper mo" v-show="isMoMenuVisible">
         <div class="menulist_top_box">
@@ -120,7 +144,10 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { useRouter } from 'vue-router'
 import { getCart } from '@/api/cart.js'
+
+const router = useRouter()
 
 const cartCount = ref(0)
 
@@ -266,6 +293,21 @@ const handleResize = () => {
 // 스크롤 핸들러
 const handleScroll = () => {
   isFixed.value = window.scrollY > 50 // 50px 이상 스크롤 시 고정
+}
+
+// 검색기능
+const showSearch = ref(false)
+const keyword = ref('')
+// 검색창 열고 닫기
+const toggleSearch = () => {
+  showSearch.value = !showSearch.value
+}
+
+// 검색 실행
+const onSearch = () => {
+  if (!keyword.value.trim()) return
+  router.push({ name: 'SearchResults', query: { q: keyword.value } })
+  showSearch.value = false
 }
 
 onMounted(() => {

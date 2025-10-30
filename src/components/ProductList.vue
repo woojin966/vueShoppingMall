@@ -14,18 +14,29 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted, nextTick, watch, defineProps } from 'vue'
+import {
+  ref,
+  computed,
+  onMounted,
+  onUnmounted,
+  nextTick,
+  watch,
+  defineProps,
+  defineEmits,
+} from 'vue'
 import { useStore } from 'vuex'
 import ProductItem from '@/components/ProductItem.vue'
 
 const props = defineProps({
   category: { type: String, default: 'all' },
   path: { type: String, required: true },
-  filterType: { type: String, default: '등록순' }, // 추가
+  filterType: { type: String, default: '등록순' },
+  searchKeyword: { type: String, default: '' }, // ✅ 추가
 })
 
-const store = useStore()
+const emits = defineEmits(['update:noResults'])
 
+const store = useStore()
 const batchSize = 6
 const batchIndex = ref(1)
 const isLoaded = ref(false)
@@ -73,21 +84,58 @@ const hasMore = computed(() => batchIndex.value < maxBatchIndex.value)
 //   // 4) batch 처리
 //   return result.slice(0, batchIndex.value * batchSize)
 // })
+// const displayedItems = computed(() => {
+//   if (!isLoaded.value || !items.value.length) return []
+
+//   let result = [...items.value]
+
+//   // Selection 메뉴 필터
+//   if (props.category === 'new') result = result.filter((item) => item.new)
+//   else if (props.category === 'best') result = result.filter((item) => item.best)
+//   else if (props.category === 'sale') result = result.filter((item) => item.clearance)
+//   // 일반 카테고리 필터
+//   else if (props.category !== 'all') {
+//     result = result.filter((item) => item.category === props.category)
+//   }
+
+//   // 정렬
+//   switch (props.filterType) {
+//     case '인기순':
+//       result.sort((a, b) => Number(b.popularNum) - Number(a.popularNum))
+//       break
+//     case '낮은가격순':
+//       result.sort((a, b) => Number(a.price) - Number(b.price))
+//       break
+//     case '높은가격순':
+//       result.sort((a, b) => Number(b.price) - Number(a.price))
+//       break
+//     case '등록순':
+//     default:
+//       break
+//   }
+
+//   // batch 처리
+//   return result.slice(0, batchIndex.value * batchSize)
+// })
 const displayedItems = computed(() => {
   if (!isLoaded.value || !items.value.length) return []
 
   let result = [...items.value]
 
-  // Selection 메뉴 필터
+  // 1. 카테고리/Selection 필터
   if (props.category === 'new') result = result.filter((item) => item.new)
   else if (props.category === 'best') result = result.filter((item) => item.best)
   else if (props.category === 'sale') result = result.filter((item) => item.clearance)
-  // 일반 카테고리 필터
-  else if (props.category !== 'all') {
+  else if (props.category !== 'all')
     result = result.filter((item) => item.category === props.category)
+
+  // 2. 검색 키워드 필터
+  if (props.searchKeyword) {
+    const kw = props.searchKeyword.toLowerCase()
+    result = result.filter((item) => item.name.toLowerCase().includes(kw))
   }
 
-  // 정렬
+  // 3. 정렬
   switch (props.filterType) {
     case '인기순':
       result.sort((a, b) => Number(b.popularNum) - Number(a.popularNum))
@@ -103,7 +151,8 @@ const displayedItems = computed(() => {
       break
   }
 
-  // batch 처리
+  emits('update:noResults', result.length === 0)
+
   return result.slice(0, batchIndex.value * batchSize)
 })
 
