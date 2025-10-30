@@ -24,9 +24,25 @@
         >
       </div>
     </nav>
+    <div class="filter_box">
+      <p class="selected_filter text sb" @click="toggleDropdown">
+        {{ filterType }}
+        <span class="arrow small n" :class="{ open: dropdownOpen }">▼</span>
+      </p>
+      <ul v-show="dropdownOpen" class="filter_options">
+        <li
+          v-for="option in filterOptions"
+          :key="option"
+          @click="selectFilter(option)"
+          :class="{ active: filterType === option }"
+        >
+          {{ option }}
+        </li>
+      </ul>
+    </div>
 
     <!-- ProductList에 현재 경로도 함께 전달 -->
-    <ProductList :category="category" :path="route.path" />
+    <ProductList :category="category" :path="route.path" :filterType="filterType" />
   </div>
 </template>
 
@@ -63,6 +79,20 @@ onMounted(async () => {
   })
   imgUrl.value = res.data.urls.regular
 })
+
+// filter
+const filterType = ref('등록순') // 기본값
+const dropdownOpen = ref(false)
+const filterOptions = ['등록순', '인기순', '낮은가격순', '높은가격순']
+
+const toggleDropdown = () => {
+  dropdownOpen.value = !dropdownOpen.value
+}
+
+const selectFilter = (option) => {
+  filterType.value = option
+  dropdownOpen.value = false
+}
 </script>
 
 <style scoped lang="scss">

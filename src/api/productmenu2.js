@@ -22,6 +22,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '120',
     },
     {
       id: 2,
@@ -39,6 +40,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '288',
     },
     {
       id: 3,
@@ -57,6 +59,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '79',
     },
     {
       id: 4,
@@ -74,6 +77,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '134',
     },
     {
       id: 5,
@@ -92,6 +96,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '82',
     },
     {
       id: 6,
@@ -109,6 +114,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '34',
     },
     {
       id: 7,
@@ -126,6 +132,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '11',
     },
     {
       id: 8,
@@ -143,6 +150,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '29',
     },
     {
       id: 9,
@@ -160,6 +168,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '43',
     },
     {
       id: 10,
@@ -177,6 +186,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '72',
     },
     {
       id: 11,
@@ -194,6 +204,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '65',
     },
     {
       id: 12,
@@ -212,6 +223,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '75',
     },
     {
       id: 13,
@@ -229,6 +241,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '80',
     },
     {
       id: 14,
@@ -246,6 +259,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '31',
     },
     {
       id: 15,
@@ -263,6 +277,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '110',
     },
     {
       id: 16,
@@ -281,6 +296,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '27',
     },
     {
       id: 17,
@@ -299,6 +315,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '65',
     },
     {
       id: 18,
@@ -317,6 +334,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '19',
     },
     {
       id: 19,
@@ -334,6 +352,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '42',
     },
     {
       id: 20,
@@ -352,6 +371,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '142',
     },
     {
       id: 21,
@@ -369,6 +389,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '221',
     },
     {
       id: 22,
@@ -387,6 +408,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '241',
     },
     {
       id: 23,
@@ -405,6 +427,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '168',
     },
     {
       id: 24,
@@ -423,6 +446,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '77',
     },
     // 가방
     {
@@ -442,6 +466,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '68',
     },
     {
       id: 26,
@@ -459,6 +484,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '69',
     },
     {
       id: 27,
@@ -477,6 +503,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '92',
     },
     {
       id: 28,
@@ -494,6 +521,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '250',
     },
     {
       id: 29,
@@ -512,6 +540,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '62',
     },
     {
       id: 30,
@@ -529,6 +558,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '95',
     },
     {
       id: 31,
@@ -547,6 +577,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '59',
     },
     {
       id: 32,
@@ -565,6 +596,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '116',
     },
     {
       id: 33,
@@ -583,6 +615,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '87',
     },
     {
       id: 34,
@@ -601,6 +634,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '40',
     },
     {
       id: 35,
@@ -618,6 +652,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '50',
     },
     {
       id: 36,
@@ -636,6 +671,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '100',
     },
     {
       id: 37,
@@ -653,6 +689,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '108',
     },
     {
       id: 38,
@@ -670,6 +707,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '96',
     },
     {
       id: 39,
@@ -687,6 +725,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '258',
     },
     {
       id: 40,
@@ -705,6 +744,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '89',
     },
     {
       id: 41,
@@ -723,6 +763,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '14',
     },
     {
       id: 42,
@@ -741,6 +782,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '54',
     },
     {
       id: 43,
@@ -758,6 +800,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '73',
     },
     {
       id: 44,
@@ -776,6 +819,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '9',
     },
     {
       id: 45,
@@ -793,6 +837,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '30',
     },
     {
       id: 46,
@@ -811,6 +856,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '18',
     },
     {
       id: 47,
@@ -829,6 +875,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '51',
     },
     // life
     {
@@ -847,6 +894,7 @@ export async function getAllProducts() {
       best: false,
       new: true,
       newSaleDate: '8.8',
+      popularNum: '64',
     },
     {
       id: 49,
@@ -864,6 +912,7 @@ export async function getAllProducts() {
       best: true,
       new: true,
       newSaleDate: '8.8',
+      popularNum: '87',
     },
     {
       id: 50,
@@ -881,6 +930,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '26',
     },
     {
       id: 51,
@@ -899,6 +949,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '35',
     },
     {
       id: 52,
@@ -916,6 +967,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '50',
     },
     {
       id: 53,
@@ -934,6 +986,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '167',
     },
     {
       id: 54,
@@ -952,6 +1005,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '125',
     },
     {
       id: 55,
@@ -969,6 +1023,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '37',
     },
     {
       id: 56,
@@ -986,6 +1041,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '42',
     },
     {
       id: 57,
@@ -1003,6 +1059,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '54',
     },
     {
       id: 58,
@@ -1020,6 +1077,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '67',
     },
     {
       id: 59,
@@ -1037,6 +1095,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '78',
     },
     {
       id: 60,
@@ -1055,6 +1114,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '184',
     },
     {
       id: 61,
@@ -1073,6 +1133,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '264',
     },
     {
       id: 62,
@@ -1090,6 +1151,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '301',
     },
     {
       id: 63,
@@ -1107,6 +1169,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '28',
     },
     {
       id: 64,
@@ -1125,6 +1188,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '12',
     },
     {
       id: 65,
@@ -1142,6 +1206,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '48',
     },
     {
       id: 66,
@@ -1160,6 +1225,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '19',
     },
     {
       id: 67,
@@ -1178,6 +1244,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '4',
     },
     {
       id: 68,
@@ -1196,6 +1263,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '5',
     },
     {
       id: 69,
@@ -1213,6 +1281,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '13',
     },
     {
       id: 70,
@@ -1230,6 +1299,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '17',
     },
     {
       id: 71,
@@ -1248,6 +1318,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '80',
     },
     // 양말
     {
@@ -1267,6 +1338,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '37',
     },
     {
       id: 73,
@@ -1284,6 +1356,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '70',
     },
     {
       id: 74,
@@ -1301,6 +1374,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '35',
     },
     {
       id: 75,
@@ -1318,6 +1392,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '85',
     },
     {
       id: 76,
@@ -1335,6 +1410,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '67',
     },
     {
       id: 77,
@@ -1353,6 +1429,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '44',
     },
     {
       id: 78,
@@ -1371,6 +1448,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '48',
     },
     {
       id: 79,
@@ -1388,6 +1466,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '35',
     },
     {
       id: 80,
@@ -1405,6 +1484,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '78',
     },
     {
       id: 81,
@@ -1422,6 +1502,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '96',
     },
     {
       id: 82,
@@ -1440,6 +1521,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '64',
     },
     {
       id: 83,
@@ -1458,6 +1540,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '78',
     },
     {
       id: 84,
@@ -1476,6 +1559,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '89',
     },
     {
       id: 85,
@@ -1494,6 +1578,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '58',
     },
     {
       id: 86,
@@ -1512,6 +1597,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '66',
     },
     {
       id: 87,
@@ -1529,6 +1615,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '69',
     },
     {
       id: 88,
@@ -1547,6 +1634,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '38',
     },
     {
       id: 89,
@@ -1565,6 +1653,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '57',
     },
     {
       id: 90,
@@ -1582,6 +1671,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '26',
     },
     {
       id: 91,
@@ -1600,6 +1690,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '27',
     },
     //패션템
     {
@@ -1619,6 +1710,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '34',
     },
     {
       id: 93,
@@ -1637,6 +1729,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '49',
     },
     {
       id: 94,
@@ -1655,6 +1748,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '94',
     },
     {
       id: 95,
@@ -1672,6 +1766,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '69',
     },
     {
       id: 96,
@@ -1689,6 +1784,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '30',
+      popularNum: '72',
     },
     {
       id: 97,
@@ -1706,6 +1802,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '84',
     },
     {
       id: 98,
@@ -1723,6 +1820,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '50',
     },
     {
       id: 99,
@@ -1740,6 +1838,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '35',
     },
   ]
 }

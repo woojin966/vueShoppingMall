@@ -18,6 +18,7 @@ export async function getAllProducts() {
       best: false,
       new: true,
       newSaleDate: '',
+      popularNum: '300',
     },
     {
       id: 2,
@@ -37,6 +38,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '50',
     },
     {
       id: 3,
@@ -56,6 +58,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '75',
     },
     {
       id: 4,
@@ -75,6 +78,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '922',
     },
     {
       id: 5,
@@ -94,6 +98,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '24',
     },
     {
       id: 6,
@@ -113,6 +118,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '324',
     },
     {
       id: 7,
@@ -132,6 +138,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '246',
     },
     {
       id: 8,
@@ -151,6 +158,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '72',
     },
     {
       id: 9,
@@ -170,6 +178,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '64',
     },
     {
       id: 10,
@@ -189,6 +198,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '52',
     },
     {
       id: 11,
@@ -208,6 +218,7 @@ export async function getAllProducts() {
       best: true,
       new: true,
       newSaleDate: '',
+      popularNum: '158',
     },
     {
       id: 11,
@@ -226,6 +237,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '224',
     },
     {
       id: 12,
@@ -245,6 +257,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '37',
     },
     {
       id: 13,
@@ -264,6 +277,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '44',
     },
     {
       id: 14,
@@ -283,6 +297,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '67',
     },
     {
       id: 15,
@@ -302,6 +317,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '88',
     },
     {
       id: 16,
@@ -321,6 +337,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '7',
     },
     {
       id: 17,
@@ -339,6 +356,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '23',
     },
     {
       id: 18,
@@ -358,6 +376,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '58',
     },
     {
       id: 18,
@@ -376,6 +395,7 @@ export async function getAllProducts() {
       best: true,
       new: false,
       newSaleDate: '',
+      popularNum: '74',
     },
     {
       id: 19,
@@ -395,6 +415,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '64',
     },
     {
       id: 20,
@@ -414,6 +435,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '278',
     },
     {
       id: 21,
@@ -433,6 +455,7 @@ export async function getAllProducts() {
       best: false,
       new: false,
       newSaleDate: '',
+      popularNum: '130',
     },
   ]
 }

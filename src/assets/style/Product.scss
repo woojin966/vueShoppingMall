@@ -47,8 +47,49 @@
       }
     }
   }
+  .filter_box {
+    position: relative;
+    padding: 20px 40px 0;
+    display: flex;
+    justify-content: flex-end;
+    .selected_filter {
+      display: flex;
+      padding: 12px;
+      width: 120px;
+      gap: 8px;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      border: 1px solid $pointRed;
+      cursor: pointer;
+    }
+    .arrow {
+      transition: transform 0.2s;
+      &.open {
+        transform: rotate(180deg);
+      }
+    }
+    .filter_options {
+      position: absolute;
+      top: 100%;
+      width: 120px;
+      right: 40px;
+      margin-top: 4px;
+      padding: 0;
+      list-style: none;
+      border: 1px solid $pointRed;
+      background: #fff;
+      li {
+        padding: 10px;
+        cursor: pointer;
+        &:hover {
+          background: $selectPoint;
+        }
+      }
+    }
+  }
   article {
-    padding: 60px 40px;
+    padding: 40px;
   }
   @media all and (max-width: 1024px) {
     .page_banner_box {
@@ -60,8 +101,11 @@
     .tabs {
       padding: 40px 20px 0;
     }
+    .filter_box {
+      padding: 20px 20px 0;
+    }
     article {
-      padding: 40px 20px;
+      padding: 32px 20px;
     }
   }
   @media all and (max-width: 480px) {
@@ -80,6 +124,9 @@
           bottom: -2px;
         }
       }
+    }
+    .filter_box {
+      padding: 20px 16px 0;
     }
     article {
       padding: 24px 16px;

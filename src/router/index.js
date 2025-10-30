@@ -6,6 +6,7 @@ import ProductView3 from '../views/ProductView3.vue'
 import ProductView4 from '../views/ProductView4.vue'
 import CartView from '../views/CartView.vue'
 import OrderView from '../views/OrderView.vue'
+import CommunityView from '@/views/CommunityView.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: HomeView },
@@ -36,6 +37,11 @@ const routes = [
   //   name: 'brand',
   //   component: ProductView4,
   // },
+  {
+    path: '/community/notice',
+    name: 'Notice',
+    component: CommunityView,
+  },
   { path: '/cart', name: 'Cart', component: CartView },
   { path: '/order', name: 'Order', component: OrderView },
 ]
