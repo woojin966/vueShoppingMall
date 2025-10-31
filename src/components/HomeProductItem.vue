@@ -13,7 +13,9 @@
         <p v-else class="price_num price big">₩ {{ product.price }}</p>
       </div>
       <div class="more_btn_box">
-        <a href="javascript:void(0)" class="to_detail_btn medium n">MORE</a>
+        <router-link :to="`/product/${product.id}`" class="to_detail_btn medium n">
+          MORE
+        </router-link>
       </div>
     </div>
   </li>

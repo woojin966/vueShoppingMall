@@ -1,6 +1,6 @@
 <template>
   <li v-if="product" class="product">
-    <router-link to="" class="product_link">
+    <router-link :to="`/product/${product.id}`" class="product_link">
       <div class="img_box">
         <img :src="currentImage" @mouseover="hover = true" @mouseleave="hover = false" />
       </div>
@@ -102,7 +102,6 @@ const formatPrice = (num) => {
   if (num === undefined || num === null) return ''
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 }
-
 const formattedPrice = computed(() => formatPrice(props.product.price))
 const formattedBeforePrice = computed(() => formatPrice(props.product.beforePrice))
 </script>
