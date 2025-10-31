@@ -18,7 +18,7 @@
       <!-- 수량 -->
       <div class="product_quantity">
         <button @click="decreaseQty">-</button>
-        <span>{{ quantity }}</span>
+        <input type="number" v-model.number="quantity" min="1" class="quantity_input" />
         <button @click="increaseQty">+</button>
       </div>
 
@@ -102,6 +102,7 @@ watch(
 // 옵션/수량
 const selectedOption = ref('')
 const quantity = ref(1)
+
 const increaseQty = () => quantity.value++
 const decreaseQty = () => {
   if (quantity.value > 1) quantity.value--
@@ -116,14 +117,15 @@ watch(product, (newVal) => {
 const showCartModal = ref(false)
 const handleAddCart = () => {
   if (!product.value?.id) return
+
   addToCart({
     ...product.value,
     option: selectedOption.value,
-    quantity: quantity.value,
+    quantity: Number(quantity.value), // 반드시 숫자로
   })
+
   showCartModal.value = true
 }
-
 const goToCart = () => {
   showCartModal.value = false
   router.push('/cart')

@@ -19,13 +19,13 @@ function saveCart(items) {
 // ➕ 장바구니 추가
 export function addToCart(product) {
   const cart = getCart()
-  const existing = cart.find((item) => item.name === product.name)
+  const quantityToAdd = product.quantity || 1 // 기본값 1
+  const existing = cart.find((item) => item.name === product.name && item.option === product.option)
 
   if (existing) {
-    // 이미 존재하면 수량 증가
-    existing.quantity += 1
+    existing.quantity += quantityToAdd
   } else {
-    cart.push({ ...product, quantity: 1 })
+    cart.push({ ...product, quantity: quantityToAdd })
   }
 
   saveCart(cart)
