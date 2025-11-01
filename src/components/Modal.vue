@@ -1,10 +1,22 @@
 <template>
   <div v-if="visible" class="modal_backdrop">
     <div class="modal_box">
-      <p class="modal_message text sb">{{ message }}</p>
+      <!-- slot이 존재하면 slot 사용, 아니면 message 출력 -->
+      <div v-if="$slots.default">
+        <slot />
+      </div>
+      <p v-else class="modal_message text sb">{{ message }}</p>
+
       <div class="modal_buttons">
-        <button class="btn cancel text n" @click="$emit('cancel')">{{ cancelText }}</button>
-        <button class="btn confirm text n" @click="$emit('confirm')">{{ confirmText }}</button>
+        <!-- cancelText가 있을 때만 취소 버튼 표시 -->
+        <button v-if="cancelText" class="btn cancel text n" @click="$emit('cancel')">
+          {{ cancelText }}
+        </button>
+
+        <!-- confirmText가 있을 때만 확인 버튼 표시 -->
+        <button v-if="confirmText" class="btn confirm text n" @click="$emit('confirm')">
+          {{ confirmText }}
+        </button>
       </div>
     </div>
   </div>
@@ -17,6 +29,8 @@ const props = defineProps({
   message: { type: String, default: '' },
   confirmText: { type: String, default: '확인' },
   cancelText: { type: String, default: '취소' },
+  showConfirm: { type: Boolean, default: true },
+  showCancel: { type: Boolean, default: true },
 })
 </script>
 
@@ -32,12 +46,14 @@ const props = defineProps({
   .modal_box {
     background: #fff;
     width: 360px;
+    padding: 24px;
     .modal_message {
       padding: 60px 0;
       text-align: center;
     }
     .modal_buttons {
       display: flex;
+      margin-top: 16px;
       .btn {
         border: none;
         width: 50%;

@@ -58,26 +58,12 @@
 
 <script setup>
 import { ref, onMounted, getCurrentInstance, nextTick } from 'vue'
+import { randomImages } from '../store/randomImages.js'
 import { getAllProducts as getMenu1Products } from '@/api/productmenu1'
 import { getAllProducts as getMenu2Products } from '@/api/productmenu2'
 import HomeProductList from '@/components/HomeProductList.vue'
 
-const { proxy } = getCurrentInstance()
-const imgUrl = ref('')
-const filters = [
-  'filter-clarendon',
-  'filter-gingham',
-  'filter-juno',
-  'filter-lark',
-  'filter-reyes',
-  'filter-valencia',
-  'filter-willow',
-]
-const randomFilter = ref('')
-onMounted(() => {
-  const randomIndex = Math.floor(Math.random() * filters.length)
-  randomFilter.value = filters[randomIndex]
-})
+const { imgUrl, randomFilter } = randomImages()
 
 const menus = ref([])
 const showPreview = ref(false)
@@ -86,11 +72,6 @@ const activeIndex = ref(null)
 const menuList = ref(null)
 
 onMounted(async () => {
-  const res = await proxy.$unsplash.get('/photos/random', {
-    // params: { query: 'nature' },
-  })
-  imgUrl.value = res.data.urls.regular
-
   const menu1 = await getMenu1Products()
   const menu2 = await getMenu2Products()
 

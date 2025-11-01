@@ -45,6 +45,7 @@
 
 <script setup>
 import { computed, onMounted, ref, getCurrentInstance } from 'vue'
+import { randomImages } from '../store/randomImages.js'
 import { useRoute } from 'vue-router'
 import Header from '@/components/Header.vue'
 import ProductList from '@/components/ProductList.vue'
@@ -58,23 +59,7 @@ const selectionCategory = computed(() => {
 })
 
 // banner
-const { proxy } = getCurrentInstance()
-const imgUrl = ref('')
-const filters = [
-  'filter-clarendon',
-  'filter-gingham',
-  'filter-juno',
-  'filter-lark',
-  'filter-reyes',
-  'filter-valencia',
-  'filter-willow',
-]
-const randomFilter = ref('')
-onMounted(async () => {
-  randomFilter.value = filters[Math.floor(Math.random() * filters.length)]
-  const res = await proxy.$unsplash.get('/photos/random')
-  imgUrl.value = res.data.urls.regular
-})
+const { imgUrl, randomFilter } = randomImages()
 
 // filter
 const filterType = ref('등록순')

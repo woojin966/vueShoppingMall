@@ -1,4 +1,3 @@
-// axios로 API 통신하는 함수들
 // 📁 src/api/cart.js
 const CART_KEY = 'cartItems'
 
@@ -20,29 +19,44 @@ function saveCart(items) {
 export function addToCart(product) {
   const cart = getCart()
   const quantityToAdd = product.quantity || 1 // 기본값 1
-  const existing = cart.find((item) => item.name === product.name && item.option === product.option)
+
+  // ✅ id와 option을 기준으로 같은 상품 판별
+  const existing = cart.find((item) => item.id === product.id && item.option === product.option)
 
   if (existing) {
+    // 기존 수량에 합산
     existing.quantity += quantityToAdd
   } else {
+    // 새 상품 추가
     cart.push({ ...product, quantity: quantityToAdd })
   }
 
-  saveCart(cart)
-  return cart
+  // ✅ 중복된 항목 병합 (예방용)
+  const mergedCart = cart.reduce((acc, curr) => {
+    const existingItem = acc.find((item) => item.id === curr.id && item.option === curr.option)
+    if (existingItem) {
+      existingItem.quantity += curr.quantity
+    } else {
+      acc.push(curr)
+    }
+    return acc
+  }, [])
+
+  saveCart(mergedCart)
+  return mergedCart
 }
 
 // ➖ 장바구니에서 하나 삭제
-export function removeFromCart(productName) {
-  const cart = getCart().filter((item) => item.name !== productName)
+export function removeFromCart(productId, option) {
+  const cart = getCart().filter((item) => !(item.id === productId && item.option === option))
   saveCart(cart)
   return cart
 }
 
 // 🔢 수량 변경
-export function updateQuantity(productName, quantity) {
+export function updateQuantity(productId, option, quantity) {
   const cart = getCart()
-  const item = cart.find((i) => i.name === productName)
+  const item = cart.find((i) => i.id === productId && i.option === option)
   if (item) item.quantity = quantity
   saveCart(cart)
   return cart
