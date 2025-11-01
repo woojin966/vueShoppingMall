@@ -147,6 +147,27 @@
       </table>
       <p v-else>등록된 문의가 없습니다.</p>
     </section>
+    <!-- 랜덤 상품 스와이퍼 -->
+    <div v-if="randomProductsWithSrc.length" class="random_products_wrap">
+      <Swiper
+        :modules="[Navigation, Autoplay]"
+        navigation
+        space-between="10"
+        slides-per-view="3"
+        class="random_product_swiper"
+        :autoplay="{ delay: 4000, disableOnInteraction: false }"
+        :preventClicks="false"
+        :touchStartPreventDefault="false"
+      >
+        <SwiperSlide v-for="item in randomProductsWithSrc" :key="item.id">
+          <router-link :to="`/product/${item.id}`" class="slide_link">
+            <img :src="item.src" :alt="item.name" />
+            <p class="slide_name">{{ item.name }}</p>
+            <p class="slide_price">{{ item.price.toLocaleString() }}원</p>
+          </router-link>
+        </SwiperSlide>
+      </Swiper>
+    </div>
   </article>
 
   <!-- 장바구니 확인 모달 -->
@@ -248,6 +269,11 @@ import Header from '@/components/Header.vue'
 import Modal from '@/components/Modal.vue'
 import { addToCart } from '@/api/cart.js'
 import { randomImages } from '../store/randomImages.js'
+// Swiper
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import { Navigation, Autoplay } from 'swiper/modules'
 
 // 이미지 랜덤 필터
 const { imgUrl, randomFilter } = randomImages()
@@ -273,6 +299,19 @@ const goToCart = () => {
   router.push('/cart')
 }
 const cancelCart = () => (showCartModal.value = false)
+
+// 초기 로딩
+onMounted(() => {
+  loadProduct(route.params.id)
+})
+
+// route.params.id가 바뀌면 product 다시 로딩
+watch(
+  () => route.params.id,
+  (newId) => {
+    loadProduct(newId)
+  },
+)
 
 // 공통 alert 모달
 const showAlertModal = ref(false)
@@ -417,6 +456,24 @@ watch(product, (newVal) => {
 onMounted(() => {
   if (product.value) mainImage.value = productImage.value
 })
+
+// 랜덤 상품
+const randomProducts = computed(() => {
+  if (!store.state.product.items.length || !product.value) return []
+  return store.state.product.items
+    .filter((item) => item.id !== product.value.id && item.image)
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 9)
+})
+// 이미지 경로
+const randomProductsWithSrc = computed(() =>
+  randomProducts.value.map((item) => ({
+    ...item,
+    src: item.image
+      ? new URL(`../assets/img/${item.category}/${item.image}`, import.meta.url).href
+      : '',
+  })),
+)
 </script>
 
 <style scoped lang="scss">
