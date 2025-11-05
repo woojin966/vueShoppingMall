@@ -198,12 +198,17 @@
     <div v-if="randomProductsWithSrc.length" class="random_products_wrap">
       <Swiper
         :modules="[Navigation, Autoplay]"
-        space-between="20"
-        slides-per-view="3"
+        :space-between="20"
+        :slides-per-view="3"
         class="random_product_swiper"
         :autoplay="{ delay: 4000, disableOnInteraction: false }"
         :preventClicks="false"
         :touchStartPreventDefault="false"
+        :breakpoints="{
+          0: { slidesPerView: 1 },
+          481: { slidesPerView: 2 },
+          769: { slidesPerView: 3 },
+        }"
       >
         <SwiperSlide v-for="item in randomProductsWithSrc" :key="item.id">
           <router-link :to="`/product/${item.id}`" class="slide_link">
