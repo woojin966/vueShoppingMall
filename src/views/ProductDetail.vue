@@ -10,27 +10,43 @@
 
         <!-- 썸네일 -->
         <div class="thumbnails">
+          <!-- <img
+            v-for="n in 3"
+            :key="n"
+            :src="imgUrl"
+            :class="[randomFilter, { aaa: hovered === n }]"
+            alt="unsplash image"
+            @mouseover="mainImage = imgUrl"
+            @mouseleave="mainImage = productImage"
+          /> -->
           <img
             v-for="n in 3"
             :key="n"
             :src="imgUrl"
-            :class="randomFilter"
+            :class="[randomFilter, { hover: hovered === n }]"
             alt="unsplash image"
-            @mouseover="mainImage = imgUrl"
-            @mouseleave="mainImage = productImage"
+            @mouseover="((hovered = n), (mainImage = imgUrl))"
+            @mouseleave="((hovered = null), (mainImage = productImage))"
           />
         </div>
       </div>
       <div class="product_title_price_box">
-        <h2 class="product_name medium sb">{{ product.name }}</h2>
-        <p class="product_price big b">{{ product.price.toLocaleString() }}원</p>
-        <div class="product_quantity">
-          <button @click="decreaseQty"><span></span></button>
-          <input type="number" v-model.number="quantity" min="1" class="quantity_input medium sb" />
-          <button @click="increaseQty"><span></span><span></span></button>
+        <div>
+          <h2 class="product_name medium sb">{{ product.name }}</h2>
+          <p class="product_price big bb">{{ product.price.toLocaleString() }}원</p>
+          <div class="product_quantity">
+            <button @click="decreaseQty"><span></span></button>
+            <input
+              type="number"
+              v-model.number="quantity"
+              min="1"
+              class="quantity_input medium sb"
+            />
+            <button @click="increaseQty"><span></span><span></span></button>
+          </div>
         </div>
+        <button class="add_cart_btn medium sb" @click="handleAddCart">장바구니 담기</button>
       </div>
-      <button class="add_cart_btn medium sb" @click="handleAddCart">장바구니 담기</button>
     </section>
 
     <!-- 탭 -->
@@ -65,17 +81,47 @@
 
     <!-- 상세정보 -->
     <section class="productdetails_wrap">
-      <div class="describe_box"><p class="text n"></p></div>
+      <div class="describe_box">
+        <p class="text n">
+          <span class="bb">상품 상세설명</span><br />Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Phasellus laoreet nisi sed ultricies ullamcorper. Etiam blandit
+          condimentum nunc, nec egestas leo finibus id. Aenean in justo sed dui laoreet hendrerit
+          cursus at neque. Ut nec risus vitae ex facilisis aliquam. Donec vitae vestibulum est, vel
+          posuere lorem. Maecenas ut metus ipsum. Fusce dignissim lacinia imperdiet. Morbi nec
+          ultrices sem, vitae varius lacus. Sed sit amet suscipit libero. Curabitur laoreet
+          dignissim sapien eget ullamcorper. Praesent faucibus hendrerit pretium. Curabitur cursus,
+          quam eu semper fermentum, dolor orci convallis tortor, quis consequat ipsum sem ut risus.
+          Morbi luctus turpis non varius luctus.
+        </p>
+      </div>
       <div class="product_detaim_images_box">
-        <img v-for="n in 5" :key="n" :src="imgUrl" :class="randomFilter" alt="unsplash image" />
+        <img v-for="n in 3" :key="n" :src="imgUrl" :class="randomFilter" alt="unsplash image" />
+      </div>
+      <div class="product_detail_bottom_box">
+        <p class="text n">
+          <span class="bb">배송안내</span><br />
+          <span class="sb">배송 지역 |</span> 대한민국 전지역 (즉석제조식품의 경우 하절기 도서산간지
+          및 제주지역 배송불가)<br />
+          <span class="sb">배송비 |</span> 3,000원 (50,000원 이상 결제시 무료배송)<br />
+          <span class="sb">배송기간 |</span> 주말 공휴일 제외 2~5일<br />
+          - 모든 배송은 택배사 사정으로 지연될 수 있습니다.
+        </p>
+        <p class="text n">
+          <span class="bb">교환 및 반품 안내</span><br />
+          - 고객 변심으로 인한 교환/반품은 상품 수령 후 7일 이내 가능합니다.<br />
+          - 고객 귀책 사유로 인한 반품의 경우 왕복 택배비는 고객 부담입니다.<br />
+          - 반품접수 기한이 지난 경우, 제품 및 패키지 훼손, 사용 흔적이 있는 제품은 교환/반품이
+          불가합니다.
+        </p>
       </div>
     </section>
 
     <!-- 리뷰 -->
     <section class="review_wrap">
-      <h3 class="big b">상품 리뷰</h3>
-      <button class="text n" @click="openModal('review')">리뷰 작성</button>
-
+      <div>
+        <h3 class="big sb">상품 리뷰</h3>
+        <button class="text n" @click="openModal('review')">리뷰 작성</button>
+      </div>
       <table v-if="reviews.length" class="review_table">
         <thead>
           <tr>
@@ -90,9 +136,9 @@
               <td>{{ review.name }}</td>
             </tr>
             <tr v-if="activeReviewIndex === index" class="review_detail_row">
-              <td colspan="2">
+              <td colspan="2" class="content">
                 <img v-if="review.image" :src="review.image" class="review_image" />
-                <p class="review_content">{{ review.content }}</p>
+                <p class="review_content text n">{{ review.content }}</p>
               </td>
             </tr>
           </template>
@@ -103,9 +149,10 @@
 
     <!-- QNA -->
     <section class="qna_wrap">
-      <h3 class="big b">Q&A</h3>
-      <button class="text n" @click="openModal('qna')">상품 문의</button>
-
+      <div>
+        <h3 class="big sb">Q&A</h3>
+        <button class="text n" @click="openModal('qna')">상품 문의</button>
+      </div>
       <table v-if="qnas.length" class="review_table">
         <thead>
           <tr>
@@ -125,7 +172,7 @@
             <tr v-if="activeQnaIndex === index" class="qna_detail_row">
               <td colspan="2">
                 <!-- 비공개글 비밀번호 확인 -->
-                <div v-if="qna.secret && !qna.showContent">
+                <div v-if="qna.secret && !qna.showContent" class="password">
                   <input
                     type="password"
                     v-model="enteredPassword"
@@ -136,9 +183,9 @@
                 </div>
 
                 <!-- 내용 -->
-                <div v-else>
+                <div class="content" v-else>
                   <img v-if="qna.image" :src="qna.image" class="qna_image" />
-                  <p class="qna_content">{{ qna.content }}</p>
+                  <p class="qna_content text n">{{ qna.content }}</p>
                 </div>
               </td>
             </tr>
@@ -151,8 +198,7 @@
     <div v-if="randomProductsWithSrc.length" class="random_products_wrap">
       <Swiper
         :modules="[Navigation, Autoplay]"
-        navigation
-        space-between="10"
+        space-between="20"
         slides-per-view="3"
         class="random_product_swiper"
         :autoplay="{ delay: 4000, disableOnInteraction: false }"
@@ -162,8 +208,8 @@
         <SwiperSlide v-for="item in randomProductsWithSrc" :key="item.id">
           <router-link :to="`/product/${item.id}`" class="slide_link">
             <img :src="item.src" :alt="item.name" />
-            <p class="slide_name">{{ item.name }}</p>
-            <p class="slide_price">{{ item.price.toLocaleString() }}원</p>
+            <p class="slide_name text n">{{ item.name }}</p>
+            <!-- <p class="slide_price">{{ item.price.toLocaleString() }}원</p> -->
           </router-link>
         </SwiperSlide>
       </Swiper>
@@ -286,6 +332,8 @@ const selectedOption = ref('')
 const quantity = ref(1)
 const increaseQty = () => quantity.value++
 const decreaseQty = () => quantity.value > 1 && quantity.value--
+
+const hovered = ref(null)
 
 // 장바구니 모달
 const showCartModal = ref(false)
@@ -477,18 +525,5 @@ const randomProductsWithSrc = computed(() =>
 </script>
 
 <style scoped lang="scss">
-.review_form {
-  .form_group {
-    margin-bottom: 12px;
-    label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-  }
-  .preview_image {
-    max-width: 100%;
-    margin-top: 8px;
-  }
-}
+@import '../assets/style/ProductDetail.scss';
 </style>
