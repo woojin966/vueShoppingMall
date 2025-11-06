@@ -223,10 +223,10 @@ const menus = ref([
     path: '/community/notice',
     subs: [
       { label: 'NOTICE', path: '/community/notice' },
-      { label: 'FAQ', path: '/community/faq' },
-      { label: 'QNA', path: '/community/qna' },
-      { label: 'REVIEWS', path: '/community/review' },
-      { label: 'PLAYLIST', path: '/community/playlist' },
+      { label: 'FAQ', path: '/community/notice' },
+      { label: 'QNA', path: '/community/notice' },
+      { label: 'REVIEWS', path: '/community/notice' },
+      { label: 'PLAYLIST', path: '/community/notice' },
     ],
   },
 ])

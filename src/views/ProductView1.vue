@@ -45,6 +45,7 @@
 
     <ProductList :category="category" :filter-type="filterType" />
   </div>
+  <Footer />
 </template>
 
 <script setup>
@@ -52,6 +53,7 @@ import { computed, onMounted, ref, getCurrentInstance } from 'vue'
 import { randomImages } from '../store/randomImages.js'
 import { useRoute } from 'vue-router'
 import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 import ProductList from '@/components/ProductList.vue'
 
 const route = useRoute()

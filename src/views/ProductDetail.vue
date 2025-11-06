@@ -10,30 +10,22 @@
 
         <!-- 썸네일 -->
         <div class="thumbnails">
-          <!-- <img
-            v-for="n in 3"
-            :key="n"
-            :src="imgUrl"
-            :class="[randomFilter, { aaa: hovered === n }]"
-            alt="unsplash image"
-            @mouseover="mainImage = imgUrl"
-            @mouseleave="mainImage = productImage"
-          /> -->
           <img
             v-for="n in 3"
             :key="n"
             :src="imgUrl"
-            :class="[randomFilter, { hover: hovered === n }]"
+            :class="[randomFilter, { hover: hovered === n, active: selected === n }]"
             alt="unsplash image"
-            @mouseover="((hovered = n), (mainImage = imgUrl))"
-            @mouseleave="((hovered = null), (mainImage = productImage))"
+            @mouseover="onThumbOver(n)"
+            @mouseleave="onThumbLeave()"
+            @click="selectThumbnail(n)"
           />
         </div>
       </div>
       <div class="product_title_price_box">
         <div>
           <h2 class="product_name medium sb">{{ product.name }}</h2>
-          <p class="product_price big bb">{{ product.price.toLocaleString() }}원</p>
+          <p class="product_price big bb">{{ Number(product.price).toLocaleString() }}원</p>
           <div class="product_quantity">
             <button @click="decreaseQty"><span></span></button>
             <input
@@ -221,6 +213,8 @@
     </div>
   </article>
 
+  <Footer />
+
   <!-- 장바구니 확인 모달 -->
   <Modal
     :visible="showCartModal"
@@ -317,6 +311,7 @@ import { ref, computed, watch, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 import Modal from '@/components/Modal.vue'
 import { addToCart } from '@/api/cart.js'
 import { randomImages } from '../store/randomImages.js'
@@ -337,8 +332,6 @@ const selectedOption = ref('')
 const quantity = ref(1)
 const increaseQty = () => quantity.value++
 const decreaseQty = () => quantity.value > 1 && quantity.value--
-
-const hovered = ref(null)
 
 // 장바구니 모달
 const showCartModal = ref(false)
@@ -363,6 +356,7 @@ watch(
   () => route.params.id,
   (newId) => {
     loadProduct(newId)
+    window.scrollTo({ top: 0, behavior: 'smooth' }) // ✅ 페이지 맨 위로 이동
   },
 )
 
@@ -497,8 +491,28 @@ const productImage = computed(() =>
   product.value ? getImgUrl(product.value.category, product.value.image) : '',
 )
 
-// 새로 추가: 메인 이미지 상태
 const mainImage = ref('')
+const hovered = ref(null)
+const selected = ref(null)
+
+const onThumbOver = (n) => {
+  hovered.value = n
+  if (selected.value === null) {
+    mainImage.value = imgUrl.value // ✅ .value 붙이기!
+  }
+}
+
+const onThumbLeave = () => {
+  hovered.value = null
+  if (selected.value === null) {
+    mainImage.value = productImage.value
+  }
+}
+
+const selectThumbnail = (n) => {
+  selected.value = n
+  mainImage.value = imgUrl.value // ✅ .value 붙이기!
+}
 
 // product가 바뀌거나 로드될 때 초기화
 watch(product, (newVal) => {

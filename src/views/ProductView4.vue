@@ -44,6 +44,7 @@
     <!-- ProductList에 현재 경로도 함께 전달 -->
     <ProductList :category="category" :path="route.path" :filterType="filterType" />
   </div>
+  <Footer />
 </template>
 
 <script setup>
@@ -51,6 +52,7 @@ import { computed, onMounted, ref, getCurrentInstance } from 'vue'
 import { randomImages } from '../store/randomImages.js'
 import { useRoute } from 'vue-router'
 import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 import ProductList from '@/components/ProductList.vue'
 
 const route = useRoute()

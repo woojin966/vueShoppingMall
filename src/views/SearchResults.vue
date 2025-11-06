@@ -14,12 +14,14 @@
     />
     <p v-if="noResults" class="no_results">검색된 상품이 없습니다.</p>
   </div>
+  <Footer />
 </template>
 
 <script setup>
 import { computed, onMounted, ref, getCurrentInstance } from 'vue'
 import { useRoute } from 'vue-router'
 import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 import ProductList from '@/components/ProductList.vue'
 
 const route = useRoute()

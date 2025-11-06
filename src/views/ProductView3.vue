@@ -41,6 +41,7 @@
     <!-- Selection용 category prop으로 전달 -->
     <ProductList :category="selectionCategory" :filter-type="filterType" :path="route.path" />
   </div>
+  <Footer />
 </template>
 
 <script setup>
@@ -48,6 +49,7 @@ import { computed, onMounted, ref, getCurrentInstance } from 'vue'
 import { randomImages } from '../store/randomImages.js'
 import { useRoute } from 'vue-router'
 import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 import ProductList from '@/components/ProductList.vue'
 
 const route = useRoute()
