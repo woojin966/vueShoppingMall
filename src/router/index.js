@@ -6,6 +6,7 @@ import ProductView3 from '../views/ProductView3.vue'
 import ProductView4 from '../views/ProductView4.vue'
 import CartView from '../views/CartView.vue'
 import OrderView from '../views/OrderView.vue'
+import OrderCompleteView from '../views/OrderCompleteView.vue'
 import CommunityView from '../views/CommunityView.vue'
 import SearchResults from '../views/SearchResults.vue'
 import ProductDetail from '@/views/ProductDetail.vue'
@@ -46,6 +47,11 @@ const routes = [
   },
   { path: '/cart', name: 'Cart', component: CartView },
   { path: '/order', name: 'Order', component: OrderView },
+  {
+    path: '/order/complete',
+    name: 'OrderComplete',
+    component: OrderCompleteView,
+  },
   {
     path: '/search',
     name: 'SearchResults',
