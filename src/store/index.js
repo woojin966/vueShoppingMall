@@ -1,6 +1,7 @@
 // vuex 모듈들
 import { createStore } from 'vuex'
 import products from './products'
+import order from './order'
 
 const store = createStore({
   state: {
@@ -17,6 +18,7 @@ const store = createStore({
     // 이후 여기에 모듈 추가
     // 추후 products.js, cart.js, order.js 로 분리해서 inex.js에 등록
     product: products,
+    order: order,
   },
 })
 
