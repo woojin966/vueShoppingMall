@@ -83,6 +83,12 @@
     &:last-child {
       border-bottom: none;
     }
+    &.checked {
+      input[type='checkbox'] {
+        border: 1px solid $pointRed;
+        background-color: $pointRed;
+      }
+    }
     input[type='checkbox'] {
       width: 20px;
       height: 20px;

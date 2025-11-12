@@ -7,8 +7,8 @@
     <section class="cart_content_box">
       <div class="btn_box top">
         <div class="sel_btn_box">
-          <button class="all_sel_btn text n">전체선택</button>
-          <button class="sel_off_btn text n">선택해제</button>
+          <button class="all_sel_btn text n" @click="selectAll">전체선택</button>
+          <button class="sel_off_btn text n" @click="deselectAll">선택해제</button>
         </div>
         <!-- <div class="delete_btn_box">
           <button
@@ -30,8 +30,9 @@
           v-for="item in cartItems"
           :key="`${item.id}-${item.option || 'noopt'}`"
           class="cart_item"
+          :class="{ checked: item.checked }"
         >
-          <input type="checkbox" class="item_check" />
+          <input type="checkbox" class="item_check" v-model="item.checked" />
           <div class="img_box">
             <img :src="getImgUrl(item.category, item.image)" :alt="item.name" />
           </div>
@@ -49,9 +50,7 @@
             </div>
 
             <div class="qty_row">
-              <button class="change_qty_btn minus">
-                <span></span>
-              </button>
+              <button class="change_qty_btn minus"><span></span></button>
               <input
                 type="number"
                 min="1"
@@ -59,10 +58,7 @@
                 @change="handleQuantityChange(item.id, item.option, Number($event.target.value))"
                 class="text n"
               />
-              <button class="change_qty_btn plus">
-                <span></span>
-                <span></span>
-              </button>
+              <button class="change_qty_btn plus"><span></span><span></span></button>
             </div>
 
             <div class="price_row">
@@ -91,7 +87,7 @@
           >
             전체삭제
           </button>
-          <button class="sel_del_btn text n">선택삭제</button>
+          <button class="sel_del_btn text n" @click="deleteSelected">선택삭제</button>
         </div>
       </div>
     </section>
@@ -100,23 +96,34 @@
         <p class="total big bb">{{ total.toLocaleString() }}원</p>
       </div>
       <div class="order_btn_box">
-        <button class="sel_order_btn medium n">선택 주문</button>
+        <button class="sel_order_btn medium n" @click="goToSelectedOrder">선택 주문</button>
         <button class="all_order_btn medium n" @click="goToOrder">전체 주문</button>
       </div>
     </section>
   </article>
   <Footer />
+
+  <Modal
+    :visible="noselectalert"
+    message="선택된 상품이 없습니다."
+    @confirm="noselectalert = false"
+    :confirmText="'확인'"
+    :cancelText="''"
+  />
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import { getCart, removeFromCart, updateQuantity, clearCart, getCartTotal } from '@/api/cart.js'
 import { saveOrder } from '@/api/order.js'
+import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
+import Modal from '@/components/Modal.vue'
 
 const router = useRouter()
+const store = useStore()
 
 // 🔗 Vite에서 정적 에셋 동적 경로 만들기
 const getImgUrl = (category, filename) =>
@@ -124,9 +131,19 @@ const getImgUrl = (category, filename) =>
 
 const cartItems = ref([])
 const total = ref(0)
+const noselectalert = ref(false)
 
 const refreshCart = () => {
-  cartItems.value = getCart()
+  // 기존 cart 데이터 불러오기
+  const items = getCart()
+
+  // checked 필드 추가 (없으면 false로 초기화)
+  cartItems.value = items.map((item) => ({
+    ...item,
+    checked: item.checked ?? false,
+  }))
+
+  // 총합도 갱신
   total.value = getCartTotal()
 }
 
@@ -141,7 +158,45 @@ const handleQuantityChange = (id, option, qty) => {
   refreshCart()
 }
 
-// 주문페이지로 가기
+// 전체 선택 / 해제 기능
+const selectAll = () => {
+  cartItems.value.forEach((item) => (item.checked = true))
+}
+const deselectAll = () => {
+  cartItems.value.forEach((item) => (item.checked = false))
+}
+
+// 선택 삭제
+const deleteSelected = () => {
+  const selected = cartItems.value.filter((item) => item.checked)
+
+  if (!selected.length) {
+    alert('선택된 상품이 없습니다.')
+    return
+  }
+  selected.forEach((item) => {
+    removeFromCart(item.id, item.option)
+  })
+
+  refreshCart()
+}
+
+// 선택주문
+const goToSelectedOrder = () => {
+  const selected = cartItems.value.filter((item) => item.checked)
+
+  if (!selected.length) {
+    // alert('선택된 상품이 없습니다.')
+    noselectalert.value = true
+    return
+  }
+
+  // Vuex에 선택된 상품만 저장
+  store.commit('order/setItems', selected)
+  router.push('/order')
+}
+
+// 전체주문
 const goToOrder = () => {
   if (!cartItems.value.length) return
   // 장바구니 데이터 저장

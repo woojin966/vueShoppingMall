@@ -34,12 +34,19 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 
 const store = useStore()
 const orderNumber = computed(() => store.state.order.orderNumber)
 const shipping = computed(() => store.state.order.shipping)
+
+onMounted(() => {
+  // ✅ 완료 페이지에 들어왔을 때만 주문 정보 초기화
+  setTimeout(() => {
+    store.commit('order/clearOrder')
+  }, 2000)
+})
 </script>
 
 <style scoped lang="scss">

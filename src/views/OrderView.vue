@@ -78,32 +78,15 @@ const getImgUrl = (category, filename) =>
   new URL(`../assets/img/${category}/${filename}`, import.meta.url).href
 
 onMounted(() => {
-  orderItems.value = getOrder()
+  // Vuex에서 바로 가져오기
+  orderItems.value = store.state.order.items
+
   total.value = orderItems.value.reduce(
     (sum, item) => sum + Number(item.price) * Number(item.quantity),
     0,
   )
-  store.commit('order/setItems', orderItems.value)
 })
 
-// const handlePayment = async () => {
-//   if (!shipping.value.name || !shipping.value.phone || !shipping.value.address) {
-//     alert('배송 정보를 모두 입력해주세요.')
-//     return
-//   }
-
-//   loading.value = true
-//   setTimeout(() => {
-//     loading.value = false
-//     const orderNo = 'ORD' + Date.now()
-//     store.commit('order/setShipping', shipping.value)
-//     store.commit('order/setPaymentMethod', paymentMethod.value)
-//     store.commit('order/setOrderNumber', orderNo)
-
-//     clearOrder()
-//     router.push('/order/complete')
-//   }, 2000)
-// }
 const handlePayment = () => {
   loading.value = true
 
@@ -111,16 +94,13 @@ const handlePayment = () => {
     loading.value = false
     const orderNo = 'ORD' + Date.now()
 
-    // ✅ Vuex에 주문정보 저장
+    // ✅ 주문 정보 Vuex 저장
     store.commit('order/setShipping', shipping.value)
     store.commit('order/setPaymentMethod', paymentMethod.value)
     store.commit('order/setOrderNumber', orderNo)
 
-    // ✅ 주문 완료 페이지로 이동
+    // ✅ 완료 페이지 이동 (clearOrder 제거)
     router.push('/order/complete')
-
-    // ✅ 이동 후 store 비우기
-    store.commit('order/clearOrder')
   }, 2000)
 }
 </script>
