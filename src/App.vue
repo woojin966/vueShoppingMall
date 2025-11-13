@@ -1,16 +1,11 @@
-
-
 <template>
   <div class="body-wrap">
     <header></header>
-    
   </div>
 
   <RouterView />
 </template>
 
-<script setup>
-</script>
+<script setup></script>
 
-<style>
-</style>
+<style></style>

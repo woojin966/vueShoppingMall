@@ -1,0 +1,84 @@
+.order_wrap {
+  padding: 60px 40px 100px;
+  min-height: 80dvh;
+  position: relative;
+  @media all and (max-width: 1024px) {
+    padding: 60px 20px 80px;
+  }
+  @media all and (max-width: 480px) {
+    padding: 40px 16px 60px;
+  }
+}
+
+.order_top_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h2 {
+    color: $pointRed;
+  }
+}
+
+.order_content_box {
+  margin: 40px 0;
+  width: calc(60% - 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  > div {
+    padding: 28px 24px;
+    border: 1px solid $gray;
+    h3 {
+      margin-bottom: 20px;
+      color: $pointRed;
+    }
+  }
+  @media all and (max-width: 1024px) {
+    margin: 32px 0;
+  }
+  @media all and (max-width: 768px) {
+    margin: 24px 0;
+  }
+  @media all and (max-width: 480px) {
+    margin: 20px 0;
+  }
+}
+.order_list {
+  li {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid $gray;
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+    .item_info {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      .name {
+        margin-bottom: 8px;
+      }
+      .price {
+        color: $pointRed;
+      }
+    }
+  }
+}
+
+.total_section {
+  position: fixed;
+  top: 134px;
+  right: 40px;
+  width: calc(40% - 28px);
+  padding: 28px 24px;
+  border: 1px solid $gray;
+}

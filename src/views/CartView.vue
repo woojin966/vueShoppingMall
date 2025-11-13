@@ -10,20 +10,6 @@
           <button class="all_sel_btn text n" @click="selectAll">전체선택</button>
           <button class="sel_off_btn text n" @click="deselectAll">선택해제</button>
         </div>
-        <!-- <div class="delete_btn_box">
-          <button
-            @click="
-              () => {
-                clearCart()
-                refreshCart()
-              }
-            "
-            class="all_del_btn text n"
-          >
-            전체삭제
-          </button>
-          <button class="sel_del_btn text n">선택삭제</button>
-        </div> -->
       </div>
       <ul class="product_list" v-if="cartItems.length">
         <li
@@ -50,7 +36,10 @@
             </div>
 
             <div class="qty_row">
-              <button class="change_qty_btn minus"><span></span></button>
+              <button class="change_qty_btn minus" @click="decreaseQty(item)">
+                <span></span>
+              </button>
+
               <input
                 type="number"
                 min="1"
@@ -58,7 +47,11 @@
                 @change="handleQuantityChange(item.id, item.option, Number($event.target.value))"
                 class="text n"
               />
-              <button class="change_qty_btn plus"><span></span><span></span></button>
+
+              <button class="change_qty_btn plus" @click="increaseQty(item)">
+                <span></span>
+                <span></span>
+              </button>
             </div>
 
             <div class="price_row">
@@ -145,6 +138,7 @@ const refreshCart = () => {
 
   // 총합도 갱신
   total.value = getCartTotal()
+  store.commit('order/setItems', cartItems.value)
 }
 
 const handleRemove = (id, option) => {
@@ -181,6 +175,20 @@ const deleteSelected = () => {
   refreshCart()
 }
 
+// 수량변경
+const decreaseQty = (item) => {
+  if (item.quantity > 1) {
+    item.quantity--
+    updateQuantity(item.id, item.option, item.quantity)
+    refreshCart()
+  }
+}
+const increaseQty = (item) => {
+  item.quantity++
+  updateQuantity(item.id, item.option, item.quantity)
+  refreshCart()
+}
+
 // 선택주문
 const goToSelectedOrder = () => {
   const selected = cartItems.value.filter((item) => item.checked)
@@ -199,11 +207,13 @@ const goToSelectedOrder = () => {
 // 전체주문
 const goToOrder = () => {
   if (!cartItems.value.length) return
-  // 장바구니 데이터 저장
-  saveOrder(cartItems.value)
+
+  // ✅ Vuex에 바로 저장
+  store.commit('order/setItems', cartItems.value)
+
+  // ✅ 주문 페이지 이동
   router.push('/order')
 }
-
 onMounted(refreshCart)
 </script>
 

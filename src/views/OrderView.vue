@@ -1,63 +1,95 @@
 <template>
-  <section class="order_view">
-    <h2 class="title">🧾 주문서</h2>
+  <Header />
+  <article class="order_wrap">
+    <section class="order_top_box">
+      <h2 class="bb">주문서</h2>
+    </section>
+    <section class="order_content_box">
+      <div class="product_box">
+        <h3 class="sb">주문 상품</h3>
+        <ul class="order_list">
+          <li v-for="item in orderItems" :key="item.id" class="order_item">
+            <img :src="getImgUrl(item.category, item.image)" alt="" />
+            <div class="item_info">
+              <div>
+                <p class="name text sb">{{ item.name }}</p>
+                <!-- <p class="option" v-if="item.option">옵션: {{ item.option }}</p> -->
+                <p class="quantity text n">수량 : {{ item.quantity }}</p>
+              </div>
 
-    <!-- Progress -->
-    <div class="progress_bar">
-      <span class="step active">장바구니</span>
-      <span class="arrow">→</span>
-      <span class="step active">주문서</span>
-      <span class="arrow">→</span>
-      <span class="step">완료</span>
-    </div>
+              <p class="price medium sb">{{ (item.price * item.quantity).toLocaleString() }}원</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="ship_box">
+        <h3 class="sb">배송 정보</h3>
+        <div class="shipping_form">
+          <input
+            v-model="shipping.name"
+            placeholder="이름"
+            class="text n"
+            required
+            ref="nameInput"
+            @keyup.enter="focusNext('phoneInput')"
+          />
 
-    <!-- 상품 리스트 -->
-    <div class="order_section">
-      <h3>주문 상품</h3>
-      <ul class="order_list">
-        <li v-for="item in orderItems" :key="item.id" class="order_item">
-          <img :src="getImgUrl(item.category, item.image)" alt="" />
-          <div class="item_info">
-            <p class="name">{{ item.name }}</p>
-            <p class="option" v-if="item.option">옵션: {{ item.option }}</p>
-            <p class="quantity">수량: {{ item.quantity }}</p>
-            <p class="price">{{ (item.price * item.quantity).toLocaleString() }}원</p>
+          <input
+            v-model="shipping.phone"
+            placeholder="연락처"
+            class="text n"
+            required
+            ref="phoneInput"
+            @keyup.enter="focusNext('addrSearchBtn')"
+          />
+
+          <div class="address_box">
+            <input
+              v-model="shipping.address"
+              placeholder="주소"
+              class="text n"
+              required
+              readonly
+              ref="addressInput"
+            />
+            <button type="button" class="addr_search_btn" ref="addrSearchBtn" @click="openPostcode">
+              주소찾기
+            </button>
           </div>
-        </li>
-      </ul>
-    </div>
 
-    <!-- 배송지 -->
-    <div class="order_section">
-      <h3>배송 정보</h3>
-      <div class="shipping_form">
-        <input v-model="shipping.name" placeholder="이름" required />
-        <input v-model="shipping.phone" placeholder="연락처" required />
-        <input v-model="shipping.address" placeholder="주소" required />
+          <input
+            v-model="shipping.detailAddress"
+            placeholder="상세주소"
+            class="text n"
+            required
+            ref="detailInput"
+            @keyup.enter="focusNext('payBtn')"
+          />
+        </div>
       </div>
-    </div>
-
-    <!-- 결제수단 -->
-    <div class="order_section">
-      <h3>결제수단</h3>
-      <div class="payment_method">
-        <label><input type="radio" value="card" v-model="paymentMethod" /> 카드결제</label>
-        <label><input type="radio" value="bank" v-model="paymentMethod" /> 무통장입금</label>
+      <div class="pay_box">
+        <h3 class="sb">결제수단</h3>
+        <div class="payment_method">
+          <label class="text n pay"
+            ><input type="radio" value="card" v-model="paymentMethod" /> 페이크결제</label
+          >
+          <!-- <label><input type="radio" value="bank" v-model="paymentMethod" /> 무통장입금</label> -->
+        </div>
       </div>
-    </div>
-
-    <!-- 결제 -->
-    <div class="order_section total_section">
-      <p class="total">
-        총 합계: <span>{{ total.toLocaleString() }}</span
-        >원
-      </p>
-      <button class="pay_btn" @click="handlePayment" :disabled="loading">
+    </section>
+    <section class="total_section">
+      <div class=" ">
+        <p class="total medium bb">
+          총 합계 : <span class="big">{{ total.toLocaleString() }}</span
+          >원
+        </p>
+      </div>
+      <button class="pay_btn medium n" @click="handlePayment" :disabled="loading">
         <span v-if="!loading">결제하기</span>
         <span v-else>결제 중...</span>
       </button>
-    </div>
-  </section>
+    </section>
+  </article>
 </template>
 
 <script setup>
@@ -69,13 +101,45 @@ import { getOrder, clearOrder } from '@/api/order.js'
 const router = useRouter()
 const store = useStore()
 const orderItems = ref([])
-const shipping = ref({ name: '', phone: '', address: '' })
+const shipping = ref({ name: '', phone: '', address: '', detailAddress: '' })
 const paymentMethod = ref('card')
 const total = ref(0)
 const loading = ref(false)
 
 const getImgUrl = (category, filename) =>
   new URL(`../assets/img/${category}/${filename}`, import.meta.url).href
+
+// ⭐ input refs (자동 포커스에 사용)
+const nameInput = ref(null)
+const phoneInput = ref(null)
+const addrSearchBtn = ref(null)
+const addressInput = ref(null)
+const detailInput = ref(null)
+const payBtn = ref(null)
+
+const focusNext = (nextRef) => {
+  if (nextRef === 'payBtn') {
+    payBtn.value?.focus()
+  } else {
+    const target = eval(nextRef)
+    target?.value?.focus()
+  }
+}
+
+// ⭐ 주소 검색 기능
+const openPostcode = () => {
+  if (!window.daum || !window.daum.Postcode) {
+    alert('주소 검색 기능을 불러오지 못했습니다. 잠시 후 다시 시도해주세요.')
+    return
+  }
+
+  new window.daum.Postcode({
+    oncomplete(data) {
+      shipping.value.address = data.address
+      setTimeout(() => detailInput.value?.focus(), 50)
+    },
+  }).open()
+}
 
 onMounted(() => {
   // Vuex에서 바로 가져오기
@@ -85,6 +149,8 @@ onMounted(() => {
     (sum, item) => sum + Number(item.price) * Number(item.quantity),
     0,
   )
+
+  nameInput.value?.focus()
 })
 
 const handlePayment = () => {
@@ -106,126 +172,5 @@ const handlePayment = () => {
 </script>
 
 <style scoped lang="scss">
-.order_view {
-  max-width: 800px;
-  margin: 60px auto;
-  padding: 24px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-
-  .title {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-
-  .progress_bar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 30px;
-    .step {
-      color: #bbb;
-      &.active {
-        color: #222;
-        font-weight: 600;
-      }
-    }
-    .arrow {
-      color: #888;
-    }
-  }
-
-  .order_section {
-    margin-bottom: 32px;
-    h3 {
-      font-size: 1.2rem;
-      margin-bottom: 12px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 4px;
-    }
-
-    .order_list {
-      list-style: none;
-      padding: 0;
-
-      .order_item {
-        display: flex;
-        gap: 16px;
-        padding: 12px 0;
-        border-bottom: 1px solid #eee;
-        img {
-          width: 80px;
-          height: 80px;
-          object-fit: cover;
-          border-radius: 8px;
-        }
-        .item_info {
-          flex: 1;
-          .name {
-            font-weight: 600;
-            margin-bottom: 4px;
-          }
-          .quantity,
-          .price {
-            color: #555;
-          }
-        }
-      }
-    }
-
-    .shipping_form input {
-      display: block;
-      width: 100%;
-      margin-bottom: 10px;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-    }
-
-    .payment_method {
-      label {
-        margin-right: 16px;
-        input {
-          margin-right: 6px;
-        }
-      }
-    }
-
-    &.total_section {
-      text-align: center;
-      .total {
-        font-size: 1.4rem;
-        margin-bottom: 20px;
-        span {
-          font-weight: 700;
-          color: #e44;
-        }
-      }
-      .pay_btn {
-        padding: 14px 40px;
-        border: none;
-        border-radius: 8px;
-        background: #e44;
-        color: #fff;
-        font-size: 1.1rem;
-        cursor: pointer;
-        &:disabled {
-          opacity: 0.6;
-          cursor: not-allowed;
-        }
-      }
-    }
-  }
-
-  @media (max-width: 480px) {
-    padding: 16px;
-    .order_item {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-}
+@import '../assets/style/Order.scss';
 </style>
