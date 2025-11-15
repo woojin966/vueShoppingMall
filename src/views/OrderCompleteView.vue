@@ -19,10 +19,21 @@
 
       <h2 class="title">결제가 완료되었습니다 🎉</h2>
       <p class="desc">
+        <p>주문자: <strong>{{ customer.name }}</strong></p>
+<p>연락처: <strong>{{ customer.phone }}</strong></p>
+<p>이메일: <strong>{{ customer.email }}</strong></p>
         주문번호 <strong>{{ orderNumber }}</strong
         ><br />
-        감사합니다, <strong>{{ shipping.name }}</strong
-        >님!
+        수령인: <strong>{{ shipping.name }}</strong
+        ><br />
+        연락처: <strong>{{ shipping.phone }}</strong
+        ><br />
+        이메일: <strong>{{ shipping.email }}</strong
+        ><br />
+        주소: <strong>{{ shipping.address }} {{ shipping.detailAddress }}</strong
+        ><br />
+        배송메시지: <strong>{{ shipping.message }}</strong
+        ><br />
       </p>
 
       <div class="btns">
@@ -39,13 +50,11 @@ import { useStore } from 'vuex'
 
 const store = useStore()
 const orderNumber = computed(() => store.state.order.orderNumber)
+const customer = computed(() => store.state.order.customer)
 const shipping = computed(() => store.state.order.shipping)
 
 onMounted(() => {
-  // ✅ 완료 페이지에 들어왔을 때만 주문 정보 초기화
-  setTimeout(() => {
-    store.commit('order/clearOrder')
-  }, 2000)
+
 })
 </script>
 

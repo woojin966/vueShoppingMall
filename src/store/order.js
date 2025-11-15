@@ -3,10 +3,14 @@ export default {
   namespaced: true,
   state: () => ({
     items: [],
+    customer: { name: '', phone: '', email: '' },
     shipping: {
       name: '',
       phone: '',
+      email: '',
       address: '',
+      detailAddress: '',
+      message: '',
     },
     paymentMethod: 'card',
     orderNumber: '',
@@ -14,6 +18,9 @@ export default {
   mutations: {
     setItems(state, items) {
       state.items = items
+    },
+    setCustomer(state, customer) {
+      state.customer = customer
     },
     setShipping(state, shipping) {
       state.shipping = shipping
@@ -26,7 +33,15 @@ export default {
     },
     clearOrder(state) {
       state.items = []
-      state.shipping = { name: '', phone: '', address: '' }
+      state.customer = { name: '', phone: '', email: '' }
+      state.shipping = {
+        name: '',
+        phone: '',
+        email: '',
+        address: '',
+        detailAddress: '',
+        message: '',
+      }
       state.paymentMethod = 'card'
       state.orderNumber = ''
     },
