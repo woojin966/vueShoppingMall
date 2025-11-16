@@ -1,179 +1,90 @@
 <template>
-  <section class="order_complete">
-    <!-- Progress -->
-    <div class="progress_bar">
-      <span class="step active">장바구니</span>
-      <span class="arrow">→</span>
-      <span class="step active">주문서</span>
-      <span class="arrow">→</span>
-      <span class="step active">완료</span>
-    </div>
-
-    <div class="complete_box">
-      <div class="check_animation">
-        <svg viewBox="0 0 52 52" class="checkmark">
-          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
-          <path class="checkmark__check" fill="none" d="M14 27l7 7 16-16" />
-        </svg>
-      </div>
-
-      <h2 class="title">결제가 완료되었습니다 🎉</h2>
-      <p class="desc">
-        <p>주문자: <strong>{{ customer.name }}</strong></p>
-<p>연락처: <strong>{{ customer.phone }}</strong></p>
-<p>이메일: <strong>{{ customer.email }}</strong></p>
-        주문번호 <strong>{{ orderNumber }}</strong
-        ><br />
-        수령인: <strong>{{ shipping.name }}</strong
-        ><br />
-        연락처: <strong>{{ shipping.phone }}</strong
-        ><br />
-        이메일: <strong>{{ shipping.email }}</strong
-        ><br />
-        주소: <strong>{{ shipping.address }} {{ shipping.detailAddress }}</strong
-        ><br />
-        배송메시지: <strong>{{ shipping.message }}</strong
-        ><br />
-      </p>
-
-      <div class="btns">
-        <router-link to="/" class="btn home">홈으로</router-link>
-        <router-link to="/mypage/orders" class="btn">주문 내역 보기</router-link>
-      </div>
-    </div>
-  </section>
+  <Header />
+  <article class="order_complete_wrap">
+    <section class="order_complete_top_box">
+      <div class="check_success"></div>
+      <h2 class="bb">결제가 완료되었습니다</h2>
+    </section>
+    <section class="order_complete_content">
+      <h3 class="sb">
+        <span>주문번호</span>
+        <span class="bb">{{ orderNumber }}</span>
+      </h3>
+      <ul class="customer_info_list">
+        <li>
+          <p class="medium">
+            <span class="sb">주문자</span>
+            <span class="bb">{{ customer.name }}</span>
+          </p>
+        </li>
+        <li>
+          <p class="medium">
+            <span class="sb">연락처</span>
+            <span class="bb">{{ customer.phone }}</span>
+          </p>
+        </li>
+        <li>
+          <p class="medium">
+            <span class="sb">이메일</span>
+            <span class="bb">{{ customer.email }}</span>
+          </p>
+        </li>
+      </ul>
+      <ul class="shipping_info_list">
+        <li>
+          <p class="medium">
+            <span class="sb">수령인</span>
+            <span class="bb">{{ shipping.name }}</span>
+          </p>
+        </li>
+        <li>
+          <p class="medium">
+            <span class="sb">연락처</span>
+            <span class="bb">{{ shipping.phone }}</span>
+          </p>
+        </li>
+        <li>
+          <p class="medium">
+            <span class="sb">이메일</span>
+            <span class="bb">{{ shipping.email }}</span>
+          </p>
+        </li>
+        <li>
+          <p class="medium">
+            <span class="sb">주소</span>
+            <span class="bb">{{ shipping.address }} {{ shipping.detailAddress }}</span>
+          </p>
+        </li>
+        <li>
+          <p class="medium">
+            <span class="sb">배송메시지</span>
+            <span class="bb">{{ shipping.message }}</span>
+          </p>
+        </li>
+      </ul>
+    </section>
+    <section class="order_complte_btn_box">
+      <router-link to="/" class="btn home medium n">홈으로</router-link>
+      <router-link to="/mypage/orders" class="btn medium n">주문 내역 보기</router-link>
+    </section>
+  </article>
+  <Footer />
 </template>
 
 <script setup>
 import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 
 const store = useStore()
 const orderNumber = computed(() => store.state.order.orderNumber)
 const customer = computed(() => store.state.order.customer)
 const shipping = computed(() => store.state.order.shipping)
 
-onMounted(() => {
-
-})
+onMounted(() => {})
 </script>
 
 <style scoped lang="scss">
-.order_complete {
-  max-width: 600px;
-  margin: 80px auto;
-  text-align: center;
-
-  .progress_bar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 40px;
-    .step {
-      color: #bbb;
-      &.active {
-        color: #222;
-        font-weight: 600;
-      }
-    }
-    .arrow {
-      color: #888;
-    }
-  }
-
-  .complete_box {
-    background: #fff;
-    border-radius: 12px;
-    padding: 40px 20px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-
-    .check_animation {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-
-      .checkmark {
-        width: 80px;
-        height: 80px;
-        stroke-width: 2;
-        stroke: #4caf50;
-        stroke-miterlimit: 10;
-        box-shadow: inset 0px 0px 0px #4caf50;
-        animation:
-          fill 0.4s ease-in-out 0.4s forwards,
-          scale 0.3s ease-in-out 0.9s both;
-
-        &__circle {
-          stroke-dasharray: 166;
-          stroke-dashoffset: 166;
-          stroke-width: 2;
-          stroke-miterlimit: 10;
-          stroke: #4caf50;
-          fill: none;
-          animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
-        }
-
-        &__check {
-          transform-origin: 50% 50%;
-          stroke-dasharray: 48;
-          stroke-dashoffset: 48;
-          animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
-        }
-      }
-
-      @keyframes stroke {
-        100% {
-          stroke-dashoffset: 0;
-        }
-      }
-      @keyframes scale {
-        0%,
-        100% {
-          transform: none;
-        }
-        50% {
-          transform: scale3d(1.1, 1.1, 1);
-        }
-      }
-      @keyframes fill {
-        100% {
-          box-shadow: inset 0px 0px 0px 30px #4caf50;
-        }
-      }
-    }
-
-    .title {
-      font-size: 1.6rem;
-      margin-bottom: 10px;
-    }
-
-    .desc {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #555;
-      margin-bottom: 30px;
-      strong {
-        color: #222;
-      }
-    }
-
-    .btns {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      .btn {
-        display: inline-block;
-        background: #444;
-        color: #fff;
-        padding: 12px 24px;
-        border-radius: 6px;
-        text-decoration: none;
-        &.home {
-          background: #4caf50;
-        }
-      }
-    }
-  }
-}
+@import '../assets/style/OrderComplete.scss';
 </style>

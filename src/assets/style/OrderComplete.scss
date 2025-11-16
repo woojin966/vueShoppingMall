@@ -1,0 +1,213 @@
+.order_complete_wrap {
+  padding: 60px 40px 100px;
+  min-height: 80dvh;
+  position: relative;
+  @media all and (max-width: 1024px) {
+    padding: 60px 20px 80px;
+  }
+  @media all and (max-width: 480px) {
+    padding: 40px 16px 60px;
+  }
+}
+
+.order_complete_top_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  h2 {
+    color: $pointRed;
+  }
+}
+.check_success {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: relative;
+  border: 3px solid $pointRed;
+  animation:
+    popIn 0.4s ease-out forwards,
+    fillRed 0.4s ease-out 0.3s forwards;
+  box-sizing: border-box;
+
+  /* 체크 전체 그룹 */
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: white;
+    transform-origin: left top;
+    opacity: 0;
+  }
+
+  /* 1번째 획 (왼쪽 아래로 가는 짧은 선) */
+  &::before {
+    width: 0;
+    height: 4px;
+    top: 33px;
+    left: 24px;
+    transform: rotate(45deg);
+    animation: drawFirst 0.25s ease-out 0.6s forwards;
+  }
+
+  /* 2번째 획 (오른쪽 위로 길게 올라가는 선) */
+  &::after {
+    width: 0;
+    height: 4px;
+    top: 45px;
+    left: 32px;
+    transform: rotate(-45deg);
+    animation: drawSecond 0.35s ease-out 0.8s forwards;
+  }
+}
+
+/* 원 등장 */
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 빨간 배경 채우기 */
+@keyframes fillRed {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: $pointRed;
+  }
+}
+
+/* 체크 첫 획 그리는 애니메이션 */
+@keyframes drawFirst {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 18px;
+    opacity: 1;
+  }
+}
+
+/* 체크 두 번째 획 그리는 애니메이션 */
+@keyframes drawSecond {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 28px;
+    opacity: 1;
+  }
+}
+
+.order_complete_content {
+  margin: 40px 0 0;
+
+  h3 {
+    display: flex;
+    gap: 12px;
+    color: $pointRed;
+    width: 100%;
+    justify-content: center;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    li {
+      width: 40%;
+      p {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 8px;
+        span {
+          &:first-child {
+            color: $pointRed;
+            width: 32%;
+          }
+          &:last-child {
+            width: 68%;
+          }
+        }
+      }
+    }
+    &.customer_info_list {
+      margin: 28px 0;
+      padding: 28px 0;
+      border-top: 1px solid $gray;
+      border-bottom: 1px solid $gray;
+    }
+  }
+  @media all and (max-width: 1024px) {
+    margin: 32px 0 0;
+    li {
+      width: 60%;
+    }
+  }
+  @media all and (max-width: 768px) {
+    margin: 24px 0 0;
+    li {
+      width: 80%;
+    }
+  }
+  @media all and (max-width: 480px) {
+    margin: 20px 0 0;
+    ul {
+      li {
+        width: 100%;
+        p {
+          justify-content: flex-start;
+        }
+      }
+    }
+  }
+}
+
+.order_complte_btn_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 80px;
+  a {
+    padding: 20px 16px;
+    width: 200px;
+    cursor: not-allowed;
+    text-align: center;
+    &:first-child {
+      border: 1px solid #000;
+    }
+    &:last-child {
+      border: 1px solid $pointRed;
+      background-color: $pointRed;
+      color: #fff;
+    }
+  }
+  @media all and (max-width: 1024px) {
+    margin-top: 60px;
+    a {
+      padding: 16px 12px;
+    }
+  }
+  @media all and (max-width: 480px) {
+    flex-direction: column;
+    margin-top: 40px;
+
+    gap: 8px;
+    a {
+      padding: 8px 12px;
+      width: 100%;
+    }
+  }
+}
