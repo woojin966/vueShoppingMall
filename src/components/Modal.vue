@@ -7,7 +7,7 @@
       </div>
       <p v-else class="modal_message text sb">{{ message }}</p>
 
-      <div class="modal_buttons">
+      <div class="modal_buttons" :class="{ btn_one: confirmText }">
         <!-- cancelText가 있을 때만 취소 버튼 표시 -->
         <button v-if="cancelText" class="btn cancel text n" @click="$emit('cancel')">
           {{ cancelText }}
@@ -65,6 +65,11 @@ const props = defineProps({
         &.confirm {
           background-color: $pointRed;
           color: #fff;
+        }
+      }
+      &.btn_one {
+        button {
+          width: 100%;
         }
       }
     }

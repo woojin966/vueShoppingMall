@@ -156,6 +156,7 @@
           font-size: 12px;
           white-space: break-spaces;
           word-break: keep-all;
+          text-align: right;
         }
       }
     }
@@ -246,7 +247,6 @@
         .sub_menu_list {
           flex-direction: row;
           width: max-content;
-          border-left: 2px solid $pink;
           border-right: 2px solid $pink;
           .menu2 {
             display: flex;

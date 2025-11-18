@@ -63,10 +63,10 @@
         </li>
       </ul>
     </section>
-    <section class="order_complte_btn_box">
+    <!-- <section class="order_complte_btn_box">
       <router-link to="/" class="btn home medium n">홈으로</router-link>
       <router-link to="/mypage/orders" class="btn medium n">주문 내역 보기</router-link>
-    </section>
+    </section> -->
   </article>
   <Footer />
 </template>

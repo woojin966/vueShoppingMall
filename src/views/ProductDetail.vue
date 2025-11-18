@@ -235,9 +235,9 @@
       <div class="review_form">
         <!-- 작성자 -->
         <div class="form_group">
-          <label>작성자</label>
+          <label class="text n">작성자</label>
           <div v-if="isLoggedIn">
-            <p class="user_id">{{ userId }}</p>
+            <p class="user_id text sb">{{ userId }}</p>
           </div>
           <div v-else>
             <input
@@ -252,7 +252,7 @@
 
         <!-- 제목 -->
         <div class="form_group">
-          <label>제목</label>
+          <label class="text n">제목</label>
           <input
             v-model="formData.title"
             type="text"
@@ -263,8 +263,15 @@
         </div>
 
         <!-- 비공개 여부(QNA 전용) -->
-        <div v-if="modalType === 'qna'" class="form_group">
-          <label><input type="checkbox" v-model="formData.secret" /> 비공개</label>
+        <div v-if="modalType === 'qna'" class="form_group for_qna">
+          <label class="text n">
+            <input
+              type="checkbox"
+              v-model="formData.secret"
+              :class="{ checked: formData.secret }"
+            />
+            비공개</label
+          >
           <input
             v-if="formData.secret"
             v-model="formData.password"
@@ -276,15 +283,22 @@
         </div>
 
         <!-- 사진 업로드 -->
-        <div class="form_group">
-          <label>사진 (선택)</label>
-          <input type="file" @change="onImageChange" accept="image/*" />
-          <img v-if="formData.image" :src="formData.image" class="preview_image" />
+        <div class="form_group file_upload_box">
+          <label class="text n">사진 (선택)</label>
+
+          <!-- 업로드 버튼 -->
+          <label class="file_upload_btn text n">
+            사진 선택
+            <input type="file" accept="image/*" @change="onImageChange" />
+          </label>
+
+          <!-- 파일명 표시 -->
+          <p v-if="fileName" class="file_name text n">{{ fileName }}</p>
         </div>
 
         <!-- 내용 -->
         <div class="form_group">
-          <label>내용</label>
+          <label class="text n">내용</label>
           <textarea
             v-model="formData.content"
             placeholder="내용을 입력하세요"
@@ -404,12 +418,16 @@ const resetForm = () => {
 }
 
 // 이미지 등록
+const fileName = ref('')
 const onImageChange = (e) => {
   const file = e.target.files[0]
-  if (!file) return
-  const reader = new FileReader()
-  reader.onload = () => (formData.value.image = reader.result)
-  reader.readAsDataURL(file)
+  if (file) {
+    fileName.value = file.name
+    formData.value.image = URL.createObjectURL(file) // 이미지는 필요하면만 저장
+  } else {
+    fileName.value = ''
+    formData.value.image = null
+  }
 }
 
 // 제출

@@ -20,9 +20,16 @@ h2 {
     border: 2px solid $pink;
   }
   @media all and (max-width: 1024px) {
+    gap: 28px;
     li {
-      height: calc(84dvh - 128px);
+      // height: calc(84dvh - 128px);
     }
+  }
+  @media all and (max-width: 768px) {
+    gap: 24px;
+  }
+  @media all and (max-width: 480px) {
+    gap: 20px;
   }
 }
 

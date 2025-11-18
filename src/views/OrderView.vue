@@ -151,7 +151,7 @@
         <h3 class="sb">이용 및 정보 제공 약관</h3>
         <label>
           <input type="checkbox" v-model="agreeTerms" :class="{ checked: agreeTerms }" />
-          결제 전 이용 및 정보 제공 약관 등의 내용을 확인했으며 이에 동의합니다.
+          <span> 결제 전 이용 및 정보 제공 약관 등의 내용을 확인했으며 이에 동의합니다. </span>
         </label>
         <div>
           <div class="">

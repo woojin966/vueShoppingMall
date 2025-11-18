@@ -112,6 +112,14 @@
       }
     }
   }
+  @media all and (max-width: 480px) {
+    li {
+      .item_info {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  }
 }
 .customer_form,
 .shipping_form {
@@ -270,6 +278,9 @@
     align-items: center;
     gap: 8px;
     margin-bottom: 20px;
+    span {
+      width: calc(100% - 28px);
+    }
   }
   > div {
     padding: 20px;
