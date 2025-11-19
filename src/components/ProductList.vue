@@ -27,11 +27,16 @@ import {
 import { useStore } from 'vuex'
 import ProductItem from '@/components/ProductItem.vue'
 
+// const props = defineProps({
+//   category: { type: String, default: 'all' },
+//   path: { type: String, required: true },
+//   filterType: { type: String, default: '등록순' },
+//   searchKeyword: { type: String, default: '' }, // ✅ 추가
+// })
 const props = defineProps({
-  category: { type: String, default: 'all' },
-  path: { type: String, required: true },
-  filterType: { type: String, default: '등록순' },
-  searchKeyword: { type: String, default: '' }, // ✅ 추가
+  category: String,
+  filterType: String,
+  path: String,
 })
 
 const emits = defineEmits(['update:noResults'])
@@ -49,74 +54,6 @@ const maxBatchIndex = computed(() =>
 
 const hasMore = computed(() => batchIndex.value < maxBatchIndex.value)
 
-// const displayedItems = computed(() => {
-//   if (!isLoaded.value || !items.value.length) return []
-//   return items.value.slice(0, batchIndex.value * batchSize).filter((item) => item && item.id)
-// })
-// const displayedItems = computed(() => {
-//   if (!isLoaded.value || !items.value.length) return []
-
-//   // 1) 전체 배열 복사
-//   let result = [...items.value]
-
-//   // 2) category 필터 (기존 fetchProducts에서 이미 처리했다면 생략 가능)
-//   if (props.category !== 'all') {
-//     result = result.filter((item) => item.category === props.category)
-//   }
-
-//   // 3) filterType 기준 정렬
-//   switch (props.filterType) {
-//     case '인기순':
-//       result.sort((a, b) => Number(b.popularNum) - Number(a.popularNum))
-//       break
-//     case '낮은가격순':
-//       result.sort((a, b) => Number(a.price) - Number(b.price))
-//       break
-//     case '높은가격순':
-//       result.sort((a, b) => Number(b.price) - Number(a.price))
-//       break
-//     case '등록순':
-//     default:
-//       // 원본 배열 순서 그대로 (fetchProducts에서 온 순서)
-//       break
-//   }
-
-//   // 4) batch 처리
-//   return result.slice(0, batchIndex.value * batchSize)
-// })
-// const displayedItems = computed(() => {
-//   if (!isLoaded.value || !items.value.length) return []
-
-//   let result = [...items.value]
-
-//   // Selection 메뉴 필터
-//   if (props.category === 'new') result = result.filter((item) => item.new)
-//   else if (props.category === 'best') result = result.filter((item) => item.best)
-//   else if (props.category === 'sale') result = result.filter((item) => item.clearance)
-//   // 일반 카테고리 필터
-//   else if (props.category !== 'all') {
-//     result = result.filter((item) => item.category === props.category)
-//   }
-
-//   // 정렬
-//   switch (props.filterType) {
-//     case '인기순':
-//       result.sort((a, b) => Number(b.popularNum) - Number(a.popularNum))
-//       break
-//     case '낮은가격순':
-//       result.sort((a, b) => Number(a.price) - Number(b.price))
-//       break
-//     case '높은가격순':
-//       result.sort((a, b) => Number(b.price) - Number(a.price))
-//       break
-//     case '등록순':
-//     default:
-//       break
-//   }
-
-//   // batch 처리
-//   return result.slice(0, batchIndex.value * batchSize)
-// })
 const displayedItems = computed(() => {
   if (!isLoaded.value || !items.value.length) return []
 

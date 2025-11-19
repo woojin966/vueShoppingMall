@@ -39,7 +39,12 @@
     </div>
 
     <!-- Selection용 category prop으로 전달 -->
-    <ProductList :category="selectionCategory" :filter-type="filterType" :path="route.path" />
+    <ProductList
+      :category="category"
+      :filter-type="filterType"
+      :path="route.path"
+      menu-type="selection"
+    />
   </div>
   <Footer />
 </template>
@@ -55,10 +60,7 @@ import ProductList from '@/components/ProductList.vue'
 const route = useRoute()
 
 // 라우트에 따라 selection 카테고리 매핑
-const selectionCategory = computed(() => {
-  const path = route.path.split('/')[2] // new, best, sale
-  return path || 'new'
-})
+const category = computed(() => 'all')
 
 // banner
 const { imgUrl, randomFilter } = randomImages()

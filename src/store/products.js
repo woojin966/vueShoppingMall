@@ -25,10 +25,22 @@ export default {
     async fetchProducts({ commit }, payload) {
       try {
         const { category = 'all', path = '', menuType = '' } = payload || {}
-        const pathname = path || window.location.pathname
+
+        // -----------------------------
+        // ① pathname 완전 안전 처리
+        // -----------------------------
+        const base = import.meta.env.BASE_URL || '/'
+
+        let rawPath = path || window.location.pathname
+
+        // '/myshop/' → '' 로 정확히 제거
+        const pathname = rawPath.replace(new RegExp(`^${base}`), '/')
+
         let rawProducts = []
 
-        // ✅ Home 메뉴 미리보기에서만 사용하는 필터
+        // -----------------------------
+        // ② HOME 미리보기 데이터(menuType)
+        // -----------------------------
         if (menuType === 'kitchen') {
           const menu1 = (await getMenu1Products()).map((p) => ({ ...p }))
           rawProducts = menu1.filter((p) => p.new)
@@ -43,52 +55,60 @@ export default {
           const menu1 = (await getMenu1Products()).map((p) => ({ ...p }))
           const menu2 = (await getMenu2Products()).map((p) => ({ ...p }))
           rawProducts = [...menu1, ...menu2].filter((p) => p.best)
-        } else if (menuType === 'community') {
-          //
         } else {
-          // ✅ 이 아래는 실제 페이지에서 사용하는 pathname 분기
-          //const pathname = window.location.pathname
+          // -----------------------------
+          // ③ 실제 페이지별 pathname 라우팅
+          // -----------------------------
 
+          // --- SELECTION ---
           if (pathname === '/selection/new') {
-            const menu1 = (await getMenu1Products()).map((p) => ({ ...p }))
-            const menu2 = (await getMenu2Products()).map((p) => ({ ...p }))
-            rawProducts = [...menu1, ...menu2].filter((p) => p.new)
+            const m1 = (await getMenu1Products()).map((p) => ({ ...p }))
+            const m2 = (await getMenu2Products()).map((p) => ({ ...p }))
+            rawProducts = [...m1, ...m2].filter((p) => p.new)
           } else if (pathname === '/selection/best') {
-            const menu1 = (await getMenu1Products()).map((p) => ({ ...p }))
-            const menu2 = (await getMenu2Products()).map((p) => ({ ...p }))
-            rawProducts = [...menu1, ...menu2].filter((p) => p.best).slice(0, 30)
+            const m1 = (await getMenu1Products()).map((p) => ({ ...p }))
+            const m2 = (await getMenu2Products()).map((p) => ({ ...p }))
+            rawProducts = [...m1, ...m2].filter((p) => p.best)
           } else if (pathname === '/selection/sale') {
-            const menu1 = (await getMenu1Products()).map((p) => ({ ...p }))
-            const menu2 = (await getMenu2Products()).map((p) => ({ ...p }))
-            rawProducts = [...menu1, ...menu2].filter((p) => p.clearance)
+            const m1 = (await getMenu1Products()).map((p) => ({ ...p }))
+            const m2 = (await getMenu2Products()).map((p) => ({ ...p }))
+            rawProducts = [...m1, ...m2].filter((p) => p.clearance)
+
+            // --- KITCHEN ---
           } else if (pathname === '/kitchen/summerdish') {
-            const menu1 = (await getMenu1Products()).map((p) => ({ ...p }))
-            rawProducts = menu1.filter((p) => p.isSummerdish)
+            const m1 = (await getMenu1Products()).map((p) => ({ ...p }))
+            rawProducts = m1.filter((p) => p.isSummerdish)
           } else if (pathname.startsWith('/kitchen')) {
             rawProducts = await getMenu1Products()
-          } else if (pathname === '/uncommon' || pathname === '/uncommon/') {
-            rawProducts = await getMenu2Products()
+
+            // --- UNCOMMON ---
           } else if (pathname === '/uncommon/thai-it') {
-            const menu1 = (await getMenu1Products()).map((p) => ({ ...p }))
-            const menu2 = (await getMenu2Products()).map((p) => ({ ...p }))
-            rawProducts = [...menu1, ...menu2].filter((p) => p.isThai)
+            const m1 = (await getMenu1Products()).map((p) => ({ ...p }))
+            const m2 = (await getMenu2Products()).map((p) => ({ ...p }))
+            rawProducts = [...m1, ...m2].filter((p) => p.isThai)
+          } else if (pathname.startsWith('/uncommon')) {
+            rawProducts = await getMenu2Products()
+
+            // --- BRAND ---
           } else if (/^\/brand\/([^/]+)\/?$/.test(pathname)) {
-            const match = pathname.match(/^\/brand\/([^/]+)\/?$/)
-            const brandName = match ? match[1] : ''
+            const brandName = pathname.split('/')[2]?.toLowerCase()
             if (brandName) {
-              const menu1 = (await getMenu1Products()).map((p) => ({ ...p }))
-              const menu2 = (await getMenu2Products()).map((p) => ({ ...p }))
-              const all = [...menu1, ...menu2]
-              rawProducts = all.filter((p) => p.brand?.toLowerCase() === brandName.toLowerCase())
+              const m1 = (await getMenu1Products()).map((p) => ({ ...p }))
+              const m2 = (await getMenu2Products()).map((p) => ({ ...p }))
+              rawProducts = [...m1, ...m2].filter((p) => p.brand?.toLowerCase() === brandName)
             }
+
+            // --- ALL PRODUCTS (fallback) ---
           } else {
-            const menu1 = (await getMenu1Products()).map((p) => ({ ...p }))
-            const menu2 = (await getMenu2Products()).map((p) => ({ ...p }))
-            rawProducts = [...menu1, ...menu2]
+            const m1 = (await getMenu1Products()).map((p) => ({ ...p }))
+            const m2 = (await getMenu2Products()).map((p) => ({ ...p }))
+            rawProducts = [...m1, ...m2]
           }
         }
 
-        // ✅ 마지막 category 필터링
+        // -----------------------------
+        // ④ category 필터링 (일반 카테고리)
+        // -----------------------------
         const filteredProducts =
           pathname.startsWith('/selection/') ||
           pathname === '/kitchen/summerdish' ||
@@ -100,8 +120,8 @@ export default {
               : rawProducts.filter((p) => p.category === category)
 
         commit('setProducts', uniqueById(filteredProducts))
-      } catch (error) {
-        console.error('상품 불러오기 실패:', error)
+      } catch (err) {
+        console.error('상품 불러오기 실패:', err)
       }
     },
   },

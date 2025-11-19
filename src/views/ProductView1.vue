@@ -43,7 +43,8 @@
       </ul>
     </div>
 
-    <ProductList :category="category" :filter-type="filterType" />
+    <!-- <ProductList :category="category" :filter-type="filterType" /> -->
+    <ProductList :category="category" :filter-type="filterType" :path="route.path" />
   </div>
   <Footer />
 </template>
@@ -59,9 +60,17 @@ import ProductList from '@/components/ProductList.vue'
 const route = useRoute()
 
 // 경로에 따른 카테고리 매핑 (예: 전체는 'all' 처리)
+// const category = computed(() => {
+//   const cat = route.path.split('/')[2]
+//   return cat || 'all'
+// })
 const category = computed(() => {
-  const cat = route.path.split('/')[2]
-  return cat || 'all'
+  const second = route.path.split('/')[2]
+
+  // 여름의 맛은 category 필터 쓰면 안 됨!!
+  if (second === 'summerdish') return 'all'
+
+  return second || 'all'
 })
 
 // banner

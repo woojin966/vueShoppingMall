@@ -42,7 +42,8 @@
     </div>
 
     <!-- ProductList에 현재 경로도 함께 전달 -->
-    <ProductList :category="category" :path="route.path" :filterType="filterType" />
+    <!-- <ProductList :category="category" :path="route.path" :filterType="filterType" /> -->
+    <ProductList :category="category" :filter-type="filterType" :path="route.path" />
   </div>
   <Footer />
 </template>

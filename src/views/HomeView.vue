@@ -7,9 +7,12 @@
         :menuType="menuType"
         class="preview_box"
       />
-      <div v-else-if="menuType === 'community'">
-        <!-- community일 때 보여질 내용 -->
-        커뮤니티 전용 콘텐츠입니다.
+      <div v-else-if="menuType === 'community'" class="ready_wrap">
+        <div>
+          <font-awesome-icon icon="fa-solid fa-triangle-exclamation" />
+          <h1>Oops! We're<br />still working <br class="mo_blk" />on this page.</h1>
+        </div>
+        <p class="big sb">빠른 시일 내에 <br class="mo_blk" />찾아뵙겠습니다😊</p>
       </div>
       <div class="home_img_box" v-else>
         <p :class="randomFilter">REIAS</p>

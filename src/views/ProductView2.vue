@@ -46,7 +46,9 @@
       </ul>
     </div>
 
-    <ProductList :category="category" :filterType="filterType" />
+    <!-- <ProductList :category="category" :filterType="filterType" /> -->
+
+    <ProductList :category="category" :filter-type="filterType" :path="route.path" />
   </div>
   <Footer />
 </template>
@@ -62,9 +64,17 @@ import ProductList from '@/components/ProductList.vue'
 const route = useRoute()
 
 // 경로에 따른 카테고리 매핑 (예: 전체는 'all' 처리)
+// const category = computed(() => {
+//   const cat = route.path.split('/')[2]
+//   return cat || 'all'
+// })
 const category = computed(() => {
-  const cat = route.path.split('/')[2]
-  return cat || 'all'
+  const second = route.path.split('/')[2]
+
+  // 타이잇 페이지는 true 필터(isThai)만 써야 함
+  if (second === 'thai-it') return 'all'
+
+  return second || 'all'
 })
 
 // banner
