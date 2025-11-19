@@ -92,9 +92,9 @@
           <span></span>
           <span></span>
         </a>
-        <a href="javascript:void(0)" class="logo">
-          <img src="@/assets/img/favicon/reias_logo.png" />
-        </a>
+        <router-link to="/" class="logo">
+          <img src="@/assets/img/favicon/reias_logo.png" alt="logo" />
+        </router-link>
         <div class="menu_box">
           <router-link to="/cart" class="cart_icon">
             <font-awesome-icon icon="fa-solid fa-cart-shopping" />

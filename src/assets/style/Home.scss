@@ -7,7 +7,7 @@
 }
 
 .preview_section {
-  width: 48%;
+  width: 44%;
   margin-bottom: 0;
   padding: 40px;
   height: 100dvh;
@@ -138,6 +138,10 @@
     h1 {
       writing-mode: unset;
     }
+    .logo {
+      width: calc(4dvh - 4px);
+      height: calc(4dvh - 4px);
+    }
   }
   @media all and (max-width: 768px) {
     h1 {
@@ -163,6 +167,10 @@
     h1 {
       font-size: 28px;
     }
+    .logo {
+      width: calc(8dvh - 4px);
+      height: calc(8dvh - 4px);
+    }
   }
 }
 @keyframes spin {
@@ -175,7 +183,7 @@
 }
 
 .navigation_section {
-  width: 48%;
+  width: 52%;
   .menu_list {
     height: 100dvh;
     overflow-y: auto;
