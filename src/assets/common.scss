@@ -13,7 +13,7 @@ button {
 
 // font size
 .menu1 {
-  font-size: 60px;
+  font-size: 52px;
   font-family: $bbh;
   @media all and (max-width: 768px) {
     font-size: 48px;
@@ -29,6 +29,15 @@ button {
 .menu {
   font-size: 24px;
   font-family: $bbh;
+}
+h1 {
+  font-size: 40px;
+  @media all and (max-width: 1024px) {
+    font-size: 32px;
+  }
+  @media all and (max-width: 768px) {
+    font-size: 28px;
+  }
 }
 h2 {
   font-size: 28px;

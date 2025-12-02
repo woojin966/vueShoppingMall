@@ -10,26 +10,30 @@ h2 {
   font-size: 32px;
   color: $pink;
   margin-bottom: 8px;
+  @media all and (max-width: 1024px) {
+    font-size: 28px;
+  }
+  @media all and (max-width: 768px) {
+    font-size: 24px;
+  }
 }
 
 .home_products_list {
   display: flex;
-  flex-direction: column;
-  gap: 40px;
+  gap: 20px;
+  flex-wrap: wrap;
   li {
     border: 2px solid $pink;
+    width: calc(50% - 10px);
   }
   @media all and (max-width: 1024px) {
-    gap: 28px;
-    li {
-      // height: calc(84dvh - 128px);
-    }
   }
-  @media all and (max-width: 768px) {
-    gap: 24px;
+  @media all and (max-width: 840px) {
   }
   @media all and (max-width: 480px) {
-    gap: 20px;
+    li {
+      width: 100%;
+    }
   }
 }
 

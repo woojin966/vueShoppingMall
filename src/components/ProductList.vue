@@ -27,12 +27,6 @@ import {
 import { useStore } from 'vuex'
 import ProductItem from '@/components/ProductItem.vue'
 
-// const props = defineProps({
-//   category: { type: String, default: 'all' },
-//   path: { type: String, required: true },
-//   filterType: { type: String, default: '등록순' },
-//   searchKeyword: { type: String, default: '' }, // ✅ 추가
-// })
 const props = defineProps({
   category: String,
   filterType: String,

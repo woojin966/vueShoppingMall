@@ -10,7 +10,6 @@
       object-fit: cover;
     }
     @media all and (max-width: 1024px) {
-      height: calc(100% - 156px);
     }
   }
   .name_price_box {
@@ -20,14 +19,26 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    justify-content: space-between;
     h3 {
       width: 100%;
       padding-bottom: 20px;
       margin-bottom: 20px;
       border-bottom: 1px solid $pink;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      @media all and (max-width: 1440px) {
+        padding-bottom: 16px;
+        margin-bottom: 16px;
+      }
+      @media all and (max-width: 480px) {
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+      }
     }
     .price_box {
-      width: 50%;
+      margin: 0;
       .clearance_price_box {
         display: flex;
         align-items: center;
@@ -71,7 +82,6 @@
       }
     }
     .more_btn_box {
-      width: 50%;
       text-align: right;
       .to_detail_btn {
         padding: 12px 16px;
@@ -80,6 +90,30 @@
         &:hover {
           background-color: #fff;
           color: $pointRed;
+        }
+      }
+    }
+    @media all and (max-width: 1440px) {
+      padding: 12px 16px;
+      .price_box {
+        width: 100%;
+        margin: 0 0 12px;
+        .clearance_price_box {
+          justify-content: space-between;
+        }
+        .price_num {
+          font-size: 24px;
+          &.b_price {
+            font-size: 18px;
+          }
+        }
+      }
+      .more_btn_box {
+        width: 100%;
+        text-align: center;
+        a {
+          padding: 8px 12px;
+          width: 100%;
         }
       }
     }

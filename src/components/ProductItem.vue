@@ -37,8 +37,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, nextTick, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { addToCart } from '@/api/cart.js'
-import Modal from '../components/Modal.vue'
+import Modal from './Modal.vue'
 
 const hover = ref(false)
 const props = defineProps({

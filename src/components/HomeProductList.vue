@@ -27,7 +27,7 @@
 <script setup>
 import { onMounted, computed, defineProps, watch } from 'vue'
 import { useStore } from 'vuex'
-import HomeProductItem from './HomeProductItem.vue'
+import HomeProductItem from '@/components/HomeProductItem.vue'
 
 const props = defineProps({
   menuType: { type: String, required: true },

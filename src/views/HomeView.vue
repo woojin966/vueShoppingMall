@@ -14,15 +14,15 @@
         </div>
         <p class="big sb">빠른 시일 내에 <br class="mo_blk" />찾아뵙겠습니다😊</p>
       </div>
-      <div class="home_img_box" v-else>
-        <p :class="randomFilter">REIAS</p>
-        <img :src="imgUrl" :class="randomFilter" alt="unsplash image" />
+      <div v-else class="home_initial">
+        <HeroBanner :imgUrl="imgUrl" :filterClass="randomFilter" />
+        <RecommendationList />
       </div>
     </section>
 
     <section class="header_section">
       <div>
-        <h1>REIAS</h1>
+        <h1 @click="goHomeInitial">REIAS</h1>
       </div>
       <div>
         <img class="logo" src="../assets/img/favicon/initial.svg" />
@@ -65,6 +65,8 @@ import { randomImages } from '../store/randomImages.js'
 import { getAllProducts as getMenu1Products } from '@/api/productmenu1'
 import { getAllProducts as getMenu2Products } from '@/api/productmenu2'
 import HomeProductList from '@/components/HomeProductList.vue'
+import HeroBanner from '@/components/home/HeroBanner.vue'
+import RecommendationList from '@/components/home/RecommendationList.vue'
 
 const { imgUrl, randomFilter } = randomImages()
 
@@ -149,67 +151,6 @@ onMounted(async () => {
   ]
 })
 
-// async로 선언해서 await 사용 가능하게 함
-// const toggleMenu = async (index, label, event) => {
-//   const list = menuList.value || document.querySelector('.menu_list')
-//   const btn = (event && event.currentTarget) || (list && list.querySelectorAll('.menu_btn')[index])
-//   const parentLi = btn.closest('li')
-//   const isSame = activeIndex.value === index
-
-//   // 1️⃣ 모든 서브메뉴 width 고정 (transition 중 scrollWidth 변화 방지)
-//   const allSubMenus = list.querySelectorAll('.sub_menu_list')
-//   allSubMenus.forEach((sub) => {
-//     sub.style.transition = 'none'
-//     sub.style.width = `${sub.offsetWidth}px`
-//   })
-
-//   // 2️⃣ 기존 메뉴 닫기
-//   activeIndex.value = null
-
-//   // 3️⃣ 기존 transition 끝날 때까지 기다림
-//   await new Promise((resolve) => setTimeout(resolve, 100))
-
-//   // 4️⃣ 새로운 메뉴 스크롤 고정 (이 시점엔 scrollWidth가 변하지 않음)
-//   const listRect = list.getBoundingClientRect()
-//   const liRect = parentLi.getBoundingClientRect()
-//   const leftPos = list.scrollLeft + (liRect.left - listRect.left)
-//   list.scrollTo({ left: leftPos, behavior: 'smooth' })
-
-//   // 5️⃣ 스크롤 완료 후 메뉴 열기
-//   await new Promise((resolve) => setTimeout(resolve, 100))
-//   // 스크롤이 안정된 뒤 열기
-//   if (!isSame) activeIndex.value = index
-
-//   // 6️⃣ 서브메뉴 원래 transition 복원
-//   allSubMenus.forEach((sub) => {
-//     sub.style.transition = ''
-//     sub.style.width = ''
-//   })
-
-//   // 5️⃣ preview 표시
-//   if (label === 'KITCHEN') {
-//     menuType.value = 'kitchen'
-//     showPreview.value = true
-//   } else if (label === 'UNCOMMON') {
-//     menuType.value = 'uncommon'
-//     showPreview.value = true
-//   } else if (label === 'SELECTION') {
-//     menuType.value = 'selection'
-//     showPreview.value = true
-//   } else if (label === 'BRAND') {
-//     menuType.value = 'brand'
-//     showPreview.value = true
-//   } else if (label === 'COMMUNITY') {
-//     menuType.value = 'community'
-//     showPreview.value = false
-//   } else {
-//     showPreview.value = false
-//   }
-
-//   // 6️⃣ preview 섹션 스크롤 맨 위로
-//   const preview = document.querySelector('.preview_section')
-//   if (preview) preview.scrollTo({ top: 0, behavior: 'smooth' })
-// }
 const toggleMenu = async (index, label, event) => {
   const list = menuList.value || document.querySelector('.menu_list')
   const btn = (event && event.currentTarget) || (list && list.querySelectorAll('.menu_btn')[index])
@@ -277,70 +218,16 @@ const toggleMenu = async (index, label, event) => {
   if (preview) preview.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
-// const toggleMenu = async (index, label, event) => {
-//   const list = menuList.value || document.querySelector('.menu_list')
-//   const btn = (event && event.currentTarget) || (list && list.querySelectorAll('.menu_btn')[index])
-//   const parentLi = btn.closest('li')
-//   const isSame = activeIndex.value === index
+const goHomeInitial = () => {
+  // 메뉴 상태 리셋
+  activeIndex.value = null
+  menuType.value = ''
+  showPreview.value = false
 
-//   // 1️⃣ 기존 메뉴 닫기
-//   activeIndex.value = null
-
-//   // 2️⃣ transition 끝날 때까지 잠깐 대기
-//   await new Promise((resolve) => setTimeout(resolve, 300))
-
-//   // 3️⃣ 새로운 메뉴 열기 (같은 버튼이면 토글)
-//   if (!isSame) activeIndex.value = index
-
-//   // 4️⃣ nextTick으로 DOM 업데이트 대기 (서브메뉴 펼쳐짐)
-//   await nextTick()
-
-//   // 5️⃣ 스크롤 위치 계산
-//   const listRect = list.getBoundingClientRect()
-//   const liRect = parentLi.getBoundingClientRect()
-
-//   // 가로 스크롤: 768~1024px
-//   if (window.innerWidth >= 360 && window.innerWidth <= 1024) {
-//     let leftPos = list.scrollLeft + (liRect.left - listRect.left)
-
-//     // 마지막 메뉴일 경우 list.scrollWidth 넘지 않도록 제한
-//     leftPos = Math.min(leftPos, list.scrollWidth - list.clientWidth)
-//     list.scrollTo({ left: leftPos, behavior: 'smooth' })
-//   } else if (window.innerWidth > 1024) {
-//     // PC 기준: 클릭된 메뉴가 화면 중앙에 오도록
-//     const centerPos =
-//       list.scrollLeft + (liRect.left - listRect.left) - listRect.width / 2 + liRect.width / 2
-//     list.scrollTo({ left: centerPos, behavior: 'smooth' })
-//   } else {
-//     // 세로 스크롤 (모바일 등)
-//     // const topPos = list.scrollTop + (liRect.top - listRect.top)
-//     // list.scrollTo({ top: topPos, behavior: 'smooth' })
-//   }
-
-//   // 5️⃣ preview 표시
-//   if (label === 'KITCHEN') {
-//     menuType.value = 'kitchen'
-//     showPreview.value = true
-//   } else if (label === 'UNCOMMON') {
-//     menuType.value = 'uncommon'
-//     showPreview.value = true
-//   } else if (label === 'SELECTION') {
-//     menuType.value = 'selection'
-//     showPreview.value = true
-//   } else if (label === 'BRAND') {
-//     menuType.value = 'brand'
-//     showPreview.value = true
-//   } else if (label === 'COMMUNITY') {
-//     menuType.value = 'community'
-//     showPreview.value = false
-//   } else {
-//     showPreview.value = false
-//   }
-
-//   // 6️⃣ preview 섹션 스크롤 맨 위로
-//   const preview = document.querySelector('.preview_section')
-//   if (preview) preview.scrollTo({ top: 0, behavior: 'smooth' })
-// }
+  // 좌측 preview 스크롤 맨 위로 이동
+  const preview = document.querySelector('.preview_section')
+  if (preview) preview.scrollTo({ top: 0, behavior: 'smooth' })
+}
 </script>
 
 <style scoped lang="scss">

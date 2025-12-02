@@ -7,63 +7,18 @@
 }
 
 .preview_section {
-  width: 44%;
+  width: 56%;
   margin-bottom: 0;
   padding: 40px;
   height: 100dvh;
   overflow-y: auto;
-
-  .home_img_box {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    p {
-      position: absolute;
-      z-index: 1;
-      font-family: $bbh;
-      font-size: 32px;
-      top: calc(50% - 16px);
-      width: 100%;
-      text-align: center;
-      color: $pointRed;
-      mix-blend-mode: overlay;
-    }
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      &.filter-clarendon {
-        filter: contrast(1.2) saturate(1.35);
-      }
-      &.filter-gingham {
-        filter: brightness(1.05) hue-rotate(-10deg) saturate(0.85);
-      }
-      &.filter-juno {
-        filter: contrast(1.15) saturate(1.8) brightness(1.05);
-      }
-      &.filter-lark {
-        filter: brightness(1.1) saturate(1.2);
-      }
-      &.filter-reyes {
-        filter: sepia(0.22) brightness(1.1) contrast(0.85) saturate(0.75);
-      }
-      &.filter-valencia {
-        filter: sepia(0.15) saturate(1.5) brightness(1.1);
-      }
-      &.filter-willow {
-        filter: grayscale(0.5) contrast(0.95) brightness(1.05);
-      }
-    }
-  }
-  .preview_box {
-  }
   @media all and (max-width: 1024px) {
     width: 100%;
     height: 84dvh;
+    padding: 20px;
   }
   @media all and (max-width: 480px) {
-    padding: 20px;
+    padding: 16px;
     height: 80dvh;
   }
 }
@@ -101,6 +56,7 @@
     font-size: 40px;
     color: $pink;
     writing-mode: sideways-rl;
+    cursor: pointer;
   }
   .logo {
     animation: spin 4s linear infinite;
@@ -183,13 +139,13 @@
 }
 
 .navigation_section {
-  width: 52%;
+  width: 40%;
   .menu_list {
     height: 100dvh;
     overflow-y: auto;
     > li {
       transition: opacity 0.3s ease;
-      padding: 40px;
+      padding: 28px;
       min-height: 20dvh;
       display: flex;
       flex-direction: column;

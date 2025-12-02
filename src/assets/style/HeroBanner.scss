@@ -1,0 +1,126 @@
+.hero_banner {
+  position: relative;
+  width: 100%;
+  padding: 40px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    mix-blend-mode: overlay;
+    z-index: -1;
+  }
+
+  .hero_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+
+      &.filter-clarendon {
+        filter: contrast(1.2) saturate(1.35);
+      }
+      &.filter-gingham {
+        filter: brightness(1.05) hue-rotate(-10deg) saturate(0.85);
+      }
+      &.filter-juno {
+        filter: contrast(1.15) saturate(1.8) brightness(1.05);
+      }
+      &.filter-lark {
+        filter: brightness(1.1) saturate(1.2);
+      }
+      &.filter-reyes {
+        filter: sepia(0.22) brightness(1.1) contrast(0.85) saturate(0.75);
+      }
+      &.filter-valencia {
+        filter: sepia(0.15) saturate(1.5) brightness(1.1);
+      }
+      &.filter-willow {
+        filter: grayscale(0.5) contrast(0.95) brightness(1.05);
+      }
+    }
+  }
+
+  .hero_content {
+    .hero_title {
+      margin-bottom: 12px;
+      font-family: $bbh;
+      color: $pointRed;
+      opacity: 0.8;
+    }
+
+    .hero_subtitle {
+      opacity: 0.8;
+      margin-bottom: 20px;
+      font-family: $bbh;
+      color: #fff;
+    }
+
+    .hero_btn {
+      padding: 12px 20px;
+      transition: 0.2s ease;
+      cursor: pointer;
+      border: 1px solid #fff;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+
+      &:hover {
+        background: white;
+        transform: translateY(-2px);
+        color: $pointRed;
+      }
+    }
+
+    /* --- hero_content 반응형 --- */
+    @media all and (max-width: 1440px) {
+      .hero_title {
+        font-size: 32px;
+      }
+      .hero_subtitle {
+        font-size: 24px;
+      }
+      .hero_btn {
+        padding: 12px 16px;
+      }
+    }
+
+    @media all and (max-width: 480px) {
+      .hero_title {
+        font-size: 6.2vw;
+      }
+      .hero_subtitle {
+        font-size: 5vw;
+      }
+      .hero_btn {
+        padding: 8px 12px;
+      }
+    }
+  }
+
+  /* --- hero_banner 자체 반응형 --- */
+  @media all and (max-width: 1440px) {
+    padding: 28px;
+  }
+
+  @media all and (max-width: 1024px) {
+    padding: 24px 20px;
+  }
+
+  @media all and (max-width: 480px) {
+    line-height: 1;
+    padding: 20px;
+  }
+}
