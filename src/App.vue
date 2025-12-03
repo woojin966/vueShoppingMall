@@ -6,6 +6,15 @@
   <RouterView />
 </template>
 
-<script setup></script>
+<script setup>
+import { onMounted } from 'vue'
+import { useAuth } from '@/composables/useAuth'
+
+const { loadAuth } = useAuth()
+
+onMounted(() => {
+  loadAuth()
+})
+</script>
 
 <style></style>

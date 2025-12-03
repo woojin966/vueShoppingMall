@@ -120,7 +120,7 @@
               placeholder="상세주소"
               class="text n"
               required
-              ref="detailInput"
+              ref="shipDetail"
               @keyup.enter="focusNext('messageInput')"
             />
           </div>
@@ -223,7 +223,8 @@
 import { ref, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
-import { getOrder, clearOrder } from '@/api/order.js'
+// import { getOrder, clearOrder } from '@/api/order.js'
+import { clearCart } from '@/api/cart.js'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import Modal from '@/components/Modal.vue'
@@ -311,7 +312,7 @@ const openPostcode = () => {
   new window.daum.Postcode({
     oncomplete(data) {
       shipping.value.address = data.address
-      setTimeout(() => detailInput.value?.focus(), 50)
+      setTimeout(() => shipDetail.value?.focus(), 50)
     },
   }).open()
 }
@@ -341,6 +342,28 @@ onMounted(() => {
   refs.customerName.value?.focus()
 })
 
+// const handlePayment = () => {
+//   if (!agreeTerms.value) {
+//     showTermsAlert.value = true
+//     return
+//   }
+
+//   loading.value = true
+
+//   setTimeout(() => {
+//     loading.value = false
+//     const orderNo = 'ORD' + Date.now()
+
+//     // ✅ 주문 정보 Vuex 저장
+//     store.commit('order/setShipping', shipping.value)
+//     store.commit('order/setPaymentMethod', paymentMethod.value)
+//     store.commit('order/setOrderNumber', orderNo)
+//     store.commit('order/setCustomer', customer.value)
+
+//     // ✅ 완료 페이지 이동 (clearOrder 제거)
+//     router.push('/order/complete')
+//   }, 2000)
+// }
 const handlePayment = () => {
   if (!agreeTerms.value) {
     showTermsAlert.value = true
@@ -351,17 +374,43 @@ const handlePayment = () => {
 
   setTimeout(() => {
     loading.value = false
+
     const orderNo = 'ORD' + Date.now()
 
-    // ✅ 주문 정보 Vuex 저장
+    // 총합
+    const totalPrice = orderItems.value.reduce(
+      (sum, item) => sum + Number(item.price) * Number(item.quantity),
+      0,
+    )
+
+    // 최종 저장할 주문 객체 생성
+    const orderData = {
+      id: orderNo,
+      date: new Date().toISOString().slice(0, 10),
+      status: 'ready',
+      items: orderItems.value, // 장바구니에서 가져온 상품 그대로
+      total: totalPrice,
+      customer: customer.value,
+      shipping: shipping.value,
+      payment: paymentMethod.value,
+    }
+
+    // Vuex 저장
+    store.commit('order/setItems', orderItems.value)
+    store.commit('order/setCustomer', customer.value)
     store.commit('order/setShipping', shipping.value)
     store.commit('order/setPaymentMethod', paymentMethod.value)
     store.commit('order/setOrderNumber', orderNo)
-    store.commit('order/setCustomer', customer.value)
 
-    // ✅ 완료 페이지 이동 (clearOrder 제거)
+    // 🟢 localStorage 누적 저장
+    import('@/api/order.js').then(({ saveOrder }) => {
+      saveOrder(orderData)
+    })
+
+    clearCart()
+
     router.push('/order/complete')
-  }, 2000)
+  }, 1500)
 }
 </script>
 

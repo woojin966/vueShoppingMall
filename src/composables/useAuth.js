@@ -31,5 +31,7 @@ export function useAuth() {
     if (savedUser) user.value = JSON.parse(savedUser)
   }
 
-  return { user, token, login, logout, loadAuth }
+  const isLoggedIn = () => !!localStorage.getItem('token')
+
+  return { user, token, login, logout, loadAuth, isLoggedIn }
 }

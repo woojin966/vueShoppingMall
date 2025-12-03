@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useAuth } from '@/composables/useAuth'
 import HomeView from '../views/HomeView.vue'
 import ProductView1 from '../views/ProductView1.vue'
 import ProductView2 from '../views/ProductView2.vue'
@@ -12,6 +13,7 @@ import SearchResults from '../views/SearchResults.vue'
 import ProductDetail from '@/views/ProductDetail.vue'
 import LoginView from '@/views/LoginView.vue'
 import MypageView from '@/views/MypageView.vue'
+import OrderDetailView from '@/views/OrderDetailView.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: HomeView },
@@ -74,11 +76,32 @@ const routes = [
     name: 'mypage',
     component: MypageView,
   },
+  {
+    path: '/order/detail/:id',
+    name: 'orderdetail',
+    component: OrderDetailView,
+  },
 ]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
+})
+router.beforeEach((to, from, next) => {
+  const { isLoggedIn } = useAuth()
+
+  const authPages = ['/mypage', '/order/detail']
+
+  if (authPages.some((path) => to.path.startsWith(path))) {
+    if (!isLoggedIn()) {
+      return next({
+        path: '/login',
+        query: { redirect: to.fullPath }, // ← 추가!
+      })
+    }
+  }
+
+  next()
 })
 
 export default router

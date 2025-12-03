@@ -1,0 +1,158 @@
+.order_detail_wrap {
+  padding: 60px 40px 100px;
+  min-height: 80dvh;
+
+  @media all and (max-width: 1024px) {
+    padding: 60px 20px 80px;
+  }
+  @media all and (max-width: 480px) {
+    padding: 40px 16px 60px;
+  }
+}
+
+.order_detail_top_box {
+  h2 {
+    color: $pointRed;
+  }
+  margin-bottom: 32px;
+
+  .order_num,
+  .order_date {
+    margin-top: 4px;
+    color: $gray;
+  }
+}
+
+/* 배송 상태 Progress */
+.status_box {
+  padding: 28px 24px;
+  border-top: 1px solid $pointRed;
+
+  h3 {
+    color: $pointRed;
+    margin-bottom: 20px;
+  }
+
+  .progress_wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+
+    .step {
+      text-align: center;
+      flex: 1;
+      position: relative;
+
+      .dot {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid $gray;
+        margin: 0 auto 8px;
+        transition: 0.2s;
+      }
+
+      &.active .dot {
+        border-color: $pointRed;
+        background-color: $pointRed;
+      }
+    }
+  }
+
+  @media all and (max-width: 480px) {
+    padding: 24px 0;
+    h3 {
+      margin-bottom: 12px;
+    }
+  }
+}
+
+/* 주문 상품 리스트 */
+.order_products_box {
+  padding: 28px 24px;
+  border-top: 1px solid $pointRed;
+
+  h3 {
+    color: $pointRed;
+    margin-bottom: 20px;
+  }
+
+  .order_list {
+    li.order_item {
+      display: flex;
+      gap: 20px;
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid $gray;
+
+      &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+
+      img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+      }
+
+      .info {
+        flex: 1;
+        .name {
+          margin-bottom: 6px;
+        }
+      }
+
+      .price {
+        color: $pointRed;
+        text-align: right;
+        min-width: 80px;
+      }
+    }
+  }
+
+  @media all and (max-width: 480px) {
+    padding: 24px 0;
+
+    .order_list li.order_item {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .price {
+        text-align: left;
+      }
+    }
+  }
+}
+
+/* 결제 요약 */
+.price_summary_box {
+  padding: 28px 24px;
+  border-top: 1px solid $pointRed;
+
+  h3 {
+    color: $pointRed;
+    margin-bottom: 20px;
+  }
+
+  .summary_row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .total {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    color: $pointRed;
+    gap: 12px;
+  }
+
+  @media all and (max-width: 480px) {
+    padding: 24px 0;
+    .summary_row {
+      margin-bottom: 8px;
+    }
+  }
+}

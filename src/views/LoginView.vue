@@ -49,11 +49,9 @@ const handleLogin = () => {
   const success = login(email.value, password.value)
 
   if (success) {
-    if (!rememberMe.value) {
-      localStorage.removeItem('token')
-      localStorage.removeItem('user')
-    }
-    router.push('/mypage')
+    // 리다이렉트 경로가 있으면 그쪽으로, 없으면 기본 마이페이지로
+    const redirect = router.currentRoute.value.query.redirect || '/mypage'
+    router.push(redirect)
   } else {
     loginerr.value = true
   }
