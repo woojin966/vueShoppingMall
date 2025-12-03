@@ -20,25 +20,11 @@
         >
       </div>
     </nav>
-
-    <div class="filter_box">
-      <p class="selected_filter text sb" @click="toggleDropdown">
-        {{ filterType }}
-        <span class="arrow small n" :class="{ open: dropdownOpen }">▼</span>
-      </p>
-      <ul v-show="dropdownOpen" class="filter_options">
-        <li
-          v-for="option in filterOptions"
-          :key="option"
-          @click="selectFilter(option)"
-          :class="{ active: filterType === option }"
-        >
-          {{ option }}
-        </li>
-      </ul>
-    </div>
-
-    <!-- Selection용 category prop으로 전달 -->
+    <FilterDropdown
+      v-model="filterType"
+      :options="['등록순', '인기순', '낮은가격순', '높은가격순']"
+      @change="onChangeFilter"
+    />
     <ProductList
       :category="category"
       :filter-type="filterType"
@@ -56,25 +42,22 @@ import { useRoute } from 'vue-router'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import ProductList from '@/components/ProductList.vue'
+import FilterDropdown from '@/components/FilterDropdown.vue'
 
 const route = useRoute()
 
 // 라우트에 따라 selection 카테고리 매핑
 const category = computed(() => 'all')
 
-// banner
-const { imgUrl, randomFilter } = randomImages()
-
 // filter
 const filterType = ref('등록순')
-const dropdownOpen = ref(false)
-const filterOptions = ['등록순', '인기순', '낮은가격순', '높은가격순']
 
-const toggleDropdown = () => (dropdownOpen.value = !dropdownOpen.value)
-const selectFilter = (option) => {
+const onChangeFilter = (option) => {
   filterType.value = option
-  dropdownOpen.value = false
 }
+
+// banner
+const { imgUrl, randomFilter } = randomImages()
 </script>
 
 <style scoped lang="scss">

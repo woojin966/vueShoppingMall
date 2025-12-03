@@ -68,17 +68,27 @@ const displayedItems = computed(() => {
 
   // 3. 정렬
   switch (props.filterType) {
+    case '등록순':
+      // id 값이 높을수록 새로운 상품
+      result.sort((a, b) => Number(b.id) - Number(a.id))
+      break
+
     case '인기순':
+      // popularNum 기준 정렬 (데이터가 문자열이라 숫자로 변환)
       result.sort((a, b) => Number(b.popularNum) - Number(a.popularNum))
       break
+
     case '낮은가격순':
       result.sort((a, b) => Number(a.price) - Number(b.price))
       break
+
     case '높은가격순':
       result.sort((a, b) => Number(b.price) - Number(a.price))
       break
-    case '등록순':
+
     default:
+      // filterType이 공백이거나 null이면 등록순과 동일하게 처리
+      result.sort((a, b) => Number(b.id) - Number(a.id))
       break
   }
 
