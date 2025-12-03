@@ -10,6 +10,8 @@ import OrderCompleteView from '../views/OrderCompleteView.vue'
 import CommunityView from '../views/CommunityView.vue'
 import SearchResults from '../views/SearchResults.vue'
 import ProductDetail from '@/views/ProductDetail.vue'
+import LoginView from '@/views/LoginView.vue'
+import MypageView from '@/views/MypageView.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: HomeView },
@@ -61,6 +63,16 @@ const routes = [
     path: '/product/:id',
     name: 'ProductDetail',
     component: ProductDetail,
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView,
+  },
+  {
+    path: '/mypage',
+    name: 'mypage',
+    component: MypageView,
   },
 ]
 

@@ -7,8 +7,18 @@
           <img src="@/assets/img/favicon/reias_logo.png" alt="logo" />
         </router-link>
         <ul class="etc_menu_list">
-          <li><a href="javascript:void(0)" class="text n">LOGIN</a></li>
-          <li><a href="javascript:void(0)" class="text n">JOIN</a></li>
+          <li v-if="!isLoggedIn">
+            <router-link to="/login" class="text n">LOGIN</router-link>
+          </li>
+          <li v-else class="auth_menu">
+            <router-link to="/mypage" class="text n">MY PAGE</router-link>
+          </li>
+          <li v-if="!isLoggedIn">
+            <a href="javascript:void(0)" class="text n">JOIN</a>
+          </li>
+          <li v-else>
+            <a href="javascript:void(0)" class="text n" @click="logout">LOGOUT</a>
+          </li>
           <li>
             <router-link to="/cart" class="cart_icon">
               <font-awesome-icon icon="fa-solid fa-cart-shopping" />
@@ -116,7 +126,11 @@
       </div>
       <div class="nav_wrapper mo" v-show="isMoMenuVisible">
         <div class="menulist_top_box">
-          <a href="javascript:void(0)" class="login_btn">LOGIN</a>
+          <a v-if="!isLoggedIn" @click="router.push('/login')" class="login_btn">LOGIN</a>
+          <div v-else class="login_btn_box">
+            <router-link to="/mypage" class="login_btn">MY PAGE</router-link>
+            <a @click="logout" class="login_btn">LOGOUT</a>
+          </div>
           <a href="javascript:void(0)" class="close_btn" @click="toggleMenu">
             <span></span>
             <span></span>
@@ -143,11 +157,18 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { getCart } from '@/api/cart.js'
+import { useAuth } from '@/composables/useAuth.js'
 
 const router = useRouter()
+
+/* ------------------ Auth ------------------ */
+const { user, logout, loadAuth } = useAuth()
+loadAuth()
+
+const isLoggedIn = computed(() => !!user.value)
 
 const cartCount = ref(0)
 

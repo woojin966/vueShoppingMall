@@ -165,7 +165,8 @@ const deleteSelected = () => {
   const selected = cartItems.value.filter((item) => item.checked)
 
   if (!selected.length) {
-    alert('선택된 상품이 없습니다.')
+    // alert('선택된 상품이 없습니다.')
+    noselectalert.value = true
     return
   }
   selected.forEach((item) => {

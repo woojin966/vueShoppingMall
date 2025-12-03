@@ -1,0 +1,60 @@
+.login_wrap {
+  min-height: 80dvh;
+  padding: 100px 40px 100px;
+  h1 {
+    font-family: $bbh;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 12px;
+    input {
+      padding: 16px 20px;
+      border: 1px solid $gray;
+      @media all and (max-width: 480px) {
+        padding: 14px 18px;
+      }
+    }
+    label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    button {
+      margin-top: 8px;
+      background-color: $pointRed;
+      color: #fff;
+      padding: 20px 24px;
+      @media all and (max-width: 768px) {
+        padding: 18px 22px;
+      }
+      @media all and (max-width: 768px) {
+        padding: 16px 20px;
+      }
+    }
+  }
+  > div {
+    width: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12px auto 0;
+    a {
+      cursor: not-allowed;
+    }
+  }
+  @media all and (max-width: 1024px) {
+    padding: 100px 20px 100px;
+  }
+  @media all and (max-width: 768px) {
+    padding: 80px 20px 80px;
+  }
+  @media all and (max-width: 480px) {
+    padding: 60px 16px 60px;
+  }
+}
