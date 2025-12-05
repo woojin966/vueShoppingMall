@@ -5,17 +5,17 @@
       <div v-if="$slots.default">
         <slot />
       </div>
-      <p v-else class="modal_message text sb">{{ message }}</p>
+      <p v-else class="modal_message text sb">{{ $t(message) }}</p>
 
       <div class="modal_buttons" :class="{ btn_one: confirmText }">
         <!-- cancelText가 있을 때만 취소 버튼 표시 -->
         <button v-if="cancelText" class="btn cancel text n" @click="$emit('cancel')">
-          {{ cancelText }}
+          {{ $t(cancelText) }}
         </button>
 
         <!-- confirmText가 있을 때만 확인 버튼 표시 -->
         <button v-if="confirmText" class="btn confirm text n" @click="$emit('confirm')">
-          {{ confirmText }}
+          {{ $t(confirmText) }}
         </button>
       </div>
     </div>
@@ -24,13 +24,11 @@
 
 <script setup>
 const props = defineProps({
-  visible: { type: Boolean, default: false },
-  title: { type: String, default: '알림' },
+  visible: Boolean,
+  title: { type: String, default: 'modal.title' },
   message: { type: String, default: '' },
-  confirmText: { type: String, default: '확인' },
-  cancelText: { type: String, default: '취소' },
-  showConfirm: { type: Boolean, default: true },
-  showCancel: { type: Boolean, default: true },
+  confirmText: { type: String, default: 'common.confirm' },
+  cancelText: { type: String, default: 'common.cancel' },
 })
 </script>
 

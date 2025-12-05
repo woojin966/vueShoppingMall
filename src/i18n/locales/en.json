@@ -1,0 +1,115 @@
+{
+  "common": {
+    "login": "Login",
+    "logout": "Logout",
+    "mypage": "My Page",
+    "cart": "Cart",
+    "order": "Order",
+    "orderDetail": "Order Detail",
+    "orderComplete": "Order Complete",
+    "total": "Total",
+    "price": "Price",
+    "quantity": "Quantity",
+    "email": "Email",
+    "password": "Password",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "join": "Join",
+    "more": "More"
+  },
+
+  "login": {
+    "title": "Login",
+    "remember": "Remember Me",
+    "placeholderEmail": "Enter Email",
+    "placeholderPassword": "Enter Password",
+    "error": "Invalid email or password."
+  },
+
+  "mypage": {
+    "title": "My Page",
+    "orderHistory": "Order History",
+    "noOrders": "No orders found."
+  },
+
+  "order": {
+    "title": "Order",
+    "customerInfo": "Customer Information",
+    "shippingInfo": "Shipping Information",
+    "paymentMethod": "Payment Method",
+    "agreeTerms": "I agree to the terms",
+    "sameAsCustomer": "Same as customer",
+    "completeTitle": "Payment Completed",
+    "orderNumber": "Order Number",
+    "subtotal": "Subtotal",
+    "shippingFee": "Shipping Fee"
+  },
+  "home": {
+    "section": {
+      "new": "NEW",
+      "sale": "SALE",
+      "best": "BEST"
+    }
+  },
+  "product": {
+    "new": "New",
+    "best": "Best",
+    "sale": "Sale",
+    "clearance": "Clearance",
+    "viewDetail": "View Detail"
+  },
+  "filters": {
+    "latest": "Latest",
+    "popular": "Popular",
+    "lowPrice": "Low Price",
+    "highPrice": "High Price"
+  },
+  "footer": {
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "companyInfo1": "CEO Jane Doe / Business No.: 000-00-00000 / MOBRN: 2025-Seoul-0000",
+    "companyInfo2": "Address: 000, 00-00 Lorem-ro, ipsum-gu, Seoul, Korea",
+    "companyInfo3": "Account No.: Lorem 0000-000-000000",
+    "csInfo": "CS: Live chat @REIAS or via Q&A",
+    "copyright": "Copyright ⓒ 2025 REIAS. All rights reserved."
+  },
+  "nav": {
+    "kitchen": "Kitchen",
+    "kitchen_summer": "Summer Dish",
+    "kitchen_main": "Main Dish",
+    "kitchen_side": "Side Dish",
+    "kitchen_dessert": "Dessert",
+    "kitchen_food": "Food Items",
+
+    "uncommon": "Uncommon",
+    "lifeItem": "Lifestyle",
+    "bag": "Bags",
+    "apparel": "Apparel",
+    "socks": "Socks",
+    "fashion": "Fashion",
+    "thai": "Thai-It",
+
+    "selection": "Selection",
+    "new": "New",
+    "best": "Best",
+    "sale": "Sale",
+
+    "brand": "Brand",
+    "hamblepie": "Hamblepie",
+    "puco": "Puco",
+    "phutawan": "Phutawan",
+    "smell": "Smell Lemongrass",
+    "orumm": "Orumm",
+    "backstage": "Backstage",
+
+    "community": "Community",
+    "notice": "Notice",
+    "faq": "FAQ",
+    "qna": "Q&A",
+    "reviews": "Reviews",
+    "playlist": "Playlist"
+  },
+  "modal": {
+    "title": "알림"
+  }
+}

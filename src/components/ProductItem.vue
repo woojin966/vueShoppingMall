@@ -5,11 +5,11 @@
         <img :src="currentImage" @mouseover="hover = true" @mouseleave="hover = false" />
       </div>
       <div class="title">
-        <span v-if="product.best" class="badge best">BEST</span>
+        <span v-if="product.best" class="badge best">{{ t('product.best') }}</span>
         <span v-if="product.clearance" class="badge clearance"
-          >CLEARANCE {{ product.percentage }}%</span
+          >{{ t('product.clearance') }} {{ product.percentage }}%</span
         >
-        <h3 class="text sb">{{ product.name }}</h3>
+        <h3 class="text sb">{{ product.name[locale] }}</h3>
       </div>
       <div class="price_box">
         <div v-if="product.clearance" class="clearance_price">
@@ -20,14 +20,14 @@
           <p class="price">{{ formattedPrice }}원</p>
         </div>
       </div>
-      <p class="desc small n">{{ product.description }}</p>
+      <p class="desc small n">{{ product.description[locale] }}</p>
       <button type="button" class="item_cart_btn" @click.stop.prevent="handleAddCart">
         <font-awesome-icon icon="fa-solid fa-cart-shopping" />
       </button>
     </router-link>
     <Modal
       :visible="showCartModal"
-      message="장바구니로 이동하시겠습니까?"
+      message="t('product.modal.cartMove')"
       @confirm="goToCart"
       @cancel="cancelCart"
     />
@@ -37,6 +37,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, nextTick, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import Modal from './Modal.vue'
 
 const hover = ref(false)
@@ -44,6 +45,7 @@ const props = defineProps({
   product: Object,
 })
 const router = useRouter()
+const { t, locale } = useI18n()
 const showCartModal = ref(false)
 
 const handleAddCart = () => {

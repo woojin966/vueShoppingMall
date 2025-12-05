@@ -1,0 +1,115 @@
+{
+  "common": {
+    "login": "Login",
+    "logout": "Logout",
+    "mypage": "My Page",
+    "cart": "Cart",
+    "order": "Order",
+    "orderDetail": "주문 상세",
+    "orderComplete": "주문 완료",
+    "total": "총금액",
+    "price": "가격",
+    "quantity": "수량",
+    "email": "이메일",
+    "password": "비밀번호",
+    "confirm": "확인",
+    "cancel": "취소",
+    "join": "Join",
+    "more": "More"
+  },
+
+  "login": {
+    "title": "로그인",
+    "remember": "로그인 유지",
+    "placeholderEmail": "이메일 입력",
+    "placeholderPassword": "비밀번호 입력",
+    "error": "아이디 또는 비밀번호가 잘못되었습니다."
+  },
+
+  "mypage": {
+    "title": "마이페이지",
+    "orderHistory": "주문 내역",
+    "noOrders": "주문 내역이 없습니다."
+  },
+
+  "order": {
+    "title": "주문서",
+    "customerInfo": "주문자 정보",
+    "shippingInfo": "배송 정보",
+    "paymentMethod": "결제수단",
+    "agreeTerms": "약관에 동의합니다",
+    "sameAsCustomer": "주문자와 동일",
+    "completeTitle": "결제가 완료되었습니다",
+    "orderNumber": "주문번호",
+    "subtotal": "상품금액",
+    "shippingFee": "배송비"
+  },
+  "home": {
+    "section": {
+      "new": "NEW",
+      "sale": "SALE",
+      "best": "BEST"
+    }
+  },
+  "product": {
+    "new": "New",
+    "best": "Best",
+    "sale": "Samle",
+    "clearance": "Clearance",
+    "viewDetail": "상세보기"
+  },
+  "filters": {
+    "latest": "등록순",
+    "popular": "인기순",
+    "lowPrice": "낮은가격순",
+    "highPrice": "높은가격순"
+  },
+  "footer": {
+    "terms": "이용약관",
+    "privacy": "개인정보처리방침",
+    "companyInfo1": "CEO Jane Doe / Business No.: 000-00-00000 / MOBRN: 2025-Seoul-0000",
+    "companyInfo2": "Adress: 000, 00-00 Lorem-ro, ipsum-gu, Seoul, Korea",
+    "companyInfo3": "Account No.: Lorem 0000-000-000000",
+    "csInfo": "CS: 실시간 톡상담: &#64;레이아스 또는 QnA",
+    "copyright": "Copyright ⓒ 2025 레이아스 All rights reserved."
+  },
+  "nav": {
+    "kitchen": "KITCHEN",
+    "kitchen_summer": "여름의 맛",
+    "kitchen_main": "메인디시",
+    "kitchen_side": "사이드디시",
+    "kitchen_dessert": "디저트",
+    "kitchen_food": "푸드아이템",
+
+    "uncommon": "UNCOMMON",
+    "lifeItem": "라이프아이템",
+    "bag": "가방",
+    "apparel": "의류",
+    "socks": "양말",
+    "fashion": "패션",
+    "thai": "타이잇",
+
+    "selection": "SELECTION",
+    "new": "NEW",
+    "best": "BEST",
+    "sale": "SALE",
+
+    "brand": "BRAND",
+    "hamblepie": "HAMBLEPIE",
+    "puco": "PUCO",
+    "phutawan": "PHUTAWAN",
+    "smell": "SMELL LEMONGRASS",
+    "orumm": "ORUMM",
+    "backstage": "BACKSTAGE",
+
+    "community": "COMMUNITY",
+    "notice": "공지사항",
+    "faq": "FAQ",
+    "qna": "Q&A",
+    "reviews": "리뷰",
+    "playlist": "플레이리스트"
+  },
+  "modal": {
+    "title": "알림"
+  }
+}

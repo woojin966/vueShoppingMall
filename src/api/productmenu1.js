@@ -2,11 +2,16 @@ export async function getAllProducts() {
   return [
     {
       id: 1,
-      name: '지중해식 가지&새우 감바스(280g)',
+      name: {
+        ko: '지중해식 가지&새우 감바스(280g)',
+        en: 'Mediterranean Eggplant & Shrimp Gambas (280g)',
+      },
       price: '10450',
       beforePrice: '11000',
-      description:
-        '지중해의 여유와 풍요로움을 담아 좋은 식재료로 만든 제대로 된 감바스 소개해요(냉장)',
+      description: {
+        ko: '지중해의 여유와 풍요로움을 담아 좋은 식재료로 만든 제대로 된 감바스를 소개해요(냉장)',
+        en: 'A Mediterranean-inspired gambas made with quality ingredients, capturing the richness and comfort of the region. (Chilled)',
+      },
       image: '01summerdish.jpg',
       hoverImage: '01-2summerdish.jpg',
       brand: '',
@@ -22,11 +27,16 @@ export async function getAllProducts() {
     },
     {
       id: 2,
-      name: '네팔리 다밧을 오마주한 치킨커리(400/700g)',
+      name: {
+        ko: '네팔리 다밧을 오마주한 치킨커리(400/700g)',
+        en: 'Nepali Dal Bhat–Inspired Chicken Curry (400/700g)',
+      },
       price: '9000',
       beforePrice: '',
-      description:
-        '수년이 지나도 생각나는 정결한 정찬 네발리 달밧을 우리 입맛에 잘 맞는 치킨 커리로 재해석해 만든 특별한 요리(냉동)',
+      description: {
+        ko: '수년이 지나도 생각나는 정결한 정찬 네발리 달밧을 우리 입맛에 잘 맞추어 재해석한 특별한 치킨커리(냉동)',
+        en: 'A heartfelt reinterpretation of Nepali Dal Bhat—clean, comforting, and unforgettable—crafted into a Korean-style chicken curry. (Frozen)',
+      },
       image: '01maindish.jpg',
       hoverImage: '01-2maindish.jpg',
       brand: '',
@@ -42,11 +52,16 @@ export async function getAllProducts() {
     },
     {
       id: 3,
-      name: '쁠라무 꿍팟 퐁커리(2~3인분)',
+      name: {
+        ko: '쁠라무 꿍팟 퐁커리(2~3인분)',
+        en: 'Plamoo Goong Pad Pong Curry (2–3 servings)',
+      },
       price: '23800',
       beforePrice: '',
-      description:
-        '부드러운 계란 커리와 해산물의 조화, 따뜻하게 데워 밥 위에 쓱쓱! 집에서 즐기는 호불호 없는 퓨전 태국커리 700g(냉동)',
+      description: {
+        ko: '부드러운 계란 커리와 해산물의 조화, 따뜻하게 데워 밥 위에 쓱쓱! 누구나 좋아하는 퓨전 태국커리 700g(냉동)',
+        en: 'A fusion Thai curry balancing soft egg curry and seafood—warm it up and enjoy over rice. A comforting favorite for everyone. (Frozen)',
+      },
       image: '02maindish.jpg',
       hoverImage: '02-2maindish.jpg',
       brand: '',
@@ -62,11 +77,16 @@ export async function getAllProducts() {
     },
     {
       id: 4,
-      name: '프렌치 토마트&비프 스튜(2인분)',
+      name: {
+        ko: '프렌치 토마트&비프 스튜(2인분)',
+        en: 'French Tomato & Beef Stew (2 servings)',
+      },
       price: '14800',
       beforePrice: '',
-      description:
-        '진하게 우려낸 토마토 소스에 부드러운 소고기와 신선채소를 듬뿍 넣어 끓여낸 영양만점! 프랑스 가정식 요리 440g(냉동)',
+      description: {
+        ko: '진하게 우려낸 토마토 소스에 부드러운 소고기와 신선채소를 듬뿍 넣어 끓여낸 프랑스 가정식 요리 440g(냉동)',
+        en: 'A French home-style stew made with rich tomato broth, tender beef, and fresh vegetables. (Frozen, 440g)',
+      },
       image: '03maindish.jpg',
       hoverImage: '03-2maindish.jpg',
       brand: '',
@@ -82,11 +102,16 @@ export async function getAllProducts() {
     },
     {
       id: 5,
-      name: '올인원 한끼 플레이트(1~2인분)',
+      name: {
+        ko: '올인원 한끼 플레이트(1~2인분)',
+        en: 'All-in-One Meal Plate (1–2 servings)',
+      },
       price: '5800',
       beforePrice: '',
-      description:
-        '존슨빌 소세지, 야채믹스, 후무스를 한 번에! 완벽한 영양 균형의 한 끼 플레이트 350g(냉동)',
+      description: {
+        ko: '존슨빌 소시지, 야채믹스, 후무스를 한 번에! 완벽한 영양 균형의 한 끼 플레이트 350g(냉동)',
+        en: 'Johnsonville sausage, veggie mix, and hummus in one plate—a perfectly balanced meal. (Frozen, 350g)',
+      },
       image: '04maindish.jpg',
       hoverImage: '04-2maindish.jpg',
       brand: '',
@@ -102,11 +127,16 @@ export async function getAllProducts() {
     },
     {
       id: 6,
-      name: '대만식 마늘쫑 돼지고기 볶음(2인분)',
+      name: {
+        ko: '대만식 마늘쫑 돼지고기 볶음(2인분)',
+        en: 'Taiwanese Stir-fried Pork with Garlic Scapes (2 servings)',
+      },
       price: '7500',
       beforePrice: '',
-      description:
-        '아삭한 마늘쫑과 감칠맛 가득한 돼지고기가 레이아만의 특별한 레시피로 환상의 앙상블을 이루는 대만식 볶음 요리(냉동)',
+      description: {
+        ko: '아삭한 마늘쫑과 감칠맛 가득한 돼지고기가 레이아만의 레시피로 조화롭게 어우러진 대만식 볶음 요리(냉동)',
+        en: 'Crisp garlic scapes and savory pork come together in Reias’ Taiwanese-style stir-fry. (Frozen)',
+      },
       image: '05maindish.jpg',
       hoverImage: '05-2maindish.jpg',
       brand: '',
@@ -122,11 +152,16 @@ export async function getAllProducts() {
     },
     {
       id: 7,
-      name: 'Polve a la Casa - 포르투갈식 문어요리(1~2인분)',
+      name: {
+        ko: 'Polve a la Casa - 포르투갈식 문어요리(1~2인분)',
+        en: 'Polve a la Casa – Portuguese Octopus Dish (1–2 servings)',
+      },
       price: '25800',
       beforePrice: '',
-      description:
-        '포르투에서 접한 감동의 맛을 재현하고 싶었어요. 정성껏 만든 포르투갈식 문어요리를 소개해요! 340g(냉장)',
+      description: {
+        ko: '포르투에서 맛본 감동을 그대로 담았어요. 정성껏 완성한 포르투갈식 문어요리를 소개해요! (냉장, 340g)',
+        en: 'Inspired by the unforgettable flavors of Porto—this Portuguese-style octopus dish is crafted with care. (Chilled, 340g)',
+      },
       image: '06maindish.jpg',
       hoverImage: '06-2maindish.jpg',
       brand: '',
@@ -142,11 +177,16 @@ export async function getAllProducts() {
     },
     {
       id: 8,
-      name: '일본식 돼지고기 동파육(1~2인분)',
+      name: {
+        ko: '일본식 돼지고기 동파육(1~2인분)',
+        en: 'Japanese Braised Pork Belly (1–2 servings)',
+      },
       price: '18800',
       beforePrice: '',
-      description:
-        '진하게 졸여 부드럽게 녹아드는 일본식 통삼겹. 연겨자 한 점 곁드이면 완벽한 한 끼 완성! 300g(냉장)',
+      description: {
+        ko: '진하게 졸여 부드럽게 녹아드는 일본식 통삼겹. 연겨자 한 점과 함께라면 완벽한 한 끼! (냉장)',
+        en: 'Richly simmered Japanese-style pork belly that melts in your mouth—especially perfect with a bit of karashi mustard. (Chilled)',
+      },
       image: '07maindish.jpg',
       hoverImage: '07-2maindish.jpg',
       brand: '',
@@ -162,11 +202,16 @@ export async function getAllProducts() {
     },
     {
       id: 9,
-      name: '이탈리안 토마토 라구 파스타(1~2인분)',
+      name: {
+        ko: '이탈리안 토마토 라구 파스타(1~2인분)',
+        en: 'Italian Tomato Ragu Pasta (1–2 servings)',
+      },
       price: '13800',
       beforePrice: '',
-      description:
-        '정통 이탈리아 식으로 완성한, 익숙한 듯 특별하고 속이 든든해지는 무첨가, 무방부제 토마토&미트 라구 파스타 400g(냉동)',
+      description: {
+        ko: '무첨가, 무방부제. 정통 이탈리아 방식 그대로 완성한 토마토&미트 라구 파스타 400g(냉동)',
+        en: 'Additive-free and preservative-free—an authentic Italian tomato & meat ragu pasta crafted with tradition. (Frozen, 400g)',
+      },
       image: '08maindish.jpg',
       hoverImage: '08-2maindish.jpg',
       brand: '',
@@ -182,11 +227,16 @@ export async function getAllProducts() {
     },
     {
       id: 10,
-      name: '이탈리안 화이트 라구 파스타(1~2인분)',
+      name: {
+        ko: '이탈리안 화이트 라구 파스타(1~2인분)',
+        en: 'Italian White Ragu Pasta (1–2 servings)',
+      },
       price: '13800',
       beforePrice: '',
-      description:
-        '정통 이탈리아 식으로 완성한, 익숙한 듯 특별하고 속이 든든해지는 무첨가, 무방부제 크림&미트 라구 파스타 400g(냉동)',
+      description: {
+        ko: '무첨가, 무방부제. 부드러운 크림과 미트 라구의 깊은 풍미를 그대로 담아 완성한 화이트 라구 파스타 400g(냉동)',
+        en: 'Additive-free, preservative-free. A creamy white ragu pasta infused with rich meat ragu flavor. (Frozen, 400g)',
+      },
       image: '09maindish.jpg',
       hoverImage: '09-2maindish.jpg',
       brand: '',
@@ -202,11 +252,16 @@ export async function getAllProducts() {
     },
     {
       id: 11,
-      name: '한우소고기 볶음 고추장(280g)',
+      name: {
+        ko: '한우소고기 볶음 고추장(280g)',
+        en: 'Korean Beef Stir-fried Chili Paste (280g)',
+      },
       price: '13300',
       beforePrice: '14000',
-      description:
-        '비빔밥, 주막밥, 쌈밥은 물론 비빔국수에도 딱 어울리는 집에 하나쯤 꼭 있어야 할 진짜 만능고추장(냉장)',
+      description: {
+        ko: '비빔밥, 국수, 쌈밥 어디든 찰떡! 집에 하나쯤 꼭 있어야 할 진짜 만능 고추장(냉장)',
+        en: 'Perfect for bibimbap, noodles, or wraps—an essential all-purpose chili paste made with Korean beef. (Chilled)',
+      },
       image: '01sidedish.jpg',
       hoverImage: '01-2sidedish.jpg',
       brand: '',
@@ -222,10 +277,16 @@ export async function getAllProducts() {
     },
     {
       id: 11,
-      name: '레이아의 오이 물김치(350/700g)',
+      name: {
+        ko: '레이아의 오이 물김치(350/700g)',
+        en: 'Reias Cucumber Mulkimchi (350/700g)',
+      },
       price: '4000',
       beforePrice: '',
-      description: '여름 식탁을 시원하게 채워줄 아삭하고 청량한 오이 물김치(냉장)',
+      description: {
+        ko: '여름 식탁을 시원하게 채워줄 아삭하고 청량한 레이아표 오이 물김치(냉장)',
+        en: 'Crisp, refreshing cucumber mulkimchi that cools down your summer table. (Chilled)',
+      },
       image: '03summerdish.jpg',
       hoverImage: '03-2summerdish.jpg',
       brand: '',
@@ -241,11 +302,16 @@ export async function getAllProducts() {
     },
     {
       id: 12,
-      name: '토마토 츠케모노&시키타시(600g)',
+      name: {
+        ko: '토마토 츠케모노&시키타시(600g)',
+        en: 'Tomato Tsukemono & Shikitashi (600g)',
+      },
       price: '5500',
       beforePrice: '',
-      description:
-        '입맛을 깨워주는, 이 계절의 가장 상큼한 한 입! 유자&간장베이스 냉토마토 조림(냉장)',
+      description: {
+        ko: '입맛을 깨워주는 상큼한 한 입! 유자&간장 베이스의 냉토마토 조림(냉장)',
+        en: 'A refreshing cold tomato dish with yuzu and soy—perfect for awakening the palate. (Chilled)',
+      },
       image: '04summerdish.jpg',
       hoverImage: '04-2summerdish.jpg',
       brand: '',
@@ -261,11 +327,16 @@ export async function getAllProducts() {
     },
     {
       id: 13,
-      name: '레이아의 오이소박이(600g/1kg)',
+      name: {
+        ko: '레이아의 오이소박이(600g/1kg)',
+        en: 'Reias Stuffed Cucumber Kimchi (600g/1kg)',
+      },
       price: '6000',
       beforePrice: '',
-      description:
-        '17년 집밥경력 레이아의 자신만만 레시피와 국산 신선채소로 정성다해 완성한 여름날 최고의 밑반찬(냉장)',
+      description: {
+        ko: '17년 집밥 경력 레이아의 자신만만한 레시피로 완성한 여름날 최고의 밑반찬(냉장)',
+        en: 'A confident recipe perfected over 17 years—fresh Korean cucumbers filled and seasoned with care. (Chilled)',
+      },
       image: '05summerdish.jpg',
       hoverImage: '05-2summerdish.jpg',
       brand: '',
@@ -281,11 +352,16 @@ export async function getAllProducts() {
     },
     {
       id: 14,
-      name: '레이아의 모듬피클(420/700g)',
+      name: {
+        ko: '레이아의 모듬피클(420/700g)',
+        en: 'Reias Assorted Pickles (420/700g)',
+      },
       price: '5800',
       beforePrice: '',
-      description:
-        '국산의 신선한 채소로 정성껏 담근, 매일 꺼내먹고 싶은 산뜻한 아삭함의 모듬 피클(2size)(냉장)',
+      description: {
+        ko: '국산 신선채소로 정성껏 담근, 매일 꺼내먹고 싶은 산뜻한 아삭함의 모듬 피클(냉장)',
+        en: 'A fresh, crisp assortment of Korean vegetables pickled with care—perfect for everyday meals. (Chilled)',
+      },
       image: '06summerdish.jpg',
       hoverImage: '06-2summerdish.jpg',
       brand: '',
@@ -301,11 +377,16 @@ export async function getAllProducts() {
     },
     {
       id: 15,
-      name: '스웨디시 미트볼&토마토라구 소스(2인분)',
+      name: {
+        ko: '스웨디시 미트볼&토마토라구 소스(2인분)',
+        en: 'Swedish Meatball & Tomato Ragu Sauce (2 servings)',
+      },
       price: '11000',
       beforePrice: '',
-      description:
-        '든듣ㄴ하고 풍성한 한 끼가 필요할 때! 파스타도 덮밥도 빵과도 찰떡궁합인 매력적인 만능소스 440g(냉동)',
+      description: {
+        ko: '든든하고 풍성한 한 끼가 필요할 때! 파스타, 덮밥, 빵 어디와도 찰떡궁합인 만능 라구소스 440g(냉동)',
+        en: 'A hearty meal for any day—this versatile tomato ragu pairs perfectly with pasta, rice, or bread. (Frozen, 440g)',
+      },
       image: '02sidedish.jpg',
       hoverImage: '02-2sidedish.jpg',
       brand: '',
@@ -321,11 +402,16 @@ export async function getAllProducts() {
     },
     {
       id: 16,
-      name: '레몬 간장 연어장(1~2인분)',
+      name: {
+        ko: '레몬 간장 연어장(1~2인분)',
+        en: 'Lemon Soy Sauce Marinated Salmon (1–2 servings)',
+      },
       price: '13800',
       beforePrice: '',
-      description:
-        '신선한 노르웨이산 생연어를 701간장 베이스에 절여 레몬의 산뜻함과 고추의 알싸함을 더한 프리미엄 연어장 250g(냉장)',
+      description: {
+        ko: '신선한 노르웨이산 생연어에 레몬의 산뜻함과 고추의 알싸함을 더해 완성한 프리미엄 연어장 250g(냉장)',
+        en: 'Fresh Norwegian salmon marinated in lemon-infused soy sauce with a subtle chili kick. (Chilled, 250g)',
+      },
       image: '07summerdish.jpg',
       hoverImage: '07-2summerdish.jpg',
       brand: '',
@@ -341,10 +427,16 @@ export async function getAllProducts() {
     },
     {
       id: 17,
-      name: '레이아의 시그니처 소고기 장조림(500g)',
+      name: {
+        ko: '레이아의 시그니처 소고기 장조림(500g)',
+        en: 'Reias Signature Braised Beef (500g)',
+      },
       price: '13800',
       beforePrice: '',
-      description: '한 끼 식사를 책임 질 고단백 소고기 홍두깨살 수제 장조림(냉장)',
+      description: {
+        ko: '한 끼 식사를 책임질 고단백 홍두깨살 수제 장조림(냉장)',
+        en: 'High-protein braised Korean beef brisket crafted for a satisfying, hearty meal. (Chilled)',
+      },
       image: '08summerdish.jpg',
       hoverImage: '08-2summerdish.jpg',
       brand: '',
@@ -360,11 +452,16 @@ export async function getAllProducts() {
     },
     {
       id: 18,
-      name: 'ELJADE 1100% 수박착즙 프리미엄 주스',
+      name: {
+        ko: 'ELJADE 1100% 수박착즙 프리미엄 주스',
+        en: 'ELJADE 1100% Watermelon Cold-Pressed Juice',
+      },
       price: '3500',
       beforePrice: '',
-      description:
-        '코스트코 수박주스로 유명한 100& 수박 착즙주스! 맛과 영양성분 고스란히 살린 HPP공법으로 완성된 프리미엄 주스',
+      description: {
+        ko: 'HPP 공법으로 영양을 그대로 살린 100% 수박 착즙 프리미엄 주스',
+        en: 'A premium 100% watermelon cold-pressed juice crafted using HPP technology to preserve flavor and nutrients.',
+      },
       image: '02summerdish.jpg',
       hoverImage: '02-2summerdish.jpg',
       brand: '',
@@ -380,10 +477,16 @@ export async function getAllProducts() {
     },
     {
       id: 18,
-      name: 'Kewpie 트러플마요 90g',
+      name: {
+        ko: 'Kewpie 트러플마요 90g',
+        en: 'Kewpie Truffle Mayo (90g)',
+      },
       price: '5000',
       beforePrice: '',
-      description: '은은한 트러플의 풍미, 고급스러운 마요의 변신!',
+      description: {
+        ko: '은은한 트러플의 향을 더한 고급스러운 마요네즈',
+        en: 'A luxurious truffle-infused mayonnaise with a subtle, elegant aroma.',
+      },
       image: '03thai.jpg',
       hoverImage: '03-2thai.jpg',
       brand: '',
@@ -399,11 +502,16 @@ export async function getAllProducts() {
     },
     {
       id: 19,
-      name: 'Mama 쉬림프 똠얌 죽',
+      name: {
+        ko: 'Mama 쉬림프 똠얌 죽',
+        en: 'Mama Shrimp Tom Yum Porridge',
+      },
       price: '1000',
       beforePrice: '',
-      description:
-        '매콤한 똠얌의 진한 풍미를 그대로 담은 태국식 즉석 쉬림프 죽. 뜨거운 물만 부으면 2분 만에 완성되는 간편한 이국적인 한 끼',
+      description: {
+        ko: '매콤한 똠얌의 진한 풍미를 그대로 담은 즉석 쉬림프 죽. 물만 부어 2분 완성!',
+        en: 'An instant shrimp porridge infused with rich, spicy Tom Yum flavor—ready in just 2 minutes.',
+      },
       image: '07thai.jpg',
       hoverImage: '07-2thai.jpg',
       brand: '',
@@ -419,11 +527,16 @@ export async function getAllProducts() {
     },
     {
       id: 20,
-      name: '인스턴트 밀크 그린티 5개 set',
+      name: {
+        ko: '인스턴트 밀크 그린티 5개 set',
+        en: 'Instant Milk Green Tea Set (5pcs)',
+      },
       price: '4500',
       beforePrice: '',
-      description:
-        '녹차의 깊은 향과 부드러운 우유가 어우러진 녹차라떼. 3 in 1으로 언제 어디서나 간편하게 즐기는 달콤 향긋한 티타임',
+      description: {
+        ko: '녹차의 깊은 향과 부드러운 우유의 조화를 간편하게 즐기는 3 in 1 티타임',
+        en: 'A sweet, fragrant milk green tea with deep matcha notes—enjoyable anywhere with this 3-in-1 pack.',
+      },
       image: '08thai.jpg',
       hoverImage: '08-2thai.jpg',
       brand: '',
@@ -439,11 +552,16 @@ export async function getAllProducts() {
     },
     {
       id: 21,
-      name: '인스턴트 밀크티 5개 set',
+      name: {
+        ko: '인스턴트 밀크티 5개 set',
+        en: 'Instant Milk Tea Set (5pcs)',
+      },
       price: '4500',
       beforePrice: '',
-      description:
-        '진한 홍차와 달콤한 밀크가 어우러진 타이 밀크티. 3 in 1으로 언제 어디서나 간편하게 즐기는 달콤 향긋한 티타임',
+      description: {
+        ko: '진한 홍차와 달콤한 밀크가 어우러진 타이식 밀크티. 간편한 3 in 1 구성',
+        en: 'A sweet, aromatic Thai-style milk tea made with rich black tea—easy 3-in-1 preparation.',
+      },
       image: '09thai.jpg',
       hoverImage: '09-2thai.jpg',
       brand: '',

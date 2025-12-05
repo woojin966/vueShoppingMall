@@ -1,18 +1,18 @@
 <template>
   <div class="filter_box">
     <p class="selected_filter text sb" @click="toggle">
-      {{ modelValue }}
+      {{ $t(modelValue) }}
       <span class="arrow small n" :class="{ open: open }">▼</span>
     </p>
 
     <ul v-show="open" class="filter_options">
       <li
-        v-for="option in options"
-        :key="option"
-        @click="select(option)"
-        :class="{ active: modelValue === option }"
+        v-for="key in options"
+        :key="key"
+        @click="select(key)"
+        :class="{ active: modelValue === key }"
       >
-        {{ option }}
+        {{ $t(key) }}
       </li>
     </ul>
   </div>

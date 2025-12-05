@@ -4,6 +4,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import i18n from './i18n'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -19,7 +20,8 @@ const app = createApp(App)
 // unsplash 전역 등록
 app.config.globalProperties.$unsplash = unsplash
 
-app.use(router)
 app.use(store)
+app.use(router)
+app.use(i18n)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.mount('#app')

@@ -8,10 +8,16 @@ export async function getAllProducts() {
     // 의류
     {
       id: 22,
-      name: 'ORUMM 콜렉터스팬츠_애쉬스톤',
+      name: {
+        ko: 'ORUMM 콜렉터스팬츠_애쉬스톤',
+        en: 'ORUMM Collectors Pants_Ash Stone',
+      },
       price: '125000',
       beforePrice: '',
-      description: '힙한 아웃도어 스타일링을 완성해주는 ORUMM의 베스트셀링 팬츠',
+      description: {
+        ko: '힙한 아웃도어 스타일링을 완성해주는 ORUMM의 베스트셀링 팬츠',
+        en: 'A best-selling ORUMM pant that completes a hip, effortless outdoor look.',
+      },
       image: '01orumpants1.jpg',
       hoverImage: '01orumpants1-2.jpg',
       brand: 'orumm',
@@ -26,10 +32,16 @@ export async function getAllProducts() {
     },
     {
       id: 23,
-      name: 'ORUMM 콜렉터스팬츠_블랙스톤',
+      name: {
+        ko: 'ORUMM 콜렉터스팬츠_블랙스톤',
+        en: 'ORUMM Collectors Pants_Black Stone',
+      },
       price: '125000',
       beforePrice: '',
-      description: '힙한 아웃도어 스타일링을 완성해주는 ORUMM의 베스트셀링 팬츠',
+      description: {
+        ko: '힙한 아웃도어 스타일링을 완성해주는 ORUMM의 베스트셀링 팬츠',
+        en: 'A best-selling ORUMM pant crafted for a bold, stylish outdoor look.',
+      },
       image: '02orumpants2.jpg',
       hoverImage: '02orumpants2-2.jpg',
       brand: 'orumm',
@@ -42,13 +54,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '288',
     },
+
     {
       id: 24,
-      name: 'PUCO 썸머 페이즐리 드레스',
+      name: {
+        ko: 'PUCO 썸머 페이즐리 드레스',
+        en: 'PUCO Summer Paisley Dress',
+      },
       price: '84000',
       beforePrice: '',
-      description:
-        '여름 바람처럼 가볍게 흐르는, 빈티지 무드의 맥시 페이즐링 스트링 원피스(2colors)',
+      description: {
+        ko: '여름 바람처럼 가볍게 흐르는, 빈티지 무드의 맥시 페이즐링 스트링 원피스(2colors)',
+        en: 'A breezy vintage-inspired maxi dress that flows lightly like a summer wind. (2 colors)',
+      },
       image: '03paiseley1.jpg',
       hoverImage: '03paiseley1-2.jpg',
       brand: 'puco',
@@ -61,12 +79,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '79',
     },
+
     {
       id: 25,
-      name: 'PUCO 강연 베이직 티',
+      name: {
+        ko: 'PUCO 강연 베이직 티',
+        en: 'PUCO Premium Cotton Basic Tee',
+      },
       price: '39000',
       beforePrice: '',
-      description: '고퀄리티 강연면 원단의 참된 편함을 전할 스탠다드핏 반팔 티셔츠(7colors',
+      description: {
+        ko: '고퀄리티 강연면 원단의 참된 편함을 전할 스탠다드핏 반팔 티셔츠(7colors',
+        en: 'A soft premium twisted-cotton tee offering true comfort in a classic fit. (7 colors)',
+      },
       image: '04pucobasict.jpg',
       hoverImage: '04pucobasict-2.jpg',
       brand: 'puco',
@@ -79,13 +104,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '134',
     },
+
     {
       id: 26,
-      name: 'PUCO 오프바운드 슬리브리스',
+      name: {
+        ko: 'PUCO 오프바운드 슬리브리스',
+        en: 'PUCO Off-Bound Sleeveless Top',
+      },
       price: '37000',
       beforePrice: '',
-      description:
-        '힙을 덮는 언발라스 기장, 편안하고 세련된 여름 코디의 완성! 언발란스 슬리브리스 탑(5colors)',
+      description: {
+        ko: '힙을 덮는 언발라스 기장, 편안하고 세련된 여름 코디의 완성! 언발란스 슬리브리스 탑(5colors)',
+        en: 'A chic asymmetric sleeveless top with an easy drape for effortless summer styling. (5 colors)',
+      },
       image: '05pucooffbound.jpg',
       hoverImage: '05pucooffbound-2.jpg',
       brand: 'puco',
@@ -98,12 +129,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '82',
     },
+
     {
       id: 27,
-      name: 'PUCO 썸머레이스 조끼',
+      name: {
+        ko: 'PUCO 썸머레이스 조끼',
+        en: 'PUCO Summer Lace Vest',
+      },
       price: '54000',
       beforePrice: '',
-      description: '여름 탑 위에 가볍게 걸치기 좋은 통기성 좋은 레이스 조끼(3colors)',
+      description: {
+        ko: '여름 탑 위에 가볍게 걸치기 좋은 통기성 좋은 레이스 조끼(3colors)',
+        en: 'A breathable lace vest perfect for layering over summer tops. (3 colors)',
+      },
       image: '06pucosummerlace.jpg',
       hoverImage: '06pucosummerlace-2.jpg',
       brand: 'puco',
@@ -116,12 +154,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '34',
     },
+
     {
       id: 28,
-      name: 'PUCO 에어코튼 티셔츠',
+      name: {
+        ko: 'PUCO 에어코튼 티셔츠',
+        en: 'PUCO Air Cotton T-Shirt',
+      },
       price: '39000',
       beforePrice: '',
-      description: '슬라브와 직기 배색이 돋보이는 PUCO의 스타일리시한 티셔츠(4colors)',
+      description: {
+        ko: '슬라브와 직기 배색이 돋보이는 PUCO의 스타일리시한 티셔츠(4colors)',
+        en: 'A stylish tee featuring a mix of slub and woven textures for a refined summer look. (4 colors)',
+      },
       image: '07pucoaircotton.jpg',
       hoverImage: '07pucoaircotton-2.jpg',
       brand: 'puco',
@@ -134,12 +179,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '11',
     },
+
     {
       id: 29,
-      name: 'PUCO 에어코튼 팬츠',
+      name: {
+        ko: 'PUCO 에어코튼 팬츠',
+        en: 'PUCO Air Cotton Pants',
+      },
       price: '66000',
       beforePrice: '',
-      description: '슬라브와 직기 배색이 돋보이는 PUCO의 네추럴 썸머 팬츠(3colors)',
+      description: {
+        ko: '슬라브와 직기 배색이 돋보이는 PUCO의 네추럴 썸머 팬츠(3colors)',
+        en: 'Lightweight summer pants with refined slub-woven contrast detailing. (3 colors)',
+      },
       image: '08pucoaircottonpants.jpg',
       hoverImage: '08pucoaircottonpants-2.jpg',
       brand: 'puco',
@@ -152,12 +204,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '29',
     },
+
     {
       id: 30,
-      name: 'PUCO 린넨 차이나 셔츠',
+      name: {
+        ko: 'PUCO 린넨 차이나 셔츠',
+        en: 'PUCO Linen China Shirt',
+      },
       price: '118000',
       beforePrice: '',
-      description: '천연 린넨 100%, 여름을 위한 최고의 푸코 셔츠(6colors)',
+      description: {
+        ko: '천연 린넨 100%, 여름을 위한 최고의 푸코 셔츠(6colors)',
+        en: 'A 100% natural linen shirt crafted for a cool, effortless summer look. (6 colors)',
+      },
       image: '09pucolinenchina.jpg',
       hoverImage: '09pucolinenchina-2.jpg',
       brand: 'puco',
@@ -170,12 +229,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '43',
     },
+
     {
       id: 31,
-      name: 'PUCO 에브리데이 슬라브 V넥 티',
+      name: {
+        ko: 'PUCO 에브리데이 슬라브 V넥 티',
+        en: 'PUCO Everyday Slub V-Neck Tee',
+      },
       price: '29000',
       beforePrice: '',
-      description: '구름결처럼 부드러운 터치, 여름을 위한 PUCO의 워싱 슬라브 V넥 티셔츠(4colors)',
+      description: {
+        ko: '구름결처럼 부드러운 터치, 여름을 위한 PUCO의 워싱 슬라브 V넥 티셔츠(4colors)',
+        en: 'A cloud-soft washed slub V-neck tee designed for easy summer comfort. (4 colors)',
+      },
       image: '10pucoeverydayvneck.jpg',
       hoverImage: '10pucoeverydayvneck-2.jpg',
       brand: 'puco',
@@ -188,12 +254,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '72',
     },
+
     {
       id: 32,
-      name: 'PUCO 에브리데이 7부 팬츠',
+      name: {
+        ko: 'PUCO 에브리데이 7부 팬츠',
+        en: 'PUCO Everyday 3/4 Pants',
+      },
       price: '69000',
       beforePrice: '',
-      description: '툭 떨어지는 실루엣, 체형 커버에도 좋은 여름용 PUCO의 짧은 팬츠(6colors)',
+      description: {
+        ko: '툭 떨어지는 실루엣, 체형 커버에도 좋은 여름용 PUCO의 짧은 팬츠(6colors)',
+        en: 'Relaxed 3/4 pants with a clean silhouette—perfect for summer ease. (6 colors)',
+      },
       image: '11pucoeverydaypants.jpg',
       hoverImage: '11pucoeverydaypants-2.jpg',
       brand: 'puco',
@@ -206,13 +279,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '65',
     },
+
     {
       id: 33,
-      name: 'PUCO 디에센셜 슬리브리스 티',
+      name: {
+        ko: 'PUCO 디에센셜 슬리브리스 티',
+        en: 'PUCO The Essential Sleeveless Tee',
+      },
       price: '23800',
       beforePrice: '34800',
-      description:
-        '차분한 피그먼트 컬러와 부드러운 착용감, 어깨서ㅓㄴ을 감싸는 오버핏 실루엣으로 자연스럽게 멋스러운 여름 데일리 슬리브리스(3colors)',
+      description: {
+        ko: '차분한 피그먼트 컬러와 부드러운 착용감, 어깨서ㅓㄴ을 감싸는 오버핏 실루엣으로 자연스럽게 멋스러운 여름 데일리 슬리브리스(3colors)',
+        en: 'A relaxed pigment-dyed sleeveless top with soft comfort and an effortless oversized fit. (3 colors)',
+      },
       image: '12clear_pucoessentialsleeveless.jpg',
       hoverImage: '12clear_pucoessentialsleeveless-2.jpg',
       brand: 'puco',
@@ -225,12 +304,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '75',
     },
+
     {
       id: 34,
-      name: 'PUCO 린넨 와이드 팬츠',
+      name: {
+        ko: 'PUCO 린넨 와이드 팬츠',
+        en: 'PUCO Linen Wide Pants',
+      },
       price: '63200',
       beforePrice: '79000',
-      description: '9부 기장의 여유로운 핏, 일상과 여행에 모두 잘 어울리는 PUCO 린넨 팬츠(4colors)',
+      description: {
+        ko: '9부 기장의 여유로운 핏, 일상과 여행에 모두 잘 어울리는 PUCO 린넨 팬츠(4colors)',
+        en: 'Relaxed 9-length linen wide pants perfect for daily wear or travel. (4 colors)',
+      },
       image: '13clear_pucolinenwidepants.jpg',
       hoverImage: '13clear_pucolinenwidepants-2.jpg',
       brand: 'puco',
@@ -243,12 +329,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '80',
     },
+
     {
       id: 35,
-      name: 'PUCO 슬라브 치마바지',
+      name: {
+        ko: 'PUCO 슬라브 치마바지',
+        en: 'PUCO Slub Skirt-Pants',
+      },
       price: '65000',
       beforePrice: '',
-      description: '프리미엄 면 소재로 편안함이 남다른 푸코의 와이드핏 치마바지(3colors)',
+      description: {
+        ko: '프리미엄 면 소재로 편안함이 남다른 푸코의 와이드핏 치마바지(3colors)',
+        en: 'Soft premium cotton skirt-pants with an easy wide silhouette. (3 colors)',
+      },
       image: '14pucoskirtpants.jpg',
       hoverImage: '14pucoskirtpants-2.jpg',
       brand: 'puco',
@@ -261,12 +354,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '31',
     },
+
     {
       id: 36,
-      name: 'PUCO 강연순면 슬리브리스 티',
+      name: {
+        ko: 'PUCO 강연순면 슬리브리스 티',
+        en: 'PUCO Pure Cotton Sleeveless Tee',
+      },
       price: '36000',
       beforePrice: '',
-      description: '퀄리티 있는 소재로 완성된 깔끔한 푸코의 여름 이너/단독 민소매 티셔츠(7colors)',
+      description: {
+        ko: '퀄리티 있는 소재로 완성된 깔끔한 푸코의 여름 이너/단독 민소매 티셔츠(7colors)',
+        en: 'A simple yet refined pure cotton sleeveless top for layering or standalone wear. (7 colors)',
+      },
       image: '15pucopurecottonT.jpg',
       hoverImage: '15pucopurecottonT-2.jpg',
       brand: 'puco',
@@ -279,13 +379,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '110',
     },
+
     {
       id: 37,
-      name: 'PCUO 핀탁 썸머팬츠',
+      name: {
+        ko: 'PCUO 핀탁 썸머팬츠',
+        en: 'PUCO Pintuck Summer Pants',
+      },
       price: '72000',
       beforePrice: '',
-      description:
-        '심플하지만 감각적인 밑단 핀턱 디테일, 착용감까지 가벼운 푸코의 여름팬츠(3colors)',
+      description: {
+        ko: '심플하지만 감각적인 밑단 핀턱 디테일, 착용감까지 가벼운 푸코의 여름팬츠(3colors)',
+        en: 'Lightweight summer pants with chic pintuck detail for an elevated everyday look. (3 colors)',
+      },
       image: '16pucopintucksummerpants.jpg',
       hoverImage: '16pucopintucksummerpants-2.jpg',
       brand: 'puco',
@@ -298,13 +404,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '27',
     },
+
     {
       id: 38,
-      name: 'PUCO 디에센셜 루즈핏 반팔티',
+      name: {
+        ko: 'PUCO 디에센셜 루즈핏 반팔티',
+        en: 'PUCO The Essential Loose Fit Tee',
+      },
       price: '31200',
       beforePrice: '39000',
-      description:
-        '레이아스가 애정하는 로컬브랜드 PUCO에서 준비한 은은한 컬러감과 배색 스티치로 멋을 더한 감성 오버핏 티셔츠(3colors)',
+      description: {
+        ko: '레이아스가 애정하는 로컬브랜드 PUCO에서 준비한 은은한 컬러감과 배색 스티치로 멋을 더한 감성 오버핏 티셔츠(3colors)',
+        en: 'A soft-toned oversized tee with contrast stitching—crafted with PUCO’s signature sentiment. (3 colors)',
+      },
       image: '17clear_pucoessentialloosefitT.jpg',
       hoverImage: '17clear_pucoessentialloosefitT-2.jpg',
       brand: 'puco',
@@ -317,13 +429,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '65',
     },
+
     {
       id: 39,
-      name: 'PUCO 데일리 플레어 팬츠',
+      name: {
+        ko: 'PUCO 데일리 플레어 팬츠',
+        en: 'PUCO Daily Flare Pants',
+      },
       price: '94000',
       beforePrice: '',
-      description:
-        '부드럽게 흐르는 플레어 실루엣, 편안함 속의 감성 미학, 푸코의 플레어 팬츠(3colors)',
+      description: {
+        ko: '부드럽게 흐르는 플레어 실루엣, 편안함 속의 감성 미학, 푸코의 플레어 팬츠(3colors)',
+        en: 'Softly flowing flare pants with a romantic silhouette for comfortable daily elegance. (3 colors)',
+      },
       image: '18pucodailyflairpants.jpg',
       hoverImage: '18pucodailyflairpants-2.jpg',
       brand: 'puco',
@@ -336,12 +454,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '19',
     },
+
     {
       id: 40,
-      name: 'PUCO 시그니처 코튼 롱 드레스',
+      name: {
+        ko: 'PUCO 시그니처 코튼 롱 드레스',
+        en: 'PUCO Signature Cotton Long Dress',
+      },
       price: '59000',
       beforePrice: '',
-      description: '어떤 날에도 가볍게 입고 나설 수 있는, 감각적인 여름 한 벌(2colors)',
+      description: {
+        ko: '어떤 날에도 가볍게 입고 나설 수 있는, 감각적인 여름 한 벌(2colors)',
+        en: 'A breezy, easy-to-wear signature cotton dress for any summer day. (2 colors)',
+      },
       image: '19pucocottonlongonepiece.jpg',
       hoverImage: '19pucocottonlongonepiece-2.jpg',
       brand: 'puco',
@@ -354,13 +479,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '42',
     },
+
     {
       id: 41,
-      name: 'PUCO lettesr Tee',
+      name: {
+        ko: 'PUCO lettesr Tee',
+        en: 'PUCO Letters Tee',
+      },
       price: '39000',
       beforePrice: '',
-      description:
-        '프리미엄 30수 오가닉코튼에 레어 워싱으로 담아낸 부드러운 색감, 여름을 위한 섬세한 티셔츠(5colors)',
+      description: {
+        ko: '프리미엄 30수 오가닉코튼에 레어 워싱으로 담아낸 부드러운 색감, 여름을 위한 섬세한 티셔츠(5colors)',
+        en: 'A premium organic cotton tee with delicate washed hues for soft summer moods. (5 colors)',
+      },
       image: '20pucolettersT.jpg',
       hoverImage: '20pucolettersT-2.jpg',
       brand: 'puco',
@@ -373,12 +504,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '142',
     },
+
     {
       id: 42,
-      name: 'PUCO 오가닉코튼 슬리브리스',
+      name: {
+        ko: 'PUCO 오가닉코튼 슬리브리스',
+        en: 'PUCO Organic Cotton Sleeveless',
+      },
       price: '29000',
       beforePrice: '',
-      description: '기본을 가장 정성스럽게 만든, 푸코의 감각적인 슬리브리스(3colors)',
+      description: {
+        ko: '기본을 가장 정성스럽게 만든, 푸코의 감각적인 슬리브리스(3colors)',
+        en: 'A thoughtfully crafted organic cotton sleeveless top embodying PUCO’s refined simplicity. (3 colors)',
+      },
       image: '21pucoorganiccottonsleeveless.jpg',
       hoverImage: '21pucoorganiccottonsleeveless-2.jpg',
       brand: 'puco',
@@ -391,13 +529,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '221',
     },
+
     {
       id: 43,
-      name: '온 더 웨이_머스타드',
+      name: {
+        ko: '온 더 웨이_머스타드',
+        en: 'On the Way_Mustard',
+      },
       price: '35000',
       beforePrice: '',
-      description:
-        '오름의 상상력과 일러스트레이터 은작가님의 터치가 만나 탄생한 특별한 오가닉 티셔츠',
+      description: {
+        ko: '오름의 상상력과 일러스트레이터 은작가님의 터치가 만나 탄생한 특별한 오가닉 티셔츠',
+        en: 'A unique organic tee born from ORUMM’s imagination and artist Eun’s gentle illustration.',
+      },
       image: '22orumTorange.jpg',
       hoverImage: '22orumTorange-2.jpg',
       brand: 'puco',
@@ -410,13 +554,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '241',
     },
+
     {
       id: 44,
-      name: '온 더 웨이_블랙',
+      name: {
+        ko: '온 더 웨이_블랙',
+        en: 'On the Way_Black',
+      },
       price: '35000',
       beforePrice: '',
-      description:
-        '오름의 상상력과 일러스트레이터 은작가님의 터치가 만나 탄생한 특별한 오가닉 티셔츠',
+      description: {
+        ko: '오름의 상상력과 일러스트레이터 은작가님의 터치가 만나 탄생한 특별한 오가닉 티셔츠',
+        en: 'A collaborative organic tee blending ORUMM’s imagination with artist Eun’s expressive linework.',
+      },
       image: '23orumTblack.jpg',
       hoverImage: '23orumTblack-2.jpg',
       brand: 'puco',
@@ -429,13 +579,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '168',
     },
+
     {
       id: 45,
-      name: '온 더 웨이_스카이',
+      name: {
+        ko: '온 더 웨이_스카이',
+        en: 'On the Way_Sky',
+      },
       price: '35000',
       beforePrice: '',
-      description:
-        '오름의 상상력과 일러스트레이터 은작가님의 터치가 만나 탄생한 특별한 오가닉 티셔츠',
+      description: {
+        ko: '오름의 상상력과 일러스트레이터 은작가님의 터치가 만나 탄생한 특별한 오가닉 티셔츠',
+        en: 'A dreamy sky-blue organic tee merging ORUMM’s vision with elegant hand–drawn artistry.',
+      },
       image: '24orumTsky.jpg',
       hoverImage: '24orumTsky-2.jpg',
       brand: 'puco',
@@ -448,14 +604,20 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '77',
     },
+
     // 가방
     {
       id: 46,
-      name: 'Backstage 데일리 사코슈 백',
+      name: {
+        ko: 'Backstage 데일리 사코슈 백',
+        en: 'Backstage Daily Sacoche Bag',
+      },
       price: '29000',
       beforePrice: '',
-      description:
-        '여행과 일상 그 어느 상황에도 잘 어울리는 파라루프 원단의 스타일리시 소형 사코슈(2colors)',
+      description: {
+        ko: '여행과 일상 그 어느 상황에도 잘 어울리는 파라루프 원단의 스타일리시 소형 사코슈(2colors)',
+        en: 'A stylish small sacoche made from durable PARA-loop fabric—perfect for travel and daily use. (2 colors)',
+      },
       image: '01bag.jpg',
       hoverImage: '01-2bag.jpg',
       brand: 'backstage',
@@ -468,12 +630,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '68',
     },
+
     {
       id: 47,
-      name: 'Backstage 데일리 숄더백 12L',
+      name: {
+        ko: 'Backstage 데일리 숄더백 12L',
+        en: 'Backstage Daily Shoulder Bag 12L',
+      },
       price: '56000',
       beforePrice: '',
-      description: '노트북 수납부터 여행까지, 12L 넉넉한 용량의 경량 숄더백(2colors)',
+      description: {
+        ko: '노트북 수납부터 여행까지, 12L 넉넉한 용량의 경량 숄더백(2colors)',
+        en: 'A lightweight 12L shoulder bag spacious enough for laptops, daily carry, and travel. (2 colors)',
+      },
       image: '02thai_bag.jpg',
       hoverImage: '02-2thai_bag.jpg',
       brand: 'backstage',
@@ -486,13 +655,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '69',
     },
+
     {
       id: 48,
-      name: 'Backstage 익스플로러 사코슈 백',
+      name: {
+        ko: 'Backstage 익스플로러 사코슈 백',
+        en: 'Backstage Explorer Sacoche Bag',
+      },
       price: '38000',
       beforePrice: '',
-      description:
-        '여행과 일상 그 어느 상화아에도 잘 어울리는 고기능성 원단의 스타일리시 중형 사코슈 백(2colors)',
+      description: {
+        ko: '여행과 일상 그 어느 상화아에도 잘 어울리는 고기능성 원단의 스타일리시 중형 사코슈 백(2colors)',
+        en: 'A mid–size functional sacoche with a stylish build—your versatile companion for travel or daily life. (2 colors)',
+      },
       image: '03thai_bag.jpg',
       hoverImage: '03-2thai_bag.jpg',
       brand: 'backstage',
@@ -505,12 +680,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '92',
     },
+
     {
       id: 49,
-      name: 'Backstage 디에이 스퀘어 숄더백',
+      name: {
+        ko: 'Backstage 디에이 스퀘어 숄더백',
+        en: 'Backstage DA Square Shoulder Bag',
+      },
       price: '29000',
       beforePrice: '',
-      description: '꼭 필요한 것만 담는 하루, 무심한 듯 가볍게 매는 데일리 숄더백(2colors)',
+      description: {
+        ko: '꼭 필요한 것만 담는 하루, 무심한 듯 가볍게 매는 데일리 숄더백(2colors)',
+        en: 'A minimalist daily shoulder bag designed to hold just what you need—effortless and lightweight. (2 colors)',
+      },
       image: '04thai_bag.jpg',
       hoverImage: '04-2thai_bag.jpg',
       brand: 'backstage',
@@ -523,13 +705,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '250',
     },
+
     {
       id: 50,
-      name: 'Backstage 크로스&쇼퍼 하이브리드 백',
+      name: {
+        ko: 'Backstage 크로스&쇼퍼 하이브리드 백',
+        en: 'Backstage Cross & Shopper Hybrid Bag',
+      },
       price: '43000',
       beforePrice: '',
-      description:
-        '꼭 필요한 순간, 꼭 필요한 만큼, 접히고 펼쳐지는 미니크로스&쇼퍼 2-in-1백(2colors)',
+      description: {
+        ko: '꼭 필요한 순간, 꼭 필요한 만큼, 접히고 펼쳐지는 미니크로스&쇼퍼 2-in-1백(2colors)',
+        en: 'A flexible 2-in-1 mini crossbody & shopper bag that folds and expands as your day unfolds. (2 colors)',
+      },
       image: '05thai_bag.jpg',
       hoverImage: '05-2thai_bag.jpg',
       brand: 'backstage',
@@ -542,12 +730,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '62',
     },
+
     {
       id: 51,
-      name: 'Hamblepie Little Basket_Peace&Joy',
+      name: {
+        ko: 'Hamblepie Little Basket_Peace&Joy',
+        en: 'Hamblepie Little Basket_Peace&Joy',
+      },
       price: '46000',
       beforePrice: '',
-      description: '"평화와 기쁨"이란 메시지와 자수 아트워크를 담은 감성 가득한 숄더백',
+      description: {
+        ko: '"평화와 기쁨"이란 메시지와 자수 아트워크를 담은 감성 가득한 숄더백',
+        en: 'A heartwarming shoulder bag embroidered with the message “Peace & Joy,” filled with handcrafted charm.',
+      },
       image: '06bag.jpg',
       hoverImage: '06-2bag.jpg',
       brand: 'hamblepie',
@@ -560,13 +755,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '95',
     },
+
     {
       id: 52,
-      name: 'Hamblepie 웬드 백',
+      name: {
+        ko: 'Hamblepie 웬드 백',
+        en: 'Hamblepie Wend Bag',
+      },
       price: '78000',
       beforePrice: '',
-      description:
-        '방콕의 아이코닉 크래프트 브랜드 Hamblepie의 베스트 셀러 WIND시리지으 최신판 WEND BAG',
+      description: {
+        ko: '방콕의 아이코닉 크래프트 브랜드 Hamblepie의 베스트 셀러 WIND시리지으 최신판 WEND BAG',
+        en: 'The latest edition of Hamblepie’s iconic WIND series—a beloved handcrafted Bangkok creation.',
+      },
       image: '07bag.jpg',
       hoverImage: '07-2bag.jpg',
       brand: 'hamblepie',
@@ -579,13 +780,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '59',
     },
+
     {
       id: 53,
-      name: 'Hamblepie 캐주얼 토트백',
+      name: {
+        ko: 'Hamblepie 캐주얼 토트백',
+        en: 'Hamblepie Casual Tote Bag',
+      },
       price: '56000',
       beforePrice: '',
-      description:
-        '방콕의 아이코닉 크래픝 브랜드 Hamblepie의 순수한 아이보리 색 오가닉 코튼의 심플자수 토트 백',
+      description: {
+        ko: '방콕의 아이코닉 크래픝 브랜드 Hamblepie의 순수한 아이보리 색 오가닉 코튼의 심플자수 토트 백',
+        en: 'A natural ivory organic cotton tote featuring Hamblepie’s clean, artful embroidery.',
+      },
       image: '08bag.jpg',
       hoverImage: '08-2bag.jpg',
       brand: 'hamblepie',
@@ -598,13 +805,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '116',
     },
+
     {
       id: 54,
-      name: 'Hamblepie Big Tote_Family',
+      name: {
+        ko: 'Hamblepie Big Tote_Family',
+        en: 'Hamblepie Big Tote_Family',
+      },
       price: '56000',
       beforePrice: '',
-      description:
-        '햄블파이만의 감성으로 샌디의 아지트를 자수 아트워크로 담아낸 오가닉코튼 빅 토트백',
+      description: {
+        ko: '햄블파이만의 감성으로 샌디의 아지트를 자수 아트워크로 담아낸 오가닉코튼 빅 토트백',
+        en: 'A large organic cotton tote embroidered with Hamblepie’s heartfelt illustration of Sandy’s cozy corner.',
+      },
       image: '09bag.jpg',
       hoverImage: '09-2bag.jpg',
       brand: 'hamblepie',
@@ -617,13 +830,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '87',
     },
+
     {
       id: 55,
-      name: 'Hamblepie Best bag',
+      name: {
+        ko: 'Hamblepie Best bag',
+        en: 'Hamblepie Best Bag',
+      },
       price: '69000',
       beforePrice: '',
-      description:
-        '컬러풀한 비즈와 자수 아트워크로 완성한 세상 둘도 없는 감각적 핸드크래프트 숄더백',
+      description: {
+        ko: '컬러풀한 비즈와 자수 아트워크로 완성한 세상 둘도 없는 감각적 핸드크래프트 숄더백',
+        en: 'A one-of-a-kind handcrafted shoulder bag adorned with vivid beads and expressive embroidery.',
+      },
       image: '10bag.jpg',
       hoverImage: '10-2bag.jpg',
       brand: 'hamblepie',
@@ -636,12 +855,19 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '40',
     },
+
     {
       id: 56,
-      name: 'Hamblepie Blacktrack_Picnic L',
+      name: {
+        ko: 'Hamblepie Blacktrack_Picnic L',
+        en: 'Hamblepie Blacktrack_Picnic L',
+      },
       price: '84000',
       beforePrice: '',
-      description: '다양한 자연 자수를 감각적으로 더한 블랙의 반원통형 숄더 백',
+      description: {
+        ko: '다양한 자연 자수를 감각적으로 더한 블랙의 반원통형 숄더 백',
+        en: 'A chic black semi-cylindrical shoulder bag enriched with charming nature-inspired embroidery.',
+      },
       image: '11bag.jpg',
       hoverImage: '11-2bag.jpg',
       brand: 'hamblepie',
@@ -656,11 +882,16 @@ export async function getAllProducts() {
     },
     {
       id: 57,
-      name: 'Hamblepie Pocket in Hand gang',
+      name: {
+        ko: 'Hamblepie Pocket in Hand gang',
+        en: 'Hamblepie Pocket in Hand Gang Mini Pouch',
+      },
       price: '29000',
       beforePrice: '',
-      description:
-        '4가지 유쾌한 테마로 만나는 햄블파이 가마성 미니 파우치, 손에 꼭 쥐고 싶은 컬렉션',
+      description: {
+        ko: '4가지 유쾌한 테마로 만나는 햄블파이 가마성 미니 파우치, 손에 꼭 쥐고 싶은 컬렉션',
+        en: 'A cheerful mini pouch collection in four playful themes, designed to fit perfectly in your hand.',
+      },
       image: '12bag.jpg',
       hoverImage: '12-2bag.jpg',
       brand: 'hamblepie',
@@ -675,10 +906,16 @@ export async function getAllProducts() {
     },
     {
       id: 58,
-      name: 'Hamblepie 미니 파우치',
+      name: {
+        ko: 'Hamblepie 미니 파우치',
+        en: 'Hamblepie Mini Pouch',
+      },
       price: '29000',
       beforePrice: '',
-      description: '자연을 모티브로 한 감성 자수 디자인의 햄블파이의 리미티드 미니 파우치 백 4종',
+      description: {
+        ko: '자연을 모티브로 한 감성 자수 디자인의 햄블파이의 리미티드 미니 파우치 백 4종',
+        en: 'A limited mini pouch series with nature-inspired embroidery and Hamblepie’s warm, sentimental touch.',
+      },
       image: '13bag.jpg',
       hoverImage: '13-2bag.jpg',
       brand: 'hamblepie',
@@ -693,10 +930,16 @@ export async function getAllProducts() {
     },
     {
       id: 59,
-      name: 'Hamblepie PALS 피크닉 백_CREAM',
+      name: {
+        ko: 'Hamblepie PALS 피크닉 백_CREAM',
+        en: 'Hamblepie PALS Picnic Bag_CREAM',
+      },
       price: '68000',
       beforePrice: '',
-      description: '세상 모든 예쁜 강아지들을 햄블파이만의 자수로 담아 낸 핸드메이드 반원통 가방',
+      description: {
+        ko: '세상 모든 예쁜 강아지들을 햄블파이만의 자수로 담아 낸 핸드메이드 반원통 가방',
+        en: 'A handmade half-moon bag embroidered with charming dogs from all around the world, in true Hamblepie style.',
+      },
       image: '14bag.jpg',
       hoverImage: '14-2bag.jpg',
       brand: 'hamblepie',
@@ -711,10 +954,16 @@ export async function getAllProducts() {
     },
     {
       id: 60,
-      name: 'Hamblepie PALS 피크닉 백_SOFT MINT',
+      name: {
+        ko: 'Hamblepie PALS 피크닉 백_SOFT MINT',
+        en: 'Hamblepie PALS Picnic Bag_SOFT MINT',
+      },
       price: '68000',
       beforePrice: '',
-      description: '세상 모든 예쁜 강아지들을 햄블파이만의 자수로 담아 낸 핸드메이드 반원통 가방',
+      description: {
+        ko: '세상 모든 예쁜 강아지들을 햄블파이만의 자수로 담아 낸 핸드메이드 반원통 가방',
+        en: 'A soft mint picnic bag with lovingly embroidered pups, crafted as a unique, everyday companion.',
+      },
       image: '15bag.jpg',
       hoverImage: '15-2bag.jpg',
       brand: 'hamblepie',
@@ -729,11 +978,16 @@ export async function getAllProducts() {
     },
     {
       id: 61,
-      name: 'Hamblepie Blacktrack_Bottle',
+      name: {
+        ko: 'Hamblepie Blacktrack_Bottle',
+        en: 'Hamblepie Blacktrack_Bottle',
+      },
       price: '49000',
       beforePrice: '',
-      description:
-        '즐거움이 함께 할 매 순간 함께 할 실용적인 사이즈와 캐주얼한 디자인의 블랙 보틀 백',
+      description: {
+        ko: '즐거움이 함께 할 매 순간 함께 할 실용적인 사이즈와 캐주얼한 디자인의 블랙 보틀 백',
+        en: 'A black bottle bag with a casual mood and practical size, ready to join you in every joyful moment.',
+      },
       image: '16bag.jpg',
       hoverImage: '16-2bag.jpg',
       brand: 'hamblepie',
@@ -748,11 +1002,16 @@ export async function getAllProducts() {
     },
     {
       id: 62,
-      name: 'Hmong 핸드메이드 빈티지 숄더백',
+      name: {
+        ko: 'Hmong 핸드메이드 빈티지 숄더백',
+        en: 'Hmong Handmade Vintage Shoulder Bag',
+      },
       price: '62300',
       beforePrice: '89000',
-      description:
-        '세상 단 하나뿐인 예술작품과도 같은 칸타퀼팅 팬드메이드 에스닉맥(Only 3 objects)',
+      description: {
+        ko: '세상 단 하나뿐인 예술작품과도 같은 칸타퀼팅 팬드메이드 에스닉맥(Only 3 objects)',
+        en: 'A one-of-a-kind ethnic shoulder bag with delicate Kantha quilting—more like wearable art than just a bag.',
+      },
       image: '17bag.jpg',
       hoverImage: '17-2bag.jpg',
       brand: 'Hmong',
@@ -767,11 +1026,16 @@ export async function getAllProducts() {
     },
     {
       id: 63,
-      name: '메홍손 헨드퀼트 코튼백',
+      name: {
+        ko: '메홍손 헨드퀼트 코튼백',
+        en: 'Mae Hong Son Hand-Quilted Cotton Bag',
+      },
       price: '27300',
       beforePrice: '39000',
-      description:
-        '정갈한 스티치 위에 전통적인 에스닉 무드가 담긴 메홍손 카렌족의 핸드메이드 퀼팅백(3colors)',
+      description: {
+        ko: '정갈한 스티치 위에 전통적인 에스닉 무드가 담긴 메홍손 카렌족의 핸드메이드 퀼팅백(3colors)',
+        en: 'A hand-quilted cotton bag from the Karen people of Mae Hong Son, with neat stitching and a calm, ethnic mood.',
+      },
       image: '18bag.jpg',
       hoverImage: '18-2bag.jpg',
       brand: 'karen',
@@ -786,10 +1050,16 @@ export async function getAllProducts() {
     },
     {
       id: 64,
-      name: 'Hmong 핸드메이트 빈티지 미니백',
+      name: {
+        ko: 'Hmong 핸드메이트 빈티지 미니백',
+        en: 'Hmong Handmade Vintage Mini Bag',
+      },
       price: '29400',
       beforePrice: '42000',
-      description: '세상 단 하나뿐인 예술 작품과도 같은 칸타퀼팅 핸드메이드 에스닉 미니 백',
+      description: {
+        ko: '세상 단 하나뿐인 예술 작품과도 같은 칸타퀼팅 핸드메이드 에스닉 미니 백',
+        en: 'A petite ethnic mini bag with Kantha quilting, each piece existing as a small, irreplaceable artwork.',
+      },
       image: '19bag.jpg',
       hoverImage: '19-2bag.jpg',
       brand: 'Hmong',
@@ -804,11 +1074,16 @@ export async function getAllProducts() {
     },
     {
       id: 65,
-      name: 'ORUMM 무로20 백팩_틸',
+      name: {
+        ko: 'ORUMM 무로20 백팩_틸',
+        en: 'ORUMM Muro 20 Backpack_Teal',
+      },
       price: '139000',
       beforePrice: '',
-      description:
-        '데일리로 메기도 좋고, 당인 산행이나 볼더링, 등반에도 가볍게 짐을 꾸릴 수 있는 ORUMM 20L 백팩',
+      description: {
+        ko: '데일리로 메기도 좋고, 당인 산행이나 볼더링, 등반에도 가볍게 짐을 꾸릴 수 있는 ORUMM 20L 백팩',
+        en: 'A 20L backpack that transitions effortlessly from daily life to hikes, bouldering, and light climbs.',
+      },
       image: '20bag.jpg',
       hoverImage: '20-2bag.jpg',
       brand: 'orumm',
@@ -823,10 +1098,16 @@ export async function getAllProducts() {
     },
     {
       id: 66,
-      name: 'ORUMM 자루10 파우치 백',
+      name: {
+        ko: 'ORUMM 자루10 파우치 백',
+        en: 'ORUMM Jaroo 10 Pouch Bag',
+      },
       price: '39000',
       beforePrice: '',
-      description: '일상 소지품부터 클라이밍 장비까지 거든하게 담는, 오름 업사이클 파우치 백',
+      description: {
+        ko: '일상 소지품부터 클라이밍 장비까지 거든하게 담는, 오름 업사이클 파우치 백',
+        en: 'An upcycled pouch bag from ORUMM that comfortably holds everything from daily essentials to climbing gear.',
+      },
       image: '21bag.jpg',
       hoverImage: '21-2bag.jpg',
       brand: 'orumm',
@@ -841,11 +1122,16 @@ export async function getAllProducts() {
     },
     {
       id: 67,
-      name: 'ORUMM 무로20 백팩_블루그레이',
+      name: {
+        ko: 'ORUMM 무로20 백팩_블루그레이',
+        en: 'ORUMM Muro 20 Backpack_Blue Gray',
+      },
       price: '139000',
       beforePrice: '',
-      description:
-        '데일리로 메기도 좋고, 당인 산행이나 볼더링, 등반에도 가볍게 짐을 꾸릴 수 있는 ORUMM 20L 백팩',
+      description: {
+        ko: '데일리로 메기도 좋고, 당인 산행이나 볼더링, 등반에도 가볍게 짐을 꾸릴 수 있는 ORUMM 20L 백팩',
+        en: 'A versatile 20L backpack suitable for daily use, hiking, bouldering, and light climbing.',
+      },
       image: '22bag.jpg',
       hoverImage: '22-2bag.jpg',
       brand: 'orumm',
@@ -860,11 +1146,16 @@ export async function getAllProducts() {
     },
     {
       id: 68,
-      name: 'ORUMM 워크아웃 메시 파우치',
+      name: {
+        ko: 'ORUMM 워크아웃 메시 파우치',
+        en: 'ORUMM Workout Mesh Pouch',
+      },
       price: '28000',
       beforePrice: '',
-      description:
-        '각종 운동 및 물놀이 용품을 비롯해 다양한 소지품을 수납하기 좋은 오름의 파우치백',
+      description: {
+        ko: '각종 운동 및 물놀이 용품을 비롯해 다양한 소지품을 수납하기 좋은 오름의 파우치백',
+        en: 'A mesh pouch perfect for workouts, water activities, and storing various daily essentials.',
+      },
       image: '23bag.jpg',
       hoverImage: '23-2bag.jpg',
       brand: 'orumm',
@@ -877,13 +1168,18 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '51',
     },
-    // life
     {
       id: 69,
-      name: '초경랑 인도어 슬리퍼',
+      name: {
+        ko: '초경랑 인도어 슬리퍼',
+        en: 'Ultra-Light Indoor Slippers',
+      },
       price: '3800',
       beforePrice: '4000',
-      description: '탄력 EVA소재의 가볍고 편안한 다용도 슬리퍼(5colors)',
+      description: {
+        ko: '탄력 EVA소재의 가볍고 편안한 다용도 슬리퍼(5colors)',
+        en: 'Lightweight and comfortable EVA indoor slippers available in five colors.',
+      },
       image: '01life.jpg',
       hoverImage: '01-2life.jpg',
       brand: 'etc',
@@ -898,10 +1194,16 @@ export async function getAllProducts() {
     },
     {
       id: 70,
-      name: 'PHUTAWAN 트로피칼 샤워젤 400ml_botanical delight',
+      name: {
+        ko: 'PHUTAWAN 트로피칼 샤워젤 400ml_botanical delight',
+        en: 'PHUTAWAN Tropical Shower Gel 400ml_Botanical Delight',
+      },
       price: '20900',
       beforePrice: '22000',
-      description: '인생 샤워젤이라고 할 수 있을 만큼, 풍부한 향의 샤워젤',
+      description: {
+        ko: '인생 샤워젤이라고 할 수 있을 만큼, 풍부한 향의 샤워젤',
+        en: 'A richly scented shower gel beloved for its refreshing and luxurious fragrance.',
+      },
       image: '02life.jpg',
       hoverImage: '02-2life.jpg',
       brand: 'phutawan',
@@ -916,10 +1218,16 @@ export async function getAllProducts() {
     },
     {
       id: 71,
-      name: '간편한 보수 방충망 테이프',
+      name: {
+        ko: '간편한 보수 방충망 테이프',
+        en: 'Easy Repair Mesh Tape',
+      },
       price: '3000',
       beforePrice: '',
-      description: '간편하게 방춤망을 보수할 수 있는 강력한 접착력의 방충망 보수 테이프(2colors)',
+      description: {
+        ko: '간편하게 방춤망을 보수할 수 있는 강력한 접착력의 방충망 보수 테이프(2colors)',
+        en: 'A strong-adhesion mesh repair tape that quickly fixes window screens (2 colors).',
+      },
       image: '03life.jpg',
       hoverImage: '03-2life.jpg',
       brand: 'etc',
@@ -934,11 +1242,16 @@ export async function getAllProducts() {
     },
     {
       id: 72,
-      name: '알약 탈취제 2개 SET',
+      name: {
+        ko: '알약 탈취제 2개 SET',
+        en: 'Tablet Deodorizer Set (2pcs)',
+      },
       price: '8000',
       beforePrice: '',
-      description:
-        '신발, 옷장 등 어디에서나 반영구적으로 사용가능한 향기로운 탈취, 방향제(2colors)',
+      description: {
+        ko: '신발, 옷장 등 어디에서나 반영구적으로 사용가능한 향기로운 탈취, 방향제(2colors)',
+        en: 'A long-lasting scented deodorizer suitable for shoes, closets, and more (2 colors).',
+      },
       image: '04life.jpg',
       hoverImage: '04-2life.jpg',
       brand: 'etc',
@@ -953,10 +1266,16 @@ export async function getAllProducts() {
     },
     {
       id: 73,
-      name: '포켓사이즈 암막 양우산',
+      name: {
+        ko: '포켓사이즈 암막 양우산',
+        en: 'Pocket-Size UV Umbrella',
+      },
       price: '10000',
       beforePrice: '',
-      description: '작고 슬림하며 가벼워 휴대하기 좋은 한여름 필수템! 암막 양우산(4colors)',
+      description: {
+        ko: '작고 슬림하며 가벼워 휴대하기 좋은 한여름 필수템! 암막 양우산(4colors)',
+        en: 'A compact, lightweight umbrella with UV protection—an essential item for summer (4 colors).',
+      },
       image: '05life.jpg',
       hoverImage: '05-2life.jpg',
       brand: 'etc',
@@ -971,11 +1290,16 @@ export async function getAllProducts() {
     },
     {
       id: 74,
-      name: '머레이 급속냉각 핸디선풍기',
+      name: {
+        ko: '머레이 급속냉각 핸디선풍기',
+        en: 'Murray Rapid Cooling Handy Fan',
+      },
       price: '29000',
       beforePrice: '',
-      description:
-        '최대 13도까지 차가워지는 냉각바람 기능을 탑재한 핸디&탁상형 조절 가능한 만능 손풍기',
+      description: {
+        ko: '최대 13도까지 차가워지는 냉각바람 기능을 탑재한 핸디&탁상형 조절 가능한 만능 손풍기',
+        en: 'A versatile handheld/tabletop fan featuring rapid cooling air technology—up to 13°C cooler.',
+      },
       image: '06life.jpg',
       hoverImage: '06-2life.jpg',
       brand: 'Murray',
@@ -990,11 +1314,16 @@ export async function getAllProducts() {
     },
     {
       id: 75,
-      name: '녹지 않는 얼음 프로즌큐브 4P',
+      name: {
+        ko: '녹지 않는 얼음 프로즌큐브 4P',
+        en: 'Non-Melting Frozen Cubes (4pcs)',
+      },
       price: '6000',
       beforePrice: '',
-      description:
-        '반영구적으로 사용가능하며, 인체에 무해한 재질로 제작된 음료 본연의 맛을 지킬 수 있는 스틸큐브 4p SET',
+      description: {
+        ko: '반영구적으로 사용가능하며, 인체에 무해한 재질로 제작된 음료 본연의 맛을 지킬 수 있는 스틸큐브 4p SET',
+        en: 'A reusable stainless steel frozen cube set that chills drinks without diluting their original taste.',
+      },
       image: '07life.jpg',
       hoverImage: '07-2life.jpg',
       brand: 'etc',
@@ -1009,10 +1338,16 @@ export async function getAllProducts() {
     },
     {
       id: 76,
-      name: 'INTREE 포어 미니마이징 스프레이 50ml',
+      name: {
+        ko: 'INTREE 포어 미니마이징 스프레이 50ml',
+        en: 'INTREE Pore Minimizing Spray 50ml',
+      },
       price: '48000',
       beforePrice: '',
-      description: '푸타완의 플래그십 라인 Intree의 자연에서 온 깊은 치유력의 페이셜 스프레이',
+      description: {
+        ko: '푸타완의 플래그십 라인 Intree의 자연에서 온 깊은 치유력의 페이셜 스프레이',
+        en: 'A facial spray from PHUTAWAN’s signature Intree line, inspired by the healing power of nature.',
+      },
       image: '08life.jpg',
       hoverImage: '08-2life.jpg',
       brand: 'phutawan',
@@ -1027,10 +1362,16 @@ export async function getAllProducts() {
     },
     {
       id: 77,
-      name: 'INTREE 안티에이징&재생 세럼 50ml',
+      name: {
+        ko: 'INTREE 안티에이징&재생 세럼 50ml',
+        en: 'INTREE Anti-Aging & Regeneration Serum 50ml',
+      },
       price: '52000',
       beforePrice: '',
-      description: '푸타완의 플래그십 라이인 Intree 시리즈의 화학성분 없는 고기능성 세럼',
+      description: {
+        ko: '푸타완의 플래그십 라이인 Intree 시리즈의 화학성분 없는 고기능성 세럼',
+        en: 'A high-performance serum from PHUTAWAN’s flagship Intree line, formulated without chemicals.',
+      },
       image: '09life.jpg',
       hoverImage: '09-2life.jpg',
       brand: 'phutawan',
@@ -1045,10 +1386,16 @@ export async function getAllProducts() {
     },
     {
       id: 78,
-      name: 'PHUTAWAN 트로피컬 헤어 컨디셔너',
+      name: {
+        ko: 'PHUTAWAN 트로피컬 헤어 컨디셔너',
+        en: 'PHUTAWAN Tropical Hair Conditioner',
+      },
       price: '22000',
       beforePrice: '',
-      description: '트로피컬 허브의 영양으로 모발을 촉촉하고 가볍게, 비건 헤어 컨티셔너_2types',
+      description: {
+        ko: '트로피컬 허브의 영양으로 모발을 촉촉하고 가볍게, 비건 헤어 컨티셔너_2types',
+        en: 'A vegan hair conditioner enriched with tropical herbs to moisturize and refresh the hair.',
+      },
       image: '10life.jpg',
       hoverImage: '10-2life.jpg',
       brand: 'phutawan',
@@ -1063,10 +1410,16 @@ export async function getAllProducts() {
     },
     {
       id: 79,
-      name: 'SMELL lemongrass 쿨링 바디스프레이 60ml',
+      name: {
+        ko: 'SMELL lemongrass 쿨링 바디스프레이 60ml',
+        en: 'SMELL Lemongrass Cooling Body Spray 60ml',
+      },
       price: '7000',
       beforePrice: '',
-      description: '자연 에센셜 오일과 멘톨로 만든 60초만에 피부온도 8도를 낮추는 쿨링 스프레이',
+      description: {
+        ko: '자연 에센셜 오일과 멘톨로 만든 60초만에 피부온도 8도를 낮추는 쿨링 스프레이',
+        en: 'A cooling spray made with natural essential oils and menthol that lowers skin temperature by 8°C in 60 seconds.',
+      },
       image: '11life.jpg',
       hoverImage: '11-2life.jpg',
       brand: 'smell',
@@ -1081,10 +1434,16 @@ export async function getAllProducts() {
     },
     {
       id: 80,
-      name: 'Just Modern 쿨링 헤어마스크',
+      name: {
+        ko: 'Just Modern 쿨링 헤어마스크',
+        en: 'Just Modern Cooling Hair Mask',
+      },
       price: '6000',
       beforePrice: '',
-      description: '건조하고 손상된 모발을 복원하며 시원함 가득 전할 기특한 모발용 마스크팩',
+      description: {
+        ko: '건조하고 손상된 모발을 복원하며 시원함 가득 전할 기특한 모발용 마스크팩',
+        en: 'A refreshing hair mask that restores dry and damaged hair while delivering cooling relief.',
+      },
       image: '12life.jpg',
       hoverImage: '12-2life.jpg',
       brand: 'Just modurn',
@@ -1099,11 +1458,16 @@ export async function getAllProducts() {
     },
     {
       id: 81,
-      name: 'PHUTAWAN 모링가 리뉴얼&디펜스 에멀전',
+      name: {
+        ko: 'PHUTAWAN 모링가 리뉴얼&디펜스 에멀전',
+        en: 'PHUTAWAN Moringa Renewal & Defense Emulsion',
+      },
       price: '39000',
       beforePrice: '',
-      description:
-        '모링가 오일과 화이트놀이 선사하는 고기능 진정 & 미백 에멀전. 민감성 피부도 안심히 사용하실 수 있어요',
+      description: {
+        ko: '모링가 오일과 화이트놀이 선사하는 고기능 진정 & 미백 에멀전. 민감성 피부도 안심히 사용하실 수 있어요',
+        en: 'A high-performance soothing & brightening emulsion with moringa oil and whitening benefits. Suitable even for sensitive skin.',
+      },
       image: '14life.jpg',
       hoverImage: '14-2life.jpg',
       brand: 'phutawan',
@@ -1118,11 +1482,16 @@ export async function getAllProducts() {
     },
     {
       id: 82,
-      name: 'SMELL lemongrass 마사지 밤',
+      name: {
+        ko: 'SMELL lemongrass 마사지 밤',
+        en: 'SMELL Lemongrass Massage Balm',
+      },
       price: '16000',
       beforePrice: '',
-      description:
-        '천연 레시피로 만든 부드러운 밤 타입 마사지제. 근육을 편안하게, 기분은 상쾌하게 바꿔드립니다.',
+      description: {
+        ko: '천연 레시피로 만든 부드러운 밤 타입 마사지제. 근육을 편안하게, 기분은 상쾌하게 바꿔드립니다.',
+        en: 'A natural recipe balm-type massage product that relaxes muscles and refreshes the mind.',
+      },
       image: '15life.jpg',
       hoverImage: '15-2life.jpg',
       brand: 'smell',
@@ -1137,10 +1506,16 @@ export async function getAllProducts() {
     },
     {
       id: 83,
-      name: 'PHUTAWAN 알로에베라 드롭 젤 99%',
+      name: {
+        ko: 'PHUTAWAN 알로에베라 드롭 젤 99%',
+        en: 'PHUTAWAN Aloe Vera Drop Gel 99%',
+      },
       price: '12000',
       beforePrice: '',
-      description: '천연 성분, 뛰어난 진정 및 보습 효과를 지닌 알로에베라 99% 피부 진정/보습 젤',
+      description: {
+        ko: '천연 성분, 뛰어난 진정 및 보습 효과를 지닌 알로에베라 99% 피부 진정/보습 젤',
+        en: 'A 99% aloe vera gel with natural ingredients, offering powerful soothing and moisturizing effects.',
+      },
       image: '16life.jpg',
       hoverImage: '16-2life.jpg',
       brand: 'phutawan',
@@ -1155,10 +1530,16 @@ export async function getAllProducts() {
     },
     {
       id: 84,
-      name: 'SMELL lemongrass 모기퇴치 스프레이',
+      name: {
+        ko: 'SMELL lemongrass 모기퇴치 스프레이',
+        en: 'SMELL Lemongrass Mosquito Repellent Spray',
+      },
       price: '7500',
       beforePrice: '',
-      description: 'DEET free 아이도 어른도 안심하고 쓰는 천연 유래 성분의 여름 필수템',
+      description: {
+        ko: 'DEET free 아이도 어른도 안심하고 쓰는 천연 유래 성분의 여름 필수템',
+        en: 'A DEET-free mosquito repellent made with natural ingredients, safe for both adults and children.',
+      },
       image: '17life.jpg',
       hoverImage: '17-2life.jpg',
       brand: 'smell',
@@ -1173,11 +1554,16 @@ export async function getAllProducts() {
     },
     {
       id: 85,
-      name: 'SMELL lemongrass 에프터바이트 밤',
+      name: {
+        ko: 'SMELL lemongrass 에프터바이트 밤',
+        en: 'SMELL Lemongrass After-Bite Balm',
+      },
       price: '7500',
       beforePrice: '',
-      description:
-        '자연 유래 허브 성분으로 모기, 벌레물린 곳을 진정시켜 주는 작지만 든든한 여름철 필수템!',
+      description: {
+        ko: '자연 유래 허브 성분으로 모기, 벌레물린 곳을 진정시켜 주는 작지만 든든한 여름철 필수템!',
+        en: 'A small but reliable summer essential that soothes mosquito and insect bites with natural herbal ingredients.',
+      },
       image: '18life.jpg',
       hoverImage: '18-2life.jpg',
       brand: 'smell',
@@ -1192,10 +1578,16 @@ export async function getAllProducts() {
     },
     {
       id: 86,
-      name: 'SMELL lemongrass 핸드메이드 비누-샌달우드',
+      name: {
+        ko: 'SMELL lemongrass 핸드메이드 비누-샌달우드',
+        en: 'SMELL Lemongrass Handmade Soap - Sandalwood',
+      },
       price: '8000',
       beforePrice: '',
-      description: '스멜레몬그라스 사의 깊고 고요한 우디향, 샌달우드를 담은 핸드메이드 비누',
+      description: {
+        ko: '스멜레몬그라스 사의 깊고 고요한 우디향, 샌달우드를 담은 핸드메이드 비누',
+        en: 'A handmade soap infused with deep, calming woody sandalwood fragrance from SMELL Lemongrass.',
+      },
       image: '19life.jpg',
       hoverImage: '19-2life.jpg',
       brand: 'smell',
@@ -1210,11 +1602,16 @@ export async function getAllProducts() {
     },
     {
       id: 87,
-      name: 'POOMPUKSA 천연염색약-Dark brown',
+      name: {
+        ko: 'POOMPUKSA 천연염색약-Dark brown',
+        en: 'POOMPUKSA Natural Hair Dye - Dark Brown',
+      },
       price: '8500',
       beforePrice: '',
-      description:
-        '완전한 천연성분으로 자극과 손상이 적으며 사용이 매우 간편한 스테디셀러 자가 염색약',
+      description: {
+        ko: '완전한 천연성분으로 자극과 손상이 적으며 사용이 매우 간편한 스테디셀러 자가 염색약',
+        en: 'A steady-selling self hair dye made with fully natural ingredients, minimizing irritation and damage.',
+      },
       image: '20life.jpg',
       hoverImage: '20-2life.jpg',
       brand: 'Poompuksa',
@@ -1229,11 +1626,16 @@ export async function getAllProducts() {
     },
     {
       id: 88,
-      name: 'POOMPUKSA 천연염색약-Light brown',
+      name: {
+        ko: 'POOMPUKSA 천연염색약-Light brown',
+        en: 'POOMPUKSA Natural Hair Dye - Light Brown',
+      },
       price: '8500',
       beforePrice: '',
-      description:
-        '완전한 천연성분으로 자극과 손상이 적으며 사용이 매우 간편한 스테디셀러 자가 염색약',
+      description: {
+        ko: '완전한 천연성분으로 자극과 손상이 적으며 사용이 매우 간편한 스테디셀러 자가 염색약',
+        en: 'A steady-selling self hair dye made with fully natural ingredients, minimizing irritation and damage.',
+      },
       image: '211life.jpg',
       hoverImage: '21-2life.jpg',
       brand: 'Poompuksa',
@@ -1248,11 +1650,16 @@ export async function getAllProducts() {
     },
     {
       id: 89,
-      name: 'Wooden Kitchen Tools',
+      name: {
+        ko: 'Wooden Kitchen Tools',
+        en: 'Wooden Kitchen Tools',
+      },
       price: '6000',
       beforePrice: '',
-      description:
-        '고품질의 우든웨어 제품들을 중간유통 없이 직접 제작처에서 매입해 합리적인 가격에 소개합니다.',
+      description: {
+        ko: '고품질의 우든웨어 제품들을 중간유통 없이 직접 제작처에서 매입해 합리적인 가격에 소개합니다.',
+        en: 'High-quality woodenware sourced directly from the manufacturer and offered at a reasonable price.',
+      },
       image: '22life.jpg',
       hoverImage: '22-2life.jpg',
       brand: 'etc',
@@ -1267,10 +1674,16 @@ export async function getAllProducts() {
     },
     {
       id: 90,
-      name: '핸드메이드 라탄 티 코스터',
+      name: {
+        ko: '핸드메이드 라탄 티 코스터',
+        en: 'Handmade Rattan Tea Coaster',
+      },
       price: '4000',
       beforePrice: '',
-      description: '자연스러움과 감각적인 디자인이 어우러진 핸드메이드 티 코스터(6types)',
+      description: {
+        ko: '자연스러움과 감각적인 디자인이 어우러진 핸드메이드 티 코스터(6types)',
+        en: 'A handmade tea coaster featuring natural charm and refined design (6 types).',
+      },
       image: '23life.jpg',
       hoverImage: '23-2life.jpg',
       brand: 'etc',
@@ -1285,10 +1698,16 @@ export async function getAllProducts() {
     },
     {
       id: 91,
-      name: 'Superpen',
+      name: {
+        ko: 'Superpen',
+        en: 'Superpen',
+      },
       price: '36400',
       beforePrice: '52000',
-      description: '나만의 오브제 자기부상 펜 하나로 계신 공간과 일상에 여유와 품격을 더해보세요',
+      description: {
+        ko: '나만의 오브제 자기부상 펜 하나로 계신 공간과 일상에 여유와 품격을 더해보세요',
+        en: 'A levitating pen that adds elegance and serenity to your space and daily life.',
+      },
       image: '24life.jpg',
       hoverImage: '24-2life.jpg',
       brand: 'etc',
@@ -1303,11 +1722,16 @@ export async function getAllProducts() {
     },
     {
       id: 92,
-      name: 'PHUTAWAN 허벌 소프트바',
+      name: {
+        ko: 'PHUTAWAN 허벌 소프트바',
+        en: 'PHUTAWAN Herbal Soft Bar',
+      },
       price: '8000',
       beforePrice: '',
-      description:
-        '식물성 성분과 천연 오일로 만든 허브 비누. 피부를 정화하고 촉촉하게, 은은한 허브 향으로 상쾌한 하루를 선사합니다.',
+      description: {
+        ko: '식물성 성분과 천연 오일로 만든 허브 비누. 피부를 정화하고 촉촉하게, 은은한 허브 향으로 상쾌한 하루를 선사합니다.',
+        en: 'An herbal soap made with plant-based ingredients and natural oils to cleanse, hydrate, and refresh the skin.',
+      },
       image: '19life.jpg',
       hoverImage: '19-2life.jpg',
       brand: 'phutawan',
@@ -1320,14 +1744,18 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '80',
     },
-    // 양말
     {
       id: 93,
-      name: '에어핏 매쉬 페이크 삭스',
+      name: {
+        ko: '에어핏 매쉬 페이크 삭스',
+        en: 'Airfit Mesh Fake Socks',
+      },
       price: '2000',
       beforePrice: '',
-      description:
-        '여름에도 쾌적하게, 발끝을 감싸는 가볍고 부드러운 스타킹 핏의 페이크 삭스(6colors)',
+      description: {
+        ko: '여름에도 쾌적하게, 발끝을 감싸는 가볍고 부드러운 스타킹 핏의 페이크 삭스(6colors)',
+        en: 'Lightweight and soft stocking-fit fake socks that keep your feet fresh even in summer (6 colors).',
+      },
       image: '01socks.jpg',
       hoverImage: '01-2socks.jpg',
       brand: 'etc',
@@ -1342,10 +1770,16 @@ export async function getAllProducts() {
     },
     {
       id: 94,
-      name: 'Be On The Top 기능성 노쇼삭스',
+      name: {
+        ko: 'Be On The Top 기능성 노쇼삭스',
+        en: 'Be On The Top Functional No-Show Socks',
+      },
       price: '2600',
       beforePrice: '',
-      description: '하루 종일 쾌적함을 유지하는 고기능성 Dry-Cool 데일리 노쇼삭스(4colors)',
+      description: {
+        ko: '하루 종일 쾌적함을 유지하는 고기능성 Dry-Cool 데일리 노쇼삭스(4colors)',
+        en: 'High-performance Dry-Cool no-show socks that keep your feet fresh all day (4 colors).',
+      },
       image: '02socks.jpg',
       hoverImage: '02-2socks.jpg',
       brand: 'etc',
@@ -1360,10 +1794,16 @@ export async function getAllProducts() {
     },
     {
       id: 95,
-      name: 'CANDY SOCKS',
+      name: {
+        ko: 'CANDY SOCKS',
+        en: 'CANDY SOCKS',
+      },
       price: '1800',
       beforePrice: '',
-      description: '10가지 다양한 색상으로 준비한 스테디셀러 매쉬공법 쾌적한 베이직 발목양말',
+      description: {
+        ko: '10가지 다양한 색상으로 준비한 스테디셀러 매쉬공법 쾌적한 베이직 발목양말',
+        en: 'A steady-selling mesh-designed ankle sock available in 10 vibrant colors.',
+      },
       image: '03socks.jpg',
       hoverImage: '03-2socks.jpg',
       brand: 'etc',
@@ -1378,10 +1818,16 @@ export async function getAllProducts() {
     },
     {
       id: 96,
-      name: 'Lo mejor 노쇼삭스_BOLD',
+      name: {
+        ko: 'Lo mejor 노쇼삭스_BOLD',
+        en: 'Lo mejor No-Show Socks_BOLD',
+      },
       price: '2500',
       beforePrice: '',
-      description: '베스트셀링 덧신양말 시리즈 Lo mejor의 5번째 버전(Men/Women/4colors)',
+      description: {
+        ko: '베스트셀링 덧신양말 시리즈 Lo mejor의 5번째 버전(Men/Women/4colors)',
+        en: 'The 5th version of the best-selling Lo mejor no-show sock series (Men/Women/4 colors).',
+      },
       image: '04socks.jpg',
       hoverImage: '04-2socks.jpg',
       brand: 'etc',
@@ -1396,10 +1842,16 @@ export async function getAllProducts() {
     },
     {
       id: 97,
-      name: '플라워&와플 노쇼삭스',
+      name: {
+        ko: '플라워&와플 노쇼삭스',
+        en: 'Flower & Waffle No-Show Socks',
+      },
       price: '1600',
       beforePrice: '',
-      description: '통기성 좋은 와플짜임으로 더욱 쾌적한 러블리 데일리 노쇼삭스(4colors)',
+      description: {
+        ko: '통기성 좋은 와플짜임으로 더욱 쾌적한 러블리 데일리 노쇼삭스(4colors)',
+        en: 'Lovely daily no-show socks with breathable waffle knitting for extra comfort (4 colors).',
+      },
       image: '05socks.jpg',
       hoverImage: '05-2socks.jpg',
       brand: 'etc',
@@ -1414,11 +1866,16 @@ export async function getAllProducts() {
     },
     {
       id: 98,
-      name: '썸머 매쉬 노쇼삭스',
+      name: {
+        ko: '썸머 매쉬 노쇼삭스',
+        en: 'Summer Mesh No-Show Socks',
+      },
       price: '1600',
       beforePrice: '',
-      description:
-        '여름에도 발끝까지 시원하게! 발등 매쉬 디테일로 통기성을 살린 썸머 노쇼삭스(4colors)',
+      description: {
+        ko: '여름에도 발끝까지 시원하게! 발등 매쉬 디테일로 통기성을 살린 썸머 노쇼삭스(4colors)',
+        en: 'Stay cool even in summer! No-show socks with breathable mesh detail (4 colors).',
+      },
       image: '06socks.jpg',
       hoverImage: '06-2socks.jpg',
       brand: 'etc',
@@ -1433,11 +1890,16 @@ export async function getAllProducts() {
     },
     {
       id: 99,
-      name: '마린마크 삭스',
+      name: {
+        ko: '마린마크 삭스',
+        en: 'Marine Mark Socks',
+      },
       price: '2200',
       beforePrice: '',
-      description:
-        '산뜻한 여름 감성과 시원한 착용감, 이 두 가지를 모두 담은 앵커자수 데일리 삭스(2colors)',
+      description: {
+        ko: '산뜻한 여름 감성과 시원한 착용감, 이 두 가지를 모두 담은 앵커자수 데일리 삭스(2colors)',
+        en: 'Daily socks with anchor embroidery capturing fresh summer vibes and a cool fit (2 colors).',
+      },
       image: '07socks.jpg',
       hoverImage: '07-2socks.jpg',
       brand: 'etc',
@@ -1452,10 +1914,16 @@ export async function getAllProducts() {
     },
     {
       id: 100,
-      name: 'Mono 노쇼삭스',
+      name: {
+        ko: 'Mono 노쇼삭스',
+        en: 'Mono No-Show Socks',
+      },
       price: '1800',
       beforePrice: '',
-      description: '시원한 메쉬 포인트의 베이직 덧신양말(12colors)',
+      description: {
+        ko: '시원한 메쉬 포인트의 베이직 덧신양말(12colors)',
+        en: 'Basic no-show socks with cool mesh accents (12 colors).',
+      },
       image: '08socks.jpg',
       hoverImage: '08-2socks.jpg',
       brand: 'etc',
@@ -1470,10 +1938,16 @@ export async function getAllProducts() {
     },
     {
       id: 101,
-      name: '스마일베니 삭스',
+      name: {
+        ko: '스마일베니 삭스',
+        en: 'Smile Benny Socks',
+      },
       price: '3500',
       beforePrice: '',
-      description: '스마일 엠블럼 자수 와펜 예쁘게 단 배색 디자인 발목양말(8colors)',
+      description: {
+        ko: '스마일 엠블럼 자수 와펜 예쁘게 단 배색 디자인 발목양말(8colors)',
+        en: 'Ankle socks with a cute smile emblem patch and stylish color-block design (8 colors).',
+      },
       image: '09socks.jpg',
       hoverImage: '09-2socks.jpg',
       brand: 'etc',
@@ -1488,10 +1962,16 @@ export async function getAllProducts() {
     },
     {
       id: 102,
-      name: '곰돌이와체크 노쇼삭스',
+      name: {
+        ko: '곰돌이와체크 노쇼삭스',
+        en: 'Bear & Check No-Show Socks',
+      },
       price: '1800',
       beforePrice: '',
-      description: '체커보드 위 곰돌이 귀여운 포인트의 여름용 노쇼삭스(4colors)',
+      description: {
+        ko: '체커보드 위 곰돌이 귀여운 포인트의 여름용 노쇼삭스(4colors)',
+        en: 'Summer no-show socks with a cute bear detail on a checkerboard pattern (4 colors).',
+      },
       image: '10socks.jpg',
       hoverImage: '10-2socks.jpg',
       brand: 'etc',
@@ -1506,11 +1986,16 @@ export async function getAllProducts() {
     },
     {
       id: 103,
-      name: '맨즈 데일리안 삭스',
+      name: {
+        ko: '맨즈 데일리안 삭스',
+        en: 'Men’s Dailyan Socks',
+      },
       price: '2000',
       beforePrice: '',
-      description:
-        '작지만 분명한 차이를 만드는 하루의ㅡ 기본, 사계용 스테디셀러 삭스(남성용, 3colors)',
+      description: {
+        ko: '작지만 분명한 차이를 만드는 하루의ㅡ 기본, 사계용 스테디셀러 삭스(남성용, 3colors)',
+        en: 'A small but meaningful difference for daily comfort—steady-selling men’s socks for all seasons (3 colors).',
+      },
       image: '11socks.jpg',
       hoverImage: '11-2socks.jpg',
       brand: 'etc',
@@ -1525,11 +2010,16 @@ export async function getAllProducts() {
     },
     {
       id: 104,
-      name: '데일리 코튼 로우삭스',
+      name: {
+        ko: '데일리 코튼 로우삭스',
+        en: 'Daily Cotton Low Socks',
+      },
       price: '1200',
       beforePrice: '1500',
-      description:
-        '부드러운 순면 터치감과 심플한 디자인으로 매일 신어도 질리지 않는 데일리 로우삭스(4colors)',
+      description: {
+        ko: '부드러운 순면 터치감과 심플한 디자인으로 매일 신어도 질리지 않는 데일리 로우삭스(4colors)',
+        en: 'Soft cotton low socks with a simple design—perfect for everyday wear without getting boring (4 colors).',
+      },
       image: '12socks.jpg',
       hoverImage: '12-2socks.jpg',
       brand: 'etc',
@@ -1544,11 +2034,16 @@ export async function getAllProducts() {
     },
     {
       id: 105,
-      name: 'Affirmative 노쇼삭스',
+      name: {
+        ko: 'Affirmative 노쇼삭스',
+        en: 'Affirmative No-Show Socks',
+      },
       price: '1440',
       beforePrice: '1600',
-      description:
-        '숨겨두고 싶은 기분 좋은 비밀처럼, 발끝에 간직한 오늘의 긍정을 담은 노쇼삭스(6colors)',
+      description: {
+        ko: '숨겨두고 싶은 기분 좋은 비밀처럼, 발끝에 간직한 오늘의 긍정을 담은 노쇼삭스(6colors)',
+        en: 'No-show socks that carry a hidden message of positivity—your secret boost for the day (6 colors).',
+      },
       image: '13socks.jpg',
       hoverImage: '13-2socks.jpg',
       brand: 'etc',
@@ -1563,11 +2058,16 @@ export async function getAllProducts() {
     },
     {
       id: 106,
-      name: 'Saint 시스루 노쇼삭스',
+      name: {
+        ko: 'Saint 시스루 노쇼삭스',
+        en: 'Saint Sheer No-Show Socks',
+      },
       price: '2240',
       beforePrice: '2800',
-      description:
-        '산뜻한 착용감과 가볍게 흐르는 핏, 그리고 감각적인 Saint자수로 데일리 룩에 포인트를 더해줄 크루삭스(4colors)',
+      description: {
+        ko: '산뜻한 착용감과 가볍게 흐르는 핏, 그리고 감각적인 Saint자수로 데일리 룩에 포인트를 더해줄 크루삭스(4colors)',
+        en: 'Lightweight sheer socks with a clean fit and refined Saint embroidery—perfect for elevating your daily look (4 colors).',
+      },
       image: '14socks.jpg',
       hoverImage: '14-2socks.jpg',
       brand: 'etc',
@@ -1582,11 +2082,16 @@ export async function getAllProducts() {
     },
     {
       id: 107,
-      name: '와일드 블룸 삭스',
+      name: {
+        ko: '와일드 블룸 삭스',
+        en: 'Wild Bloom Socks',
+      },
       price: '1200',
       beforePrice: '1500',
-      description:
-        '사랑스러운 들꽃 자수와 시원한 착용감, 예쁘게 피어날 봄/여름을 완성해주는 양말(3colors)',
+      description: {
+        ko: '사랑스러운 들꽃 자수와 시원한 착용감, 예쁘게 피어날 봄/여름을 완성해주는 양말(3colors)',
+        en: 'Lovely wildflower embroidery and a cool fit—socks that complete your spring/summer look (3 colors).',
+      },
       image: '15socks.jpg',
       hoverImage: '15-2socks.jpg',
       brand: 'etc',
@@ -1601,10 +2106,16 @@ export async function getAllProducts() {
     },
     {
       id: 108,
-      name: '엔틱 페이즐리 크루삭스',
+      name: {
+        ko: '엔틱 페이즐리 크루삭스',
+        en: 'Antique Paisley Crew Socks',
+      },
       price: '1440',
       beforePrice: '1800',
-      description: '우아한 엔틱 페이즐리 패턴이 돋보이는 감성 가득한 사계절 양말(5colors)',
+      description: {
+        ko: '우아한 엔틱 페이즐리 패턴이 돋보이는 감성 가득한 사계절 양말(5colors)',
+        en: 'All-season socks featuring elegant antique paisley patterns filled with vintage charm (5 colors).',
+      },
       image: '16socks.jpg',
       hoverImage: '16-2socks.jpg',
       brand: 'etc',
@@ -1619,11 +2130,16 @@ export async function getAllProducts() {
     },
     {
       id: 109,
-      name: '리본자수 와플 삭스',
+      name: {
+        ko: '리본자수 와플 삭스',
+        en: 'Ribbon Embroidery Waffle Socks',
+      },
       price: '1200',
       beforePrice: '1500',
-      description:
-        '디테일은 사랑스럽게, 착화감은 섬세하게! 당신의 봄과 여름을 위한 리본 와플삭스(4colors)',
+      description: {
+        ko: '디테일은 사랑스럽게, 착화감은 섬세하게! 당신의 봄과 여름을 위한 리본 와플삭스(4colors)',
+        en: 'Lovely ribbon embroidery with a delicate fit—perfect waffle socks for spring and summer (4 colors).',
+      },
       image: '17socks.jpg',
       hoverImage: '17-2socks.jpg',
       brand: 'etc',
@@ -1638,11 +2154,16 @@ export async function getAllProducts() {
     },
     {
       id: 110,
-      name: 'AEND 웨이브셔링 크루삭스',
+      name: {
+        ko: 'AEND 웨이브셔링 크루삭스',
+        en: 'AEND Wave Shirring Crew Socks',
+      },
       price: '3040',
       beforePrice: '3300',
-      description:
-        '자연스럽게 흐르는 물결처럼 발목을 감싸는 부드러운 셔링 디테일이 매력적인 크루삭스(3colors)',
+      description: {
+        ko: '자연스럽게 흐르는 물결처럼 발목을 감싸는 부드러운 셔링 디테일이 매력적인 크루삭스(3colors)',
+        en: 'Crew socks with soft wave-like shirring that wraps the ankle beautifully (3 colors).',
+      },
       image: '18socks.jpg',
       hoverImage: '18-2socks.jpg',
       brand: 'etc',
@@ -1657,10 +2178,16 @@ export async function getAllProducts() {
     },
     {
       id: 111,
-      name: '블루 컨프레션 삭스',
+      name: {
+        ko: '블루 컨프레션 삭스',
+        en: 'Blue Compression Socks',
+      },
       price: '1760',
       beforePrice: '2200',
-      description: '파랑을 키워드로 감각적으로 풀어낸 캐주얼 무드의 긴 발목 양말(3colors)',
+      description: {
+        ko: '파랑을 키워드로 감각적으로 풀어낸 캐주얼 무드의 긴 발목 양말(3colors)',
+        en: 'Casual long-ankle socks with a stylish blue-toned theme (3 colors).',
+      },
       image: '19socks.jpg',
       hoverImage: '19-2socks.jpg',
       brand: 'etc',
@@ -1675,11 +2202,16 @@ export async function getAllProducts() {
     },
     {
       id: 112,
-      name: '스마일 플라워 미드삭스',
+      name: {
+        ko: '스마일 플라워 미드삭스',
+        en: 'Smile Flower Mid Socks',
+      },
       price: '1200',
       beforePrice: '1500',
-      description:
-        '발끝까지 기분 좋아지는 귀여운 키치 무드, 플라워, 스마일 자수가 사랑스럽게 포인트가 되어주는 데일리 삭스(3colors)',
+      description: {
+        ko: '발끝까지 기분 좋아지는 귀여운 키치 무드, 플라워, 스마일 자수가 사랑스럽게 포인트가 되어주는 데일리 삭스(3colors)',
+        en: 'Charming daily socks with cute flower and smile embroidery delivering a cheerful, kitschy mood (3 colors).',
+      },
       image: '20socks.jpg',
       hoverImage: '20-2socks.jpg',
       brand: 'etc',
@@ -1692,14 +2224,18 @@ export async function getAllProducts() {
       newSaleDate: '',
       popularNum: '27',
     },
-    //패션템
     {
       id: 113,
-      name: '콜렉터스캡_베리',
+      name: {
+        ko: '콜렉터스캡_베리',
+        en: 'Collectors Cap_Berry',
+      },
       price: '49000',
       beforePrice: '',
-      description:
-        '러닝, 하이킹, 클라이밍 등의 아웃동 활동시 좋을 가볍게 튼튼한 2가지 립소재를 믹스한 오름의 캠프캡입니다.',
+      description: {
+        ko: '러닝, 하이킹, 클라이밍 등의 아웃동 활동시 좋을 가볍게 튼튼한 2가지 립소재를 믹스한 오름의 캠프캡입니다.',
+        en: 'A lightweight yet durable camp cap made with two mixed ripstop fabrics—ideal for running, hiking, and climbing.',
+      },
       image: '01fashion.jpg',
       hoverImage: '01-2fashion.jpg',
       brand: 'orumm',
@@ -1714,11 +2250,16 @@ export async function getAllProducts() {
     },
     {
       id: 114,
-      name: '콜렉터스캡_카키',
+      name: {
+        ko: '콜렉터스캡_카키',
+        en: 'Collectors Cap_Khaki',
+      },
       price: '49000',
       beforePrice: '',
-      description:
-        '러닝, 하이킹, 클라이밍 등의 아웃동 활동시 좋을 가볍게 튼튼한 2가지 립소재를 믹스한 오름의 캠프캡입니다.',
+      description: {
+        ko: '러닝, 하이킹, 클라이밍 등의 아웃동 활동시 좋을 가볍게 튼튼한 2가지 립소재를 믹스한 오름의 캠프캡입니다.',
+        en: 'A lightweight, sturdy camp cap designed with mixed ripstop fabrics—perfect for outdoor activities like running, hiking, and climbing.',
+      },
       image: '02fashion.jpg',
       hoverImage: '02-2fashion.jpg',
       brand: 'orumm',
@@ -1733,11 +2274,16 @@ export async function getAllProducts() {
     },
     {
       id: 115,
-      name: '콜렉터스캡_블랙',
+      name: {
+        ko: '콜렉터스캡_블랙',
+        en: 'Collectors Cap_Black',
+      },
       price: '49000',
       beforePrice: '',
-      description:
-        '러닝, 하이킹, 클라이밍 등의 아웃동 활동시 좋을 가볍게 튼튼한 2가지 립소재를 믹스한 오름의 캠프캡입니다.',
+      description: {
+        ko: '러닝, 하이킹, 클라이밍 등의 아웃동 활동시 좋을 가볍게 튼튼한 2가지 립소재를 믹스한 오름의 캠프캡입니다.',
+        en: 'OruMM’s lightweight and durable camp cap using two mixed ripstop fabrics—great for running, hiking, and climbing.',
+      },
       image: '03fashion.jpg',
       hoverImage: '03-2fashion.jpg',
       brand: 'orumm',
@@ -1752,10 +2298,16 @@ export async function getAllProducts() {
     },
     {
       id: 116,
-      name: 'ALWAYS ORUMM SAFETY BANDANA',
+      name: {
+        ko: 'ALWAYS ORUMM SAFETY BANDANA',
+        en: 'ALWAYS ORUMM SAFETY BANDANA',
+      },
       price: '15000',
       beforePrice: '',
-      description: '인수봉의 귀바위를 모티브로한 오름의 로고 반다나',
+      description: {
+        ko: '인수봉의 귀바위를 모티브로한 오름의 로고 반다나',
+        en: 'OruMM’s signature bandana inspired by the rock formations of Insu Peak.',
+      },
       image: '04fashion.jpg',
       hoverImage: '04-2fashion.jpg',
       brand: 'orumm',
@@ -1770,10 +2322,16 @@ export async function getAllProducts() {
     },
     {
       id: 117,
-      name: '햄블파이 KEY WORD',
+      name: {
+        ko: '햄블파이 KEY WORD',
+        en: 'Hamblepie KEY WORD',
+      },
       price: '5600',
       beforePrice: '8000',
-      description: '햄블파이만의 감성과 따뜻함이 담긴 한정판 키링 컬렉션 4종',
+      description: {
+        ko: '햄블파이만의 감성과 따뜻함이 담긴 한정판 키링 컬렉션 4종',
+        en: 'A limited-edition keyring collection of four designs, filled with Hamblepie’s warm and charming aesthetic.',
+      },
       image: '05fashion.jpg',
       hoverImage: '05-2fashion.jpg',
       brand: 'hamblepie',
@@ -1788,10 +2346,16 @@ export async function getAllProducts() {
     },
     {
       id: 118,
-      name: '오름 6패널 버켓햇_머스타드',
+      name: {
+        ko: '오름 6패널 버켓햇_머스타드',
+        en: 'ORUMM 6-Panel Bucket Hat_Mustard',
+      },
       price: '42000',
       beforePrice: '',
-      description: '봄, 여름, 가을 착용하기 좋은 편안한 착용감과 고기능성 원단의 ORUMM 버킷햇',
+      description: {
+        ko: '봄, 여름, 가을 착용하기 좋은 편안한 착용감과 고기능성 원단의 ORUMM 버킷햇',
+        en: 'A high-performance, comfortable ORUMM bucket hat suitable for spring, summer, and autumn.',
+      },
       image: '06fashion.jpg',
       hoverImage: '06-2fashion.jpg',
       brand: 'orumm',
@@ -1806,10 +2370,16 @@ export async function getAllProducts() {
     },
     {
       id: 119,
-      name: '오름 6패널 버켓햇_살몬핑크',
+      name: {
+        ko: '오름 6패널 버켓햇_살몬핑크',
+        en: 'ORUMM 6-Panel Bucket Hat_Salmon Pink',
+      },
       price: '42000',
       beforePrice: '',
-      description: '봄, 여름, 가을 착용하기 좋은 편안한 착용감과 고기능성 원단의 ORUMM 버킷햇',
+      description: {
+        ko: '봄, 여름, 가을 착용하기 좋은 편안한 착용감과 고기능성 원단의 ORUMM 버킷햇',
+        en: 'A high-performance, comfortable ORUMM bucket hat perfect for spring, summer, and autumn.',
+      },
       image: '07fashion.jpg',
       hoverImage: '07-2fashion.jpg',
       brand: 'orumm',
@@ -1824,10 +2394,16 @@ export async function getAllProducts() {
     },
     {
       id: 120,
-      name: '오름 6패널 버켓햇_웨일',
+      name: {
+        ko: '오름 6패널 버켓햇_웨일',
+        en: 'ORUMM 6-Panel Bucket Hat_Whale',
+      },
       price: '42000',
       beforePrice: '',
-      description: '봄, 여름, 가을 착용하기 좋은 편안한 착용감과 고기능성 원단의 ORUMM 버킷햇',
+      description: {
+        ko: '봄, 여름, 가을 착용하기 좋은 편안한 착용감과 고기능성 원단의 ORUMM 버킷햇',
+        en: 'A comfortable and high-performance ORUMM bucket hat ideal for spring, summer, and autumn.',
+      },
       image: '08fashion.jpg',
       hoverImage: '08-2fashion.jpg',
       brand: 'orumm',

@@ -4,11 +4,11 @@
       <h2>
         {{
           menuType === 'kitchen' || menuType === 'uncommon'
-            ? 'NEW'
+            ? t('home.section.new')
             : menuType === 'selection'
-              ? 'SALE'
+              ? t('home.section.new')
               : menuType === 'brand'
-                ? 'BEST'
+                ? t('home.section.best')
                 : ''
         }}
       </h2>
@@ -27,7 +27,10 @@
 <script setup>
 import { onMounted, computed, defineProps, watch } from 'vue'
 import { useStore } from 'vuex'
+import { useI18n } from 'vue-i18n'
 import HomeProductItem from '@/components/HomeProductItem.vue'
+
+const { t } = useI18n()
 
 const props = defineProps({
   menuType: { type: String, required: true },

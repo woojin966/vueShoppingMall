@@ -8,16 +8,18 @@
         </router-link>
         <ul class="etc_menu_list">
           <li v-if="!isLoggedIn">
-            <router-link to="/login" class="text n">LOGIN</router-link>
+            <router-link to="/login" class="text n">{{ $t('common.login') }}</router-link>
           </li>
           <li v-else class="auth_menu">
-            <router-link to="/mypage" class="text n">MY PAGE</router-link>
+            <router-link to="/mypage" class="text n">{{ $t('common.mypage') }}</router-link>
           </li>
           <li v-if="!isLoggedIn">
-            <a href="javascript:void(0)" class="text n">JOIN</a>
+            <a href="javascript:void(0)" class="text n">{{ $t('common.join') }}</a>
           </li>
           <li v-else>
-            <a href="javascript:void(0)" class="text n" @click="logout">LOGOUT</a>
+            <a href="javascript:void(0)" class="text n" @click="logout">{{
+              $t('common.logout')
+            }}</a>
           </li>
           <li>
             <router-link to="/cart" class="cart_icon">
@@ -60,7 +62,7 @@
             @mouseenter="onMenuMouseEnter(i)"
             @mouseleave="onMenuMouseLeave"
           >
-            <router-link class="menu_btn menu" :to="menu.path">{{ menu.label }}</router-link>
+            <router-link class="menu_btn menu" :to="menu.path">{{ $t(menu.label) }}</router-link>
           </li>
         </ul>
 
@@ -76,11 +78,11 @@
             <!-- 모든 대메뉴의 서브메뉴 ul이 항상 함께 노출됨 -->
             <ul div v-for="(menu, i) in menus" :key="i" class="sub_menu_list">
               <li>
-                <p class="text sb label">{{ menu.label }}</p>
+                <p class="text sb label">{{ $t(menu.label) }}</p>
               </li>
               <li v-for="(sub, j) in menu.subs" :key="`${i}-${j}`">
                 <router-link :to="sub.path" class="sub_menu text n">
-                  {{ sub.label }}
+                  {{ $t(sub.label) }}
                 </router-link>
               </li>
             </ul>
@@ -126,10 +128,12 @@
       </div>
       <div class="nav_wrapper mo" v-show="isMoMenuVisible">
         <div class="menulist_top_box">
-          <a v-if="!isLoggedIn" @click="router.push('/login')" class="login_btn">LOGIN</a>
+          <a v-if="!isLoggedIn" @click="router.push('/login')" class="login_btn">{{
+            $t('common.login')
+          }}</a>
           <div v-else class="login_btn_box">
-            <router-link to="/mypage" class="login_btn">MY PAGE</router-link>
-            <a @click="logout" class="login_btn">LOGOUT</a>
+            <router-link to="/mypage" class="login_btn">{{ $t('common.mypage') }}</router-link>
+            <a @click="logout" class="login_btn">{{ $t('common.logout') }}</a>
           </div>
           <a href="javascript:void(0)" class="close_btn" @click="toggleMenu">
             <span></span>
@@ -139,13 +143,13 @@
         <ul class="menu_list" ref="menuList">
           <li v-for="(menu, i) in menus" :key="i">
             <button class="menu_btn menu1" @click="toggleSubMenu(i)">
-              {{ menu.label }}
+              {{ $t(menu.label) }}
               <span class="arrow" :class="{ open: activeIndex === i }">▼</span>
             </button>
             <transition name="slide-toggle">
               <ul v-if="activeIndex === i" class="sub_menu_list mo">
                 <li v-for="(sub, j) in menu.subs" :key="j">
-                  <router-link :to="sub.path" class="menu2">{{ sub.label }}</router-link>
+                  <router-link :to="sub.path" class="menu2">{{ $t(sub.label) }}</router-link>
                 </li>
               </ul>
             </transition>
@@ -196,58 +200,58 @@ const isFixed = ref(false)
 
 const menus = ref([
   {
-    label: 'KITCHEN',
+    label: 'nav.kitchen',
     path: '/kitchen',
     subs: [
-      { label: '여름의 맛', path: '/kitchen/summerdish' },
-      { label: '메인디시', path: '/kitchen/maindish' },
-      { label: '사이드디시', path: '/kitchen/sidedish' },
-      { label: '디저트', path: '/kitchen/desert' },
-      { label: '푸드아이템', path: '/kitchen/foodit' },
+      { label: 'nav.kitchen_summer', path: '/kitchen/summerdish' },
+      { label: 'nav.kitchen_main', path: '/kitchen/maindish' },
+      { label: 'nav.kitchen_side', path: '/kitchen/sidedish' },
+      { label: 'nav.kitchen_dessert', path: '/kitchen/desert' },
+      { label: 'nav.kitchen_food', path: '/kitchen/foodit' },
     ],
   },
   {
-    label: 'UNCOMMON',
+    label: 'nav.uncommon',
     path: '/uncommon',
     subs: [
-      { label: '라이프아이템', path: '/uncommon/life' },
-      { label: '가방', path: '/uncommon/bag' },
-      { label: '의류', path: '/uncommon/apparel' },
-      { label: '양말', path: '/uncommon/socks' },
-      { label: '패션', path: '/uncommon/fashion' },
-      { label: '타이잇', path: '/uncommon/thai-it' },
+      { label: 'nav.lifeItem', path: '/uncommon/life' },
+      { label: 'nav.bag', path: '/uncommon/bag' },
+      { label: 'nav.apparel', path: '/uncommon/apparel' },
+      { label: 'nav.socks', path: '/uncommon/socks' },
+      { label: 'nav.fashion', path: '/uncommon/fashion' },
+      { label: 'nav.thai', path: '/uncommon/thai-it' },
     ],
   },
   {
-    label: 'SELECTION',
+    label: 'nav.selection',
     path: '/selection/new',
     subs: [
-      { label: 'NEW', path: '/selection/new' },
-      { label: 'BEST', path: '/selection/best' },
-      { label: 'SALE', path: '/selection/sale' },
+      { label: 'nav.new', path: '/selection/new' },
+      { label: 'nav.best', path: '/selection/best' },
+      { label: 'nav.sale', path: '/selection/sale' },
     ],
   },
   {
-    label: 'BRAND',
+    label: 'nav.brand',
     path: '/brand/hamblepie',
     subs: [
-      { label: 'HAMBLEPIE', path: '/brand/hamblepie' },
-      { label: 'PUCO', path: '/brand/puco' },
-      { label: 'PHUTAWAN', path: '/brand/phutawan' },
-      { label: 'SMELL LEMONGRASS', path: '/brand/smell' },
-      { label: 'ORUMM', path: '/brand/orumm' },
-      { label: 'BACKSTAGE', path: '/brand/backstage' },
+      { label: 'nav.hamblepie', path: '/brand/hamblepie' },
+      { label: 'nav.puco', path: '/brand/puco' },
+      { label: 'nav.phutawan', path: '/brand/phutawan' },
+      { label: 'nav.smell', path: '/brand/smell' },
+      { label: 'nav.orumm', path: '/brand/orumm' },
+      { label: 'nav.backstage', path: '/brand/backstage' },
     ],
   },
   {
-    label: 'COMMUNITY',
+    label: 'nav.community',
     path: '/community/notice',
     subs: [
-      { label: 'NOTICE', path: '/community/notice' },
-      { label: 'FAQ', path: '/community/notice' },
-      { label: 'QNA', path: '/community/notice' },
-      { label: 'REVIEWS', path: '/community/notice' },
-      { label: 'PLAYLIST', path: '/community/notice' },
+      { label: 'nav.notice', path: '/community/notice' },
+      { label: 'nav.faq', path: '/community/notice' },
+      { label: 'nav.qna', path: '/community/notice' },
+      { label: 'nav.reviews', path: '/community/notice' },
+      { label: 'nav.playlist', path: '/community/notice' },
     ],
   },
 ])

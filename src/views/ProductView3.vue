@@ -22,7 +22,7 @@
     </nav>
     <FilterDropdown
       v-model="filterType"
-      :options="['등록순', '인기순', '낮은가격순', '높은가격순']"
+      :options="['filters.latest', 'filters.popular', 'filters.lowPrice', 'filters.highPrice']"
       @change="onChangeFilter"
     />
     <ProductList
