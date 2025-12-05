@@ -13,11 +13,12 @@
     "email": "이메일",
     "password": "비밀번호",
     "confirm": "확인",
+    "submit": "등록",
     "cancel": "취소",
     "join": "Join",
-    "more": "More"
+    "more": "More",
+    "currency": "원"
   },
-
   "login": {
     "title": "로그인",
     "remember": "로그인 유지",
@@ -25,13 +26,11 @@
     "placeholderPassword": "비밀번호 입력",
     "error": "아이디 또는 비밀번호가 잘못되었습니다."
   },
-
   "mypage": {
     "title": "마이페이지",
     "orderHistory": "주문 내역",
     "noOrders": "주문 내역이 없습니다."
   },
-
   "order": {
     "title": "주문서",
     "customerInfo": "주문자 정보",
@@ -63,6 +62,71 @@
     "popular": "인기순",
     "lowPrice": "낮은가격순",
     "highPrice": "높은가격순"
+  },
+  "productDetail": {
+    "priceUnit": "원",
+    "addToCart": "장바구니 담기",
+    "moveCartMsg": "장바구니로 이동하시겠습니까?",
+    "qty": "수량",
+    "detailLorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus laoreet nisi sed ultricies ullamcorper. Etiam blandit condimentum nunc, nec egestas leo finibus id. Aenean in justo sed dui laoreet hendrerit cursus at neque. Ut nec risus vitae ex facilisis aliquam. Donec vitae vestibulum est, vel posuere lorem. Maecenas ut metus ipsum. Fusce dignissim lacinia imperdiet. Morbi nec ultrices sem, vitae varius lacus. Sed sit amet suscipit libero. Curabitur laoreet dignissim sapien eget ullamcorper. Praesent faucibus hendrerit pretium. Curabitur cursus, quam eu semper fermentum, dolor orci convallis tortor, quis consequat ipsum sem ut risus. Morbi luctus turpis non varius luctus.",
+    "tabs": {
+      "detail": "상세정보",
+      "review": "구매평",
+      "qna": "Q&A"
+    },
+    "sections": {
+      "detailTitle": "상품 상세설명",
+      "shippingTitle": "배송안내",
+      "shippingArea": "배송 지역 | 대한민국 전지역 (즉석제조식품의 경우 하절기 도서산간지 및 제주지역 배송불가)",
+      "shippingFee": "배송비 | 3,000원 (50,000원 이상 결제시 무료배송)",
+      "shippingPeriod": "배송기간 | 주말 공휴일 제외 2~5일",
+      "shippingNotice": "- 모든 배송은 택배사 사정으로 지연될 수 있습니다.",
+      "exchangeTitle": "교환 및 반품 안내",
+      "exchange1": "- 고객 변심으로 인한 교환/반품은 상품 수령 후 7일 이내 가능합니다.",
+      "exchange2": "- 고객 귀책 사유로 인한 반품의 경우 왕복 택배비는 고객 부담입니다.",
+      "exchange3": "- 반품접수 기한이 지난 경우 또는 패키지 훼손/사용 흔적이 있는 제품은 교환/반품이 불가합니다."
+    },
+    "review": {
+      "title": "상품 리뷰",
+      "write": "리뷰 작성",
+      "noData": "등록된 리뷰가 없습니다.",
+      "writer": "작성자",
+      "subject": "제목",
+      "contentPlaceholder": "내용을 입력하세요",
+      "titlePlaceholder": "제목을 입력하세요"
+    },
+    "qna": {
+      "title": "Q&A",
+      "write": "상품 문의",
+      "noData": "등록된 문의가 없습니다.",
+      "writer": "작성자",
+      "subject": "제목",
+      "secret": "비공개",
+      "secretPlaceholder": "비밀번호를 입력하세요",
+      "setPassword": "비밀번호 설정",
+      "locked": "🔒 비공개 문의"
+    },
+    "form": {
+      "writer": "작성자",
+      "title": "제목",
+      "writerPlaceholder": "작성자명을 입력하세요.",
+      "enterTitle": "제목을 이별하세요.",
+      "imageOptional": "사진 (선택)",
+      "chooseImage": "사진 선택",
+      "content": "내용",
+      "enterContent": "내용을 입력하세요.",
+      "submit": "등록",
+      "cancel": "취소"
+    },
+    "alert": {
+      "needWriter": "작성자명을 입력하세요.",
+      "needTitleContent": "제목과 내용을 입력하세요.",
+      "wrongPassword": "비밀번호가 틀렸습니다.",
+      "confirm": "확인"
+    },
+    "slider": {
+      "more": "MORE"
+    }
   },
   "footer": {
     "terms": "이용약관",

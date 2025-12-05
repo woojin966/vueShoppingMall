@@ -13,11 +13,12 @@
     "email": "Email",
     "password": "Password",
     "confirm": "Confirm",
+    "submit": "Submit",
     "cancel": "Cancel",
     "join": "Join",
-    "more": "More"
+    "more": "More",
+    "currency": "won"
   },
-
   "login": {
     "title": "Login",
     "remember": "Remember Me",
@@ -25,13 +26,11 @@
     "placeholderPassword": "Enter Password",
     "error": "Invalid email or password."
   },
-
   "mypage": {
     "title": "My Page",
     "orderHistory": "Order History",
     "noOrders": "No orders found."
   },
-
   "order": {
     "title": "Order",
     "customerInfo": "Customer Information",
@@ -63,6 +62,71 @@
     "popular": "Popular",
     "lowPrice": "Low Price",
     "highPrice": "High Price"
+  },
+  "productDetail": {
+    "priceUnit": "KRW",
+    "addToCart": "Add to Cart",
+    "moveCartMsg": "Would you like to go to your cart?",
+    "qty": "Quantity",
+    "detailLorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus laoreet nisi sed ultricies ullamcorper. Etiam blandit condimentum nunc, nec egestas leo finibus id. Aenean in justo sed dui laoreet hendrerit cursus at neque. Ut nec risus vitae ex facilisis aliquam. Donec vitae vestibulum est, vel posuere lorem. Maecenas ut metus ipsum. Fusce dignissim lacinia imperdiet. Morbi nec ultrices sem, vitae varius lacus. Sed sit amet suscipit libero. Curabitur laoreet dignissim sapien eget ullamcorper. Praesent faucibus hendrerit pretium. Curabitur cursus, quam eu semper fermentum, dolor orci convallis tortor, quis consequat ipsum sem ut risus. Morbi luctus turpis non varius luctus.",
+    "tabs": {
+      "detail": "Details",
+      "review": "Reviews",
+      "qna": "Q&A"
+    },
+    "sections": {
+      "detailTitle": "Product Description",
+      "shippingTitle": "Shipping Information",
+      "shippingArea": "Shipping Area | All regions within Korea (island/mountainous regions excluded for fresh-made food in summer)",
+      "shippingFee": "Shipping Fee | 3,000 KRW (Free for orders over 50,000 KRW)",
+      "shippingPeriod": "Shipping Period | 2–5 business days (excluding weekends & holidays)",
+      "shippingNotice": "- Delivery may be delayed depending on courier circumstances.",
+      "exchangeTitle": "Exchange & Return Policy",
+      "exchange1": "- Exchanges/returns due to a change of mind must be requested within 7 days of receipt.",
+      "exchange2": "- For returns due to customer fault, round-trip shipping fees will be charged.",
+      "exchange3": "- Exchanges/returns are not allowed for damaged packaging, used products, or overdue requests."
+    },
+    "review": {
+      "title": "Reviews",
+      "write": "Write Review",
+      "noData": "No reviews yet.",
+      "writer": "Writer",
+      "subject": "Title",
+      "contentPlaceholder": "Enter content",
+      "titlePlaceholder": "Enter title"
+    },
+    "qna": {
+      "title": "Q&A",
+      "write": "Ask a Question",
+      "noData": "No inquiries yet.",
+      "writer": "Writer",
+      "subject": "Title",
+      "secret": "Private",
+      "secretPlaceholder": "Enter password",
+      "setPassword": "Set Password",
+      "locked": "🔒 Private Question"
+    },
+    "form": {
+      "writer": "Writer",
+      "title": "Title",
+      "writerPlaceholder": "Enter the writer name",
+      "enterTitle": "Enter the title",
+      "imageOptional": "Image (Optional)",
+      "chooseImage": "Choose File",
+      "content": "Content",
+      "enterContent": "Enter the content",
+      "submit": "Submit",
+      "cancel": "Cancel"
+    },
+    "alert": {
+      "needWriter": "Please enter the writer name.",
+      "needTitleContent": "Please enter both title and content.",
+      "wrongPassword": "Incorrect password.",
+      "confirm": "OK"
+    },
+    "slider": {
+      "more": "MORE"
+    }
   },
   "footer": {
     "terms": "Terms of Service",
