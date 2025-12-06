@@ -57,6 +57,38 @@
     "clearance": "Clearance",
     "viewDetail": "상세보기"
   },
+  "pageTabs": {
+    "kitchen": {
+      "all": "전체",
+      "summerdish": "여름의 맛",
+      "maindish": "메인디시",
+      "sidedish": "사이드디시",
+      "desert": "디저트",
+      "foodit": "푸드아이템"
+    },
+    "uncommon": {
+      "all": "전체",
+      "lifeItem": "라이프아이템",
+      "bag": "가방",
+      "apparel": "의류",
+      "socks": "양말",
+      "fashion": "패션",
+      "thai": "타이잇"
+    },
+    "selection": {
+      "new": "NEW",
+      "best": "BEST",
+      "sale": "SALE"
+    },
+    "brand": {
+      "hamblepie": "Hamblepie",
+      "puco": "Puco",
+      "phutawan": "Phutawan",
+      "smell": "Smell Lemongrass",
+      "orumm": "Orumm",
+      "backstage": "Backstage"
+    }
+  },
   "filters": {
     "latest": "등록순",
     "popular": "인기순",
@@ -144,7 +176,6 @@
     "kitchen_side": "사이드디시",
     "kitchen_dessert": "디저트",
     "kitchen_food": "푸드아이템",
-
     "uncommon": "UNCOMMON",
     "lifeItem": "라이프아이템",
     "bag": "가방",
@@ -152,12 +183,10 @@
     "socks": "양말",
     "fashion": "패션",
     "thai": "타이잇",
-
     "selection": "SELECTION",
     "new": "NEW",
     "best": "BEST",
     "sale": "SALE",
-
     "brand": "BRAND",
     "hamblepie": "HAMBLEPIE",
     "puco": "PUCO",
@@ -165,7 +194,6 @@
     "smell": "SMELL LEMONGRASS",
     "orumm": "ORUMM",
     "backstage": "BACKSTAGE",
-
     "community": "COMMUNITY",
     "notice": "공지사항",
     "faq": "FAQ",

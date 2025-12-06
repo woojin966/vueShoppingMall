@@ -8,20 +8,24 @@
     </div>
     <nav class="tabs">
       <div>
-        <router-link to="/brand/hamblepie" exact-active-class="active">HAMBLEPIE</router-link>
-        <router-link to="/brand/puco" exact-active-class="active" class="text n">PUCO</router-link>
-        <router-link to="/brand/phutawan" exact-active-class="active" class="text n"
-          >PHUTAWAN</router-link
-        >
-        <router-link to="/brand/smell" exact-active-class="active" class="text n"
-          >SMELL LEMONGRASS</router-link
-        >
-        <router-link to="/brand/orumm" exact-active-class="active" class="text n"
-          >ORUMM</router-link
-        >
-        <router-link to="/brand/backstage" exact-active-class="active" class="text n"
-          >BACKSTAGE</router-link
-        >
+        <router-link to="/brand/hamblepie" exact-active-class="active">{{
+          t('pageTabs.brand.hamblepie')
+        }}</router-link>
+        <router-link to="/brand/puco" exact-active-class="active" class="text n">{{
+          t('pageTabs.brand.puco')
+        }}</router-link>
+        <router-link to="/brand/phutawan" exact-active-class="active" class="text n">{{
+          t('pageTabs.brand.phutawan')
+        }}</router-link>
+        <router-link to="/brand/smell" exact-active-class="active" class="text n">{{
+          t('pageTabs.brand.smell')
+        }}</router-link>
+        <router-link to="/brand/orumm" exact-active-class="active" class="text n">{{
+          t('pageTabs.brand.orumm')
+        }}</router-link>
+        <router-link to="/brand/backstage" exact-active-class="active" class="text n">{{
+          t('pageTabs.brand.backstage')
+        }}</router-link>
       </div>
     </nav>
     <FilterDropdown
@@ -41,12 +45,14 @@
 import { computed, onMounted, ref, getCurrentInstance } from 'vue'
 import { randomImages } from '../store/randomImages.js'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import ProductList from '@/components/ProductList.vue'
 import FilterDropdown from '@/components/FilterDropdown.vue'
 
 const route = useRoute()
+const { t } = useI18n()
 
 // 브랜드 페이지는 category가 모두 'all'로 고정
 const category = computed(() => 'all')

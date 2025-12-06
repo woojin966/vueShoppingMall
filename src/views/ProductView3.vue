@@ -9,15 +9,15 @@
 
     <nav class="tabs">
       <div>
-        <router-link to="/selection/new" exact-active-class="active" class="text n"
-          >NEW</router-link
-        >
-        <router-link to="/selection/best" exact-active-class="active" class="text n"
-          >BEST</router-link
-        >
-        <router-link to="/selection/sale" exact-active-class="active" class="text n"
-          >SALE</router-link
-        >
+        <router-link to="/selection/new" exact-active-class="active" class="text n">{{
+          t('pageTabs.selection.new')
+        }}</router-link>
+        <router-link to="/selection/best" exact-active-class="active" class="text n">{{
+          t('pageTabs.selection.best')
+        }}</router-link>
+        <router-link to="/selection/sale" exact-active-class="active" class="text n">{{
+          t('pageTabs.selection.sale')
+        }}</router-link>
       </div>
     </nav>
     <FilterDropdown
@@ -39,12 +39,14 @@
 import { computed, onMounted, ref, getCurrentInstance } from 'vue'
 import { randomImages } from '../store/randomImages.js'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import ProductList from '@/components/ProductList.vue'
 import FilterDropdown from '@/components/FilterDropdown.vue'
 
 const route = useRoute()
+const { t } = useI18n()
 
 // 라우트에 따라 selection 카테고리 매핑
 const category = computed(() => 'all')

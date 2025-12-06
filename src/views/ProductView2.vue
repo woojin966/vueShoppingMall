@@ -8,25 +8,27 @@
     </div>
     <nav class="tabs">
       <div>
-        <router-link to="/uncommon" exact-active-class="active" class="text n">전체</router-link>
-        <router-link to="/uncommon/life" exact-active-class="active" class="text n"
-          >라이프아이템</router-link
-        >
-        <router-link to="/uncommon/bag" exact-active-class="active" class="text n"
-          >가방</router-link
-        >
-        <router-link to="/uncommon/apparel" exact-active-class="active" class="text n"
-          >의류</router-link
-        >
-        <router-link to="/uncommon/socks" exact-active-class="active" class="text n"
-          >양말</router-link
-        >
-        <router-link to="/uncommon/fashion" exact-active-class="active" class="text n"
-          >패션</router-link
-        >
-        <router-link to="/uncommon/thai-it" exact-active-class="active" class="text n"
-          >타이잇</router-link
-        >
+        <router-link to="/uncommon" exact-active-class="active" class="text n">{{
+          t('pageTabs.uncommon.all')
+        }}</router-link>
+        <router-link to="/uncommon/life" exact-active-class="active" class="text n">{{
+          t('pageTabs.uncommon.lifeItem')
+        }}</router-link>
+        <router-link to="/uncommon/bag" exact-active-class="active" class="text n">{{
+          t('pageTabs.uncommon.bag')
+        }}</router-link>
+        <router-link to="/uncommon/apparel" exact-active-class="active" class="text n">{{
+          t('pageTabs.uncommon.apparel')
+        }}</router-link>
+        <router-link to="/uncommon/socks" exact-active-class="active" class="text n">{{
+          t('pageTabs.uncommon.socks')
+        }}</router-link>
+        <router-link to="/uncommon/fashion" exact-active-class="active" class="text n">{{
+          t('pageTabs.uncommon.fashion')
+        }}</router-link>
+        <router-link to="/uncommon/thai-it" exact-active-class="active" class="text n">{{
+          t('pageTabs.uncommon.thai')
+        }}</router-link>
       </div>
     </nav>
     <FilterDropdown
@@ -43,12 +45,14 @@
 import { computed, onMounted, ref, getCurrentInstance } from 'vue'
 import { randomImages } from '../store/randomImages.js'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import ProductList from '@/components/ProductList.vue'
 import FilterDropdown from '@/components/FilterDropdown.vue'
 
 const route = useRoute()
+const { t } = useI18n()
 
 // 경로에 따른 카테고리 매핑 (예: 전체는 'all' 처리)
 // const category = computed(() => {

@@ -57,6 +57,38 @@
     "clearance": "Clearance",
     "viewDetail": "View Detail"
   },
+  "pageTabs": {
+    "kitchen": {
+      "all": "All",
+      "summerdish": "Summer Dish",
+      "maindish": "Main Dish",
+      "sidedish": "Side Dish",
+      "desert": "Dessert",
+      "foodit": "Food Items"
+    },
+    "uncommon": {
+      "all": "All",
+      "lifeItem": "Lifestyle",
+      "bag": "Bags",
+      "apparel": "Apparel",
+      "socks": "Socks",
+      "fashion": "Fashion",
+      "thai": "Thai-It"
+    },
+    "selection": {
+      "new": "NEW",
+      "best": "BEST",
+      "sale": "SALE"
+    },
+    "brand": {
+      "hamblepie": "Hamblepie",
+      "puco": "Puco",
+      "phutawan": "Phutawan",
+      "smell": "Smell Lemongrass",
+      "orumm": "Orumm",
+      "backstage": "Backstage"
+    }
+  },
   "filters": {
     "latest": "Latest",
     "popular": "Popular",

@@ -8,22 +8,24 @@
     </div>
     <nav class="tabs">
       <div>
-        <router-link to="/kitchen" exact-active-class="active" class="text n">전체</router-link>
-        <router-link to="/kitchen/summerdish" exact-active-class="active" class="text n"
-          >여름의 맛</router-link
-        >
-        <router-link to="/kitchen/maindish" exact-active-class="active" class="text n"
-          >메인디시</router-link
-        >
-        <router-link to="/kitchen/sidedish" exact-active-class="active" class="text n"
-          >사이드디시</router-link
-        >
-        <router-link to="/kitchen/desert" exact-active-class="active" class="text n"
-          >디저트</router-link
-        >
-        <router-link to="/kitchen/foodit" exact-active-class="active" class="text n"
-          >푸드아이템</router-link
-        >
+        <router-link to="/kitchen" exact-active-class="active" class="text n">{{
+          t('pageTabs.kitchen.all')
+        }}</router-link>
+        <router-link to="/kitchen/summerdish" exact-active-class="active" class="text n">{{
+          t('pageTabs.kitchen.summerdish')
+        }}</router-link>
+        <router-link to="/kitchen/maindish" exact-active-class="active" class="text n">{{
+          t('pageTabs.kitchen.maindish')
+        }}</router-link>
+        <router-link to="/kitchen/sidedish" exact-active-class="active" class="text n">{{
+          t('pageTabs.kitchen.sidedish')
+        }}</router-link>
+        <router-link to="/kitchen/desert" exact-active-class="active" class="text n">{{
+          t('pageTabs.kitchen.desert')
+        }}</router-link>
+        <router-link to="/kitchen/foodit" exact-active-class="active" class="text n">{{
+          t('pageTabs.kitchen.foodit')
+        }}</router-link>
       </div>
     </nav>
     <FilterDropdown
@@ -40,12 +42,14 @@
 import { computed, onMounted, ref, getCurrentInstance } from 'vue'
 import { randomImages } from '../store/randomImages.js'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import ProductList from '@/components/ProductList.vue'
 import FilterDropdown from '@/components/FilterDropdown.vue'
 
 const route = useRoute()
+const { t } = useI18n()
 
 // 경로에 따른 카테고리 매핑 (예: 전체는 'all' 처리)
 // const category = computed(() => {
