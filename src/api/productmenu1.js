@@ -276,7 +276,7 @@ export async function getAllProducts() {
       popularNum: '158',
     },
     {
-      id: 11,
+      id: 12,
       name: {
         ko: '레이아의 오이 물김치(350/700g)',
         en: 'Reias Cucumber Mulkimchi (350/700g)',
@@ -301,7 +301,7 @@ export async function getAllProducts() {
       popularNum: '224',
     },
     {
-      id: 12,
+      id: 13,
       name: {
         ko: '토마토 츠케모노&시키타시(600g)',
         en: 'Tomato Tsukemono & Shikitashi (600g)',
@@ -326,7 +326,7 @@ export async function getAllProducts() {
       popularNum: '37',
     },
     {
-      id: 13,
+      id: 14,
       name: {
         ko: '레이아의 오이소박이(600g/1kg)',
         en: 'Reias Stuffed Cucumber Kimchi (600g/1kg)',
@@ -351,7 +351,7 @@ export async function getAllProducts() {
       popularNum: '44',
     },
     {
-      id: 14,
+      id: 15,
       name: {
         ko: '레이아의 모듬피클(420/700g)',
         en: 'Reias Assorted Pickles (420/700g)',
@@ -376,7 +376,7 @@ export async function getAllProducts() {
       popularNum: '67',
     },
     {
-      id: 15,
+      id: 16,
       name: {
         ko: '스웨디시 미트볼&토마토라구 소스(2인분)',
         en: 'Swedish Meatball & Tomato Ragu Sauce (2 servings)',
@@ -401,7 +401,7 @@ export async function getAllProducts() {
       popularNum: '88',
     },
     {
-      id: 16,
+      id: 17,
       name: {
         ko: '레몬 간장 연어장(1~2인분)',
         en: 'Lemon Soy Sauce Marinated Salmon (1–2 servings)',
@@ -426,7 +426,7 @@ export async function getAllProducts() {
       popularNum: '7',
     },
     {
-      id: 17,
+      id: 18,
       name: {
         ko: '레이아의 시그니처 소고기 장조림(500g)',
         en: 'Reias Signature Braised Beef (500g)',
@@ -451,7 +451,7 @@ export async function getAllProducts() {
       popularNum: '23',
     },
     {
-      id: 18,
+      id: 19,
       name: {
         ko: 'ELJADE 1100% 수박착즙 프리미엄 주스',
         en: 'ELJADE 1100% Watermelon Cold-Pressed Juice',
@@ -476,7 +476,7 @@ export async function getAllProducts() {
       popularNum: '58',
     },
     {
-      id: 18,
+      id: 20,
       name: {
         ko: 'Kewpie 트러플마요 90g',
         en: 'Kewpie Truffle Mayo (90g)',
@@ -501,7 +501,7 @@ export async function getAllProducts() {
       popularNum: '74',
     },
     {
-      id: 19,
+      id: 21,
       name: {
         ko: 'Mama 쉬림프 똠얌 죽',
         en: 'Mama Shrimp Tom Yum Porridge',
@@ -526,7 +526,7 @@ export async function getAllProducts() {
       popularNum: '64',
     },
     {
-      id: 20,
+      id: 22,
       name: {
         ko: '인스턴트 밀크 그린티 5개 set',
         en: 'Instant Milk Green Tea Set (5pcs)',
@@ -551,7 +551,7 @@ export async function getAllProducts() {
       popularNum: '278',
     },
     {
-      id: 21,
+      id: 23,
       name: {
         ko: '인스턴트 밀크티 5개 set',
         en: 'Instant Milk Tea Set (5pcs)',

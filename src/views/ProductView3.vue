@@ -30,6 +30,7 @@
       :filter-type="filterType"
       :path="route.path"
       menu-type="selection"
+      :search-keyword="keyword"
     />
   </div>
   <Footer />
@@ -47,6 +48,7 @@ import FilterDropdown from '@/components/FilterDropdown.vue'
 
 const route = useRoute()
 const { t } = useI18n()
+const keyword = ref(route.query.q || '')
 
 // 라우트에 따라 selection 카테고리 매핑
 const category = computed(() => 'all')

@@ -33,7 +33,12 @@
       :options="['filters.latest', 'filters.popular', 'filters.lowPrice', 'filters.highPrice']"
       @change="onChangeFilter"
     />
-    <ProductList :category="category" :filter-type="filterType" :path="route.path" />
+    <ProductList
+      :category="category"
+      :filter-type="filterType"
+      :path="route.path"
+      :search-keyword="keyword"
+    />
   </div>
   <Footer />
 </template>
@@ -50,6 +55,7 @@ import FilterDropdown from '@/components/FilterDropdown.vue'
 
 const route = useRoute()
 const { t } = useI18n()
+const keyword = ref(route.query.q || '')
 
 // 경로에 따른 카테고리 매핑 (예: 전체는 'all' 처리)
 // const category = computed(() => {

@@ -98,6 +98,12 @@ export default {
               rawProducts = [...m1, ...m2].filter((p) => p.brand?.toLowerCase() === brandName)
             }
 
+            // ⭐ SEARCH ROUTE — 검색 페이지는 항상 전체 상품을 불러와야 한다
+          } else if (pathname.startsWith('/search')) {
+            const m1 = (await getMenu1Products()).map((p) => ({ ...p }))
+            const m2 = (await getMenu2Products()).map((p) => ({ ...p }))
+            rawProducts = [...m1, ...m2]
+
             // --- ALL PRODUCTS (fallback) ---
           } else {
             const m1 = (await getMenu1Products()).map((p) => ({ ...p }))

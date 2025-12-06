@@ -89,6 +89,9 @@
       "backstage": "Backstage"
     }
   },
+  "search": {
+    "noResults": "No products found."
+  },
   "filters": {
     "latest": "Latest",
     "popular": "Popular",

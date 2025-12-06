@@ -331,7 +331,10 @@ const toggleSearch = () => {
 // 검색 실행
 const onSearch = () => {
   if (!keyword.value.trim()) return
-  router.push({ name: 'SearchResults', query: { q: keyword.value } })
+  router.push({
+    path: '/search',
+    query: { q: keyword.value },
+  })
   showSearch.value = false
 }
 

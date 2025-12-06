@@ -31,6 +31,7 @@ const props = defineProps({
   category: String,
   filterType: String,
   path: String,
+  searchKeyword: String,
 })
 
 const emits = defineEmits(['update:noResults'])
@@ -61,9 +62,14 @@ const displayedItems = computed(() => {
     result = result.filter((item) => item.category === props.category)
 
   // 2. 검색 키워드 필터
-  if (props.searchKeyword) {
+  if (props.searchKeyword && props.searchKeyword.trim() !== '') {
     const kw = props.searchKeyword.toLowerCase()
-    result = result.filter((item) => item.name.toLowerCase().includes(kw))
+
+    result = result.filter((item) => {
+      // 🔥 name은 문자열이 아니라 객체 → 안전하게 처리
+      const visibleName = String(item.name?.ko || item.name || '').toLowerCase()
+      return visibleName.includes(kw)
+    })
   }
 
   // 3. 정렬
@@ -133,6 +139,21 @@ onMounted(async () => {
   })
   await loadProducts()
 })
+
+watch(
+  () => props.searchKeyword,
+  async () => {
+    if (!props.searchKeyword) return
+
+    isLoaded.value = false
+    batchIndex.value = 1
+
+    // 검색은 category와 상관없이 전체 상품 불러오기
+    await store.dispatch('product/fetchProducts', { category: 'all' })
+
+    isLoaded.value = true
+  },
+)
 
 // category나 path 바뀌면 새로 로딩
 watch([() => props.category, () => props.path], async () => {

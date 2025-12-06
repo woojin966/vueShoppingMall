@@ -89,6 +89,9 @@
       "backstage": "Backstage"
     }
   },
+  "search": {
+    "noResults": "검색된 상품이 없습니다."
+  },
   "filters": {
     "latest": "등록순",
     "popular": "인기순",

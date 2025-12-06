@@ -36,7 +36,12 @@
 
     <!-- ProductList에 현재 경로도 함께 전달 -->
     <!-- <ProductList :category="category" :path="route.path" :filterType="filterType" /> -->
-    <ProductList :category="category" :filter-type="filterType" :path="route.path" />
+    <ProductList
+      :category="category"
+      :filter-type="filterType"
+      :path="route.path"
+      :search-keyword="keyword"
+    />
   </div>
   <Footer />
 </template>
@@ -53,6 +58,7 @@ import FilterDropdown from '@/components/FilterDropdown.vue'
 
 const route = useRoute()
 const { t } = useI18n()
+const keyword = ref(route.query.q || '')
 
 // 브랜드 페이지는 category가 모두 'all'로 고정
 const category = computed(() => 'all')
