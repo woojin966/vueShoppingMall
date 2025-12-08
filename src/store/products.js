@@ -52,9 +52,14 @@ export default {
           const menu2 = (await getMenu2Products()).map((p) => ({ ...p }))
           rawProducts = [...menu1, ...menu2].filter((p) => p.clearance)
         } else if (menuType === 'brand') {
-          const menu1 = (await getMenu1Products()).map((p) => ({ ...p }))
-          const menu2 = (await getMenu2Products()).map((p) => ({ ...p }))
-          rawProducts = [...menu1, ...menu2].filter((p) => p.best)
+          const menu1 = await getMenu1Products()
+          const menu2 = await getMenu2Products()
+          const all = [...menu1, ...menu2]
+
+          // 홈 미리보기에 보여줄 브랜드 목록
+          const brands = ['orumm', 'puco', 'hamblepie']
+
+          rawProducts = all.filter((p) => brands.includes(p.brand?.toLowerCase()))
         } else {
           // -----------------------------
           // ③ 실제 페이지별 pathname 라우팅
@@ -99,10 +104,18 @@ export default {
             }
 
             // ⭐ SEARCH ROUTE — 검색 페이지는 항상 전체 상품을 불러와야 한다
+          } else if (pathname.startsWith('/product/')) {
+            const m1 = await getMenu1Products()
+            const m2 = await getMenu2Products()
+            rawProducts = [...m1, ...m2]
           } else if (pathname.startsWith('/search')) {
             const m1 = (await getMenu1Products()).map((p) => ({ ...p }))
             const m2 = (await getMenu2Products()).map((p) => ({ ...p }))
             rawProducts = [...m1, ...m2]
+            // } else if (pathname.startsWith('/search')) {
+            //   const m1 = (await getMenu1Products()).map((p) => ({ ...p }))
+            //   const m2 = (await getMenu2Products()).map((p) => ({ ...p }))
+            //   rawProducts = [...m1, ...m2]
 
             // --- ALL PRODUCTS (fallback) ---
           } else {

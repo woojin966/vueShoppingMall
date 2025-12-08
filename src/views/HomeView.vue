@@ -93,6 +93,7 @@ onMounted(async () => {
 
   menus.value = [
     {
+      id: 'kitchen',
       label: 'nav.kitchen',
       subs: [
         { label: 'nav.all', path: '/kitchen' },
@@ -104,6 +105,7 @@ onMounted(async () => {
       ],
     },
     {
+      id: 'uncommon',
       label: 'nav.uncommon',
       subs: [
         { label: 'nav.all', path: '/uncommon' },
@@ -116,6 +118,7 @@ onMounted(async () => {
       ],
     },
     {
+      id: 'selection',
       label: 'nav.selection',
       subs: [
         { label: 'nav.new', path: '/selection/new' },
@@ -124,6 +127,7 @@ onMounted(async () => {
       ],
     },
     {
+      id: 'brand',
       label: 'nav.brand',
       subs: [
         { label: 'nav.hamblepie', path: '/brand/hamblepie' },
@@ -135,6 +139,7 @@ onMounted(async () => {
       ],
     },
     {
+      id: 'community',
       label: 'nav.community',
       subs: [
         { label: 'nav.notice', path: '/community/notice' },
@@ -152,6 +157,8 @@ const toggleMenu = async (index, label, event) => {
   const btn = (event && event.currentTarget) || (list && list.querySelectorAll('.menu_btn')[index])
   const parentLi = btn.closest('li')
   const isSame = activeIndex.value === index
+  const menu = menus.value[index]
+  const id = menu.id
 
   // 1️⃣ 모든 서브메뉴 width 고정 (transition 중 scrollWidth 변화 방지)
   const allSubMenus = list.querySelectorAll('.sub_menu_list')
@@ -190,19 +197,19 @@ const toggleMenu = async (index, label, event) => {
   })
 
   // 8️⃣ preview 표시
-  if (label === 'KITCHEN') {
+  if (id === 'kitchen') {
     menuType.value = 'kitchen'
     showPreview.value = true
-  } else if (label === 'UNCOMMON') {
+  } else if (id === 'uncommon') {
     menuType.value = 'uncommon'
     showPreview.value = true
-  } else if (label === 'SELECTION') {
+  } else if (id === 'selection') {
     menuType.value = 'selection'
     showPreview.value = true
-  } else if (label === 'BRAND') {
+  } else if (id === 'brand') {
     menuType.value = 'brand'
     showPreview.value = true
-  } else if (label === 'COMMUNITY') {
+  } else if (id === 'community') {
     menuType.value = 'community'
     showPreview.value = false
   } else {

@@ -6,19 +6,14 @@
           menuType === 'kitchen' || menuType === 'uncommon'
             ? t('home.section.new')
             : menuType === 'selection'
-              ? t('home.section.new')
+              ? t('home.section.sale')
               : menuType === 'brand'
                 ? t('home.section.best')
                 : ''
         }}
       </h2>
       <ul class="home_products_list">
-        <HomeProductItem
-          v-for="item in items"
-          :key="item.id"
-          :product="item"
-          class="product_item"
-        />
+        <HomeProductItem v-for="item in filteredItems" :key="item.id" :product="item" />
       </ul>
     </article>
   </div>
@@ -39,8 +34,17 @@ const props = defineProps({
 const store = useStore()
 const items = computed(() => store.state.product.items)
 
+const filteredItems = computed(() => {
+  let list = items.value
+
+  if (props.menuType === 'brand') {
+    list = list.filter((p) => p.category !== 'foodit')
+  }
+
+  return list
+})
+
 const loadProducts = async () => {
-  console.log('[loadProducts] menuType:', props.menuType)
   await store.dispatch('product/fetchProducts', {
     menuType: props.menuType,
   })
@@ -48,11 +52,9 @@ const loadProducts = async () => {
 
 onMounted(loadProducts)
 
-// ✅ menuType이 바뀔 때마다 상품 다시 불러오기
 watch(
   () => props.menuType,
-  async (newVal, oldVal) => {
-    console.log(`[watch] menuType changed: ${oldVal} → ${newVal}`)
+  async () => {
     await loadProducts()
   },
 )
