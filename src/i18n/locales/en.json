@@ -24,24 +24,82 @@
     "remember": "Remember Me",
     "placeholderEmail": "Enter Email",
     "placeholderPassword": "Enter Password",
-    "error": "Invalid email or password."
+    "error": "Invalid email or password.",
+    "login": "Login",
+    "join": "Join",
+    "find_id_pw": "Find ID/PW"
   },
   "mypage": {
     "title": "My Page",
     "orderHistory": "Order History",
+    "product": "Product",
+    "ea": "EA",
+    "detail": "상세보기",
     "noOrders": "No orders found."
   },
   "order": {
     "title": "Order",
     "customerInfo": "Customer Information",
-    "shippingInfo": "Shipping Information",
     "paymentMethod": "Payment Method",
     "agreeTerms": "I agree to the terms",
     "sameAsCustomer": "Same as customer",
-    "completeTitle": "Payment Completed",
+    "completeTitle": "Payment completed",
+    "detailTitle": "Order details",
     "orderNumber": "Order Number",
     "subtotal": "Subtotal",
-    "shippingFee": "Shipping Fee"
+    "shippingFee": "Shipping Fee",
+    "order_form": "Order form",
+    "name": "name",
+    "detail_order": {
+      "order_item": "Order item",
+      "shippingInfo": "Shippin info",
+      "total_amount": "Total amount",
+      "order_err_msg": "We couldn't find your order information.",
+      "completed": "Complete",
+      "preparing": "preparing",
+      "shipping": "Shipping",
+      "delivered": "Delivered"
+    },
+    "complete_order": {
+      "customer": "Customer",
+      "phone": "Phone",
+      "email": "Email",
+      "recipient": "Recipient",
+      "adress": "Adress",
+      "ship_msg": "Note"
+    },
+    "check": {
+      "addressSearch": "Search Address",
+      "detailAddress": "Detail Address",
+      "shippingMessage": "Shipping Message",
+
+      "paymentMethod": "Payment Method",
+      "fakePayment": "Fake Payment",
+
+      "termsTitle": "Terms of Use & Information Provision",
+      "termsAgree": "I have reviewed and agree to the terms of use and information provision before payment.",
+
+      "privacyPurpose": "1. Purpose of Collecting Personal Information",
+      "privacyPurpose1": "(1) Guest Purchase Service",
+      "privacyPurpose1Detail": "Identity verification for guest purchases, shipping, service delivery, sending invoices, authentication, age verification, billing and settlement, debt collection, fraud prevention, and notifications.",
+      "privacyPurpose2": "(2) Complaint Handling",
+      "privacyPurpose2Detail": "Verification of the requester, checking complaint details, communication for fact-checking, and notification of results.",
+
+      "privacyItems": "2. Items of Personal Information Collected",
+      "privacyItemsDetail": "Name, address, phone number, email, payment information",
+
+      "privacyRetention": "3. Retention and Use Period",
+      "privacyRetentionDetail": "Stored for 5 years after purchase under relevant e-commerce laws.",
+      "privacyReject": "※ You may refuse to consent, but guest purchase services will not be available without consent.",
+
+      "totalAmount": "Total Amount",
+      "pay": "Pay Now",
+      "payLoading": "Processing...",
+
+      "modalCustomerEmpty": "Please fill in all customer information first.",
+      "modalAddressFail": "Failed to load address search. Please try again later.",
+      "modalTerms": "You must agree to the terms before proceeding with payment."
+    }
   },
   "home": {
     "section": {
@@ -163,6 +221,22 @@
       "more": "MORE"
     }
   },
+  "cart": {
+    "title": "Shopping Cart",
+    "selectAll": "Select All",
+    "deselectAll": "Deselect All",
+    "option": "Option",
+    "empty": "Your cart is empty.",
+    "deleteAll": "Delete All",
+    "deleteSelected": "Delete Selected",
+    "orderSelected": "Order Selected",
+    "orderAll": "Order All",
+    "noSelectionAlert": "No items selected."
+  },
+  "ready": {
+    "title": "Oops!<br />still working<br class='mo_blk' />on this page.",
+    "subtitle": "We'll be ready for you<br class='mo_blk' />very soon 😊"
+  },
   "footer": {
     "terms": "Terms of Service",
     "privacy": "Privacy Policy",
@@ -173,6 +247,7 @@
     "copyright": "Copyright ⓒ 2025 REIAS. All rights reserved."
   },
   "nav": {
+    "all": "전체",
     "kitchen": "Kitchen",
     "kitchen_summer": "Summer Dish",
     "kitchen_main": "Main Dish",

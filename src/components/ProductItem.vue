@@ -27,7 +27,7 @@
     </router-link>
     <Modal
       :visible="showCartModal"
-      message="t('product.modal.cartMove')"
+      :message="t('productDetail.moveCartMsg')"
       @confirm="goToCart"
       @cancel="cancelCart"
     />
@@ -38,6 +38,7 @@
 import { ref, onMounted, onBeforeUnmount, nextTick, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { addToCart } from '@/api/cart'
 import Modal from './Modal.vue'
 
 const hover = ref(false)

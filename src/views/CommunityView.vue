@@ -2,12 +2,15 @@
   <article class="ready_wrap">
     <div>
       <font-awesome-icon icon="fa-solid fa-triangle-exclamation" />
-      <h1>Oops! We're<br />still working <br class="mo_blk" />on this page.</h1>
+      <h1 v-html="t('ready.title')"></h1>
     </div>
-    <p class="big sb">빠른 시일 내에 <br class="mo_blk" />찾아뵙겠습니다😊</p>
+    <p class="big sb" v-html="t('ready.subtitle')"></p>
   </article>
 </template>
-<script></script>
+<script setup>
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+</script>
 <style scoped lang="scss">
 .ready_wrap {
   padding: 60px 40px;

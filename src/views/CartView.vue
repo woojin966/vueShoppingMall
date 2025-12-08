@@ -7,8 +7,10 @@
     <section class="cart_content_box">
       <div class="btn_box top">
         <div class="sel_btn_box">
-          <button class="all_sel_btn text n" @click="selectAll">전체선택</button>
-          <button class="sel_off_btn text n" @click="deselectAll">선택해제</button>
+          <button class="all_sel_btn text n" @click="selectAll">{{ t('cart.selectAll') }}</button>
+          <button class="sel_off_btn text n" @click="deselectAll">
+            {{ t('cart.deselectAll') }}
+          </button>
         </div>
       </div>
       <ul class="product_list" v-if="cartItems.length">
@@ -26,8 +28,8 @@
           <div class="cart_info">
             <div class="name_del_row">
               <div>
-                <p class="name text sb">{{ item.name }}</p>
-                <p v-if="item.option" class="option">옵션: {{ item.option }}</p>
+                <p class="name text sb">{{ item.name[locale] }}</p>
+                <p v-if="item.option" class="option">{{ t('cart.option') }}: {{ item.option }}</p>
               </div>
               <button @click="handleRemove(item.id, item.option)">
                 <span></span>
@@ -56,13 +58,14 @@
 
             <div class="price_row">
               <p class="price medium sb">
-                {{ (Number(item.price) * Number(item.quantity)).toLocaleString() }}원
+                {{ (Number(item.price) * Number(item.quantity)).toLocaleString()
+                }}{{ t('common.currency') }}
               </p>
             </div>
           </div>
         </li>
       </ul>
-      <p class="empty_cart_msg text sb" v-else>장바구니가 비어 있습니다.</p>
+      <p class="empty_cart_msg text sb" v-else>{{ t('cart.empty') }}</p>
       <div class="btn_box bottom">
         <!-- <div class="sel_btn_box">
           <button class="all_sel_btn text n">전체선택</button>
@@ -78,19 +81,23 @@
             "
             class="all_del_btn text n"
           >
-            전체삭제
+            {{ t('cart.deleteAll') }}
           </button>
-          <button class="sel_del_btn text n" @click="deleteSelected">선택삭제</button>
+          <button class="sel_del_btn text n" @click="deleteSelected">
+            {{ t('cart.deleteSelected') }}
+          </button>
         </div>
       </div>
     </section>
     <section class="cart_bottom_box">
       <div class="total_price_box">
-        <p class="total big bb">{{ total.toLocaleString() }}원</p>
+        <p class="total big bb">{{ total.toLocaleString() }}{{ t('common.currency') }}</p>
       </div>
       <div class="order_btn_box">
-        <button class="sel_order_btn medium n" @click="goToSelectedOrder">선택 주문</button>
-        <button class="all_order_btn medium n" @click="goToOrder">전체 주문</button>
+        <button class="sel_order_btn medium n" @click="goToSelectedOrder">
+          {{ t('cart.orderSelected') }}
+        </button>
+        <button class="all_order_btn medium n" @click="goToOrder">{{ t('cart.orderAll') }}</button>
       </div>
     </section>
   </article>
@@ -98,9 +105,9 @@
 
   <Modal
     :visible="noselectalert"
-    message="선택된 상품이 없습니다."
+    :message="t('cart.noSelectionAlert')"
     @confirm="noselectalert = false"
-    :confirmText="'확인'"
+    :confirmText="t('cart.noSelectionAlert')"
     :cancelText="''"
   />
 </template>
@@ -111,12 +118,14 @@ import { getCart, removeFromCart, updateQuantity, clearCart, getCartTotal } from
 import { saveOrder } from '@/api/order.js'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import Modal from '@/components/Modal.vue'
 
 const router = useRouter()
 const store = useStore()
+const { t, locale } = useI18n()
 
 // 🔗 Vite에서 정적 에셋 동적 경로 만들기
 const getImgUrl = (category, filename) =>

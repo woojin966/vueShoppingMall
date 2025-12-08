@@ -10,9 +10,9 @@
       <div v-else-if="menuType === 'community'" class="ready_wrap">
         <div>
           <font-awesome-icon icon="fa-solid fa-triangle-exclamation" />
-          <h1>Oops! We're<br />still working <br class="mo_blk" />on this page.</h1>
+          <h1 v-html="t('ready.title')"></h1>
         </div>
-        <p class="big sb">빠른 시일 내에 <br class="mo_blk" />찾아뵙겠습니다😊</p>
+        <p class="big sb" v-html="t('ready.subtitle')"></p>
       </div>
       <div v-else class="home_initial">
         <HeroBanner :imgUrl="imgUrl" :filterClass="randomFilter" />
@@ -41,14 +41,14 @@
               class="menu_btn menu1"
               @click="toggleMenu(i, menu.label, $event)"
             >
-              {{ menu.label }}
+              {{ t(menu.label) }}
             </a>
 
             <!-- 트랜지션 래퍼 추가 -->
             <transition name="slide-toggle">
               <ul v-if="activeIndex === i" class="sub_menu_list">
                 <li v-for="(sub, j) in menu.subs" :key="j">
-                  <router-link :to="sub.path" class="menu2">{{ sub.label }}</router-link>
+                  <router-link :to="sub.path" class="menu2">{{ t(sub.label) }}</router-link>
                 </li>
               </ul>
             </transition>
@@ -64,12 +64,13 @@ import { ref, onMounted, getCurrentInstance, nextTick } from 'vue'
 import { randomImages } from '../store/randomImages.js'
 import { getAllProducts as getMenu1Products } from '@/api/productmenu1'
 import { getAllProducts as getMenu2Products } from '@/api/productmenu2'
+import { useI18n } from 'vue-i18n'
 import HomeProductList from '@/components/HomeProductList.vue'
 import HeroBanner from '@/components/home/HeroBanner.vue'
 import RecommendationList from '@/components/home/RecommendationList.vue'
 
 const { imgUrl, randomFilter } = randomImages()
-
+const { t } = useI18n()
 const menus = ref([])
 const showPreview = ref(false)
 const menuType = ref('') // 'kitchen' 또는 'uncommon'
@@ -96,56 +97,55 @@ onMounted(async () => {
 
   menus.value = [
     {
-      label: 'KITCHEN',
+      label: 'nav.kitchen',
       subs: [
-        { label: '전체', path: '/kitchen' },
-        { label: '여름의 맛', path: '/kitchen/summerdish' },
-        { label: '메인디시', path: '/kitchen/maindish' },
-        { label: '사이드디시', path: '/kitchen/sidedish' },
-        { label: '디저트', path: '/kitchen/desert' },
-        { label: '푸드아이템', path: '/kitchen/foodit' },
+        { label: 'nav.all', path: '/kitchen' }, // "전체"를 위한 key (추가 필요)
+        { label: 'nav.kitchen_summer', path: '/kitchen/summerdish' },
+        { label: 'nav.kitchen_main', path: '/kitchen/maindish' },
+        { label: 'nav.kitchen_side', path: '/kitchen/sidedish' },
+        { label: 'nav.kitchen_dessert', path: '/kitchen/desert' },
+        { label: 'nav.kitchen_food', path: '/kitchen/foodit' },
       ],
     },
     {
-      label: 'UNCOMMON',
+      label: 'nav.uncommon',
       subs: [
-        { label: '전체', path: '/uncommon' },
-        { label: '라이프아이템', path: '/uncommon/life' },
-        { label: '가방', path: '/uncommon/bag' },
-        { label: '의류', path: '/uncommon/apparel' },
-        { label: '양말', path: '/uncommon/socks' },
-        { label: '패션', path: '/uncommon/fashion' },
-        { label: '타이잇', path: '/uncommon/thai-it' },
+        { label: 'nav.all', path: '/uncommon' },
+        { label: 'nav.lifeItem', path: '/uncommon/life' },
+        { label: 'nav.bag', path: '/uncommon/bag' },
+        { label: 'nav.apparel', path: '/uncommon/apparel' },
+        { label: 'nav.socks', path: '/uncommon/socks' },
+        { label: 'nav.fashion', path: '/uncommon/fashion' },
+        { label: 'nav.thai', path: '/uncommon/thai-it' },
       ],
     },
     {
-      label: 'SELECTION',
+      label: 'nav.selection',
       subs: [
-        { label: 'NEW', path: '/selection/new' },
-        { label: 'BEST', path: '/selection/best' },
-        { label: 'SALE', path: '/selection/sale' },
+        { label: 'nav.new', path: '/selection/new' },
+        { label: 'nav.best', path: '/selection/best' },
+        { label: 'nav.sale', path: '/selection/sale' },
       ],
     },
     {
-      label: 'BRAND',
+      label: 'nav.brand',
       subs: [
-        { label: 'HAMBLEPIE', path: '/brand/hamblepie' },
-        { label: 'PUCO', path: '/brand/puco' },
-        { label: 'PHUTAWAN', path: '/brand/phutawan' },
-        { label: 'SMELL LEMONGRASS', path: '/brand/smell' },
-        { label: 'ORUMM', path: '/brand/orumm' },
-        { label: 'BACKSTAGE', path: '/brand/backstage' },
+        { label: 'nav.hamblepie', path: '/brand/hamblepie' },
+        { label: 'nav.puco', path: '/brand/puco' },
+        { label: 'nav.phutawan', path: '/brand/phutawan' },
+        { label: 'nav.smell', path: '/brand/smell' },
+        { label: 'nav.orumm', path: '/brand/orumm' },
+        { label: 'nav.backstage', path: '/brand/backstage' },
       ],
-      //subs: brandSubs,
     },
     {
-      label: 'COMMUNITY',
+      label: 'nav.community',
       subs: [
-        { label: 'NOTICE', path: '/community/notice' },
-        { label: 'FAQ', path: '/community/faq' },
-        { label: 'QNA', path: '/community/qna' },
-        { label: 'REVIEWS', path: '/community/review' },
-        { label: 'PLAYLIST', path: '/community/playlist' },
+        { label: 'nav.notice', path: '/community/notice' },
+        { label: 'nav.faq', path: '/community/faq' },
+        { label: 'nav.qna', path: '/community/qna' },
+        { label: 'nav.reviews', path: '/community/review' },
+        { label: 'nav.playlist', path: '/community/playlist' },
       ],
     },
   ]
