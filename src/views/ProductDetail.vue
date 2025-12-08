@@ -25,25 +25,18 @@
 
       <div class="product_title_price_box">
         <div>
-          <!-- 🔥 다국어 상품명 -->
           <h2 class="product_name medium sb">{{ product.name[locale] }}</h2>
-
-          <!-- 가격 -->
           <p class="product_price big bb">
             {{ Number(product.price).toLocaleString() }}{{ t('common.currency') }}
           </p>
-
-          <!-- 수량 -->
           <div class="product_quantity">
             <button @click="decreaseQty"><span></span></button>
-
             <input
               type="number"
               v-model.number="quantity"
               min="1"
               class="quantity_input medium sb"
             />
-
             <button @click="increaseQty"><span></span><span></span></button>
           </div>
         </div>

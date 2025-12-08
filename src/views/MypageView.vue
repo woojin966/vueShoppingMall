@@ -7,7 +7,7 @@
     </section>
 
     <section class="mypage_content_box">
-      <h3 class="sb">{{ t('mypage.orderHistory') }}</h3>
+      <h3 class="bb">{{ t('mypage.orderHistory') }}</h3>
 
       <ul class="order_list" v-if="orders.length">
         <li v-for="order in orders" :key="order.id" class="order_card">

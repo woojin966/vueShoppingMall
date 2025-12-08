@@ -2,7 +2,7 @@
   <Header />
   <article class="cart_wrap">
     <section class="cart_top_box">
-      <h2 class="bb">장바구니</h2>
+      <h1>Cart</h1>
     </section>
     <section class="cart_content_box">
       <div class="btn_box top">

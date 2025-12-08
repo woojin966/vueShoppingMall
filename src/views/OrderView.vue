@@ -2,7 +2,7 @@
   <Header />
   <article class="order_wrap">
     <section class="order_top_box">
-      <h2 class="bb">{{ t('order.order_form') }}</h2>
+      <h1>Order form</h1>
     </section>
     <section class="order_content_box">
       <div class="product_box">

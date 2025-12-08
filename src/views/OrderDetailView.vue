@@ -3,14 +3,14 @@
 
   <article class="order_detail_wrap" v-if="order">
     <section class="order_detail_top_box">
-      <h2 class="bb">{{ t('order.detailTitle') }}</h2>
+      <h1>Order details</h1>
       <p class="order_num text n">Order #{{ order.id }}</p>
       <p class="order_date text n">{{ order.date }}</p>
     </section>
 
     <!-- 배송 상태 -->
     <section class="status_box">
-      <h3 class="sb">{{ t('order.detail_order.shippingInfo') }}</h3>
+      <h3 class="bb">{{ t('order.detail_order.shippingInfo') }}</h3>
 
       <div class="progress_wrap">
         <div v-for="(step, i) in steps" :key="i" class="step" :class="{ active: i <= currentStep }">
@@ -22,7 +22,7 @@
 
     <!-- 주문 상품 -->
     <section class="order_products_box">
-      <h3 class="sb">{{ t('order.detail_order.order_item') }}</h3>
+      <h3 class="bb">{{ t('order.detail_order.order_item') }}</h3>
 
       <ul class="order_list">
         <li v-for="(item, i) in order.items" :key="i" class="order_item">
@@ -42,7 +42,7 @@
 
     <!-- 가격 요약 -->
     <section class="price_summary_box">
-      <h3 class="sb">{{ t('order.detail_order.total_amount') }}</h3>
+      <h3 class="bb">{{ t('order.detail_order.total_amount') }}</h3>
 
       <div class="summary_row">
         <span class="text n">{{ t('order.subtotal') }}</span>
@@ -54,7 +54,7 @@
         <span class="text n">{{ shippingFee.toLocaleString() }}{{ t('common.currency') }}</span>
       </div>
 
-      <p class="total medium bb">
+      <p class="total big bb">
         Total <span>{{ total.toLocaleString() }}{{ t('common.currency') }}</span>
       </p>
     </section>

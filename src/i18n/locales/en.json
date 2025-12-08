@@ -72,30 +72,23 @@
       "addressSearch": "Search Address",
       "detailAddress": "Detail Address",
       "shippingMessage": "Shipping Message",
-
       "paymentMethod": "Payment Method",
       "fakePayment": "Fake Payment",
-
       "termsTitle": "Terms of Use & Information Provision",
       "termsAgree": "I have reviewed and agree to the terms of use and information provision before payment.",
-
       "privacyPurpose": "1. Purpose of Collecting Personal Information",
       "privacyPurpose1": "(1) Guest Purchase Service",
       "privacyPurpose1Detail": "Identity verification for guest purchases, shipping, service delivery, sending invoices, authentication, age verification, billing and settlement, debt collection, fraud prevention, and notifications.",
       "privacyPurpose2": "(2) Complaint Handling",
       "privacyPurpose2Detail": "Verification of the requester, checking complaint details, communication for fact-checking, and notification of results.",
-
       "privacyItems": "2. Items of Personal Information Collected",
       "privacyItemsDetail": "Name, address, phone number, email, payment information",
-
       "privacyRetention": "3. Retention and Use Period",
       "privacyRetentionDetail": "Stored for 5 years after purchase under relevant e-commerce laws.",
       "privacyReject": "※ You may refuse to consent, but guest purchase services will not be available without consent.",
-
       "totalAmount": "Total Amount",
       "pay": "Pay Now",
       "payLoading": "Processing...",
-
       "modalCustomerEmpty": "Please fill in all customer information first.",
       "modalAddressFail": "Failed to load address search. Please try again later.",
       "modalTerms": "You must agree to the terms before proceeding with payment."
