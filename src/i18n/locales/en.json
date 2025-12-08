@@ -17,7 +17,9 @@
     "cancel": "Cancel",
     "join": "Join",
     "more": "More",
-    "currency": "won"
+    "currency": "won",
+    "search": "Search",
+    "search_placeholder": "Enter the keyword"
   },
   "login": {
     "title": "Login",
@@ -34,7 +36,7 @@
     "orderHistory": "Order History",
     "product": "Product",
     "ea": "EA",
-    "detail": "상세보기",
+    "detail": "View",
     "noOrders": "No orders found."
   },
   "order": {
@@ -69,7 +71,7 @@
       "ship_msg": "Note"
     },
     "check": {
-      "addressSearch": "Search Address",
+      "addressSearch": "Search",
       "detailAddress": "Detail Address",
       "shippingMessage": "Shipping Message",
       "paymentMethod": "Payment Method",
@@ -99,7 +101,8 @@
       "new": "NEW",
       "sale": "SALE",
       "best": "BEST"
-    }
+    },
+    "tagline": "From Gourmet to Lifewear"
   },
   "product": {
     "new": "New",
@@ -236,19 +239,19 @@
     "companyInfo1": "CEO Jane Doe / Business No.: 000-00-00000 / MOBRN: 2025-Seoul-0000",
     "companyInfo2": "Address: 000, 00-00 Lorem-ro, ipsum-gu, Seoul, Korea",
     "companyInfo3": "Account No.: Lorem 0000-000-000000",
-    "csInfo": "CS: Live chat @REIAS or via Q&A",
+    "csInfo": "CS: Live chat &#64;REIAS or via Q&A",
     "copyright": "Copyright ⓒ 2025 REIAS. All rights reserved."
   },
   "nav": {
-    "all": "전체",
-    "kitchen": "Kitchen",
+    "all": "All",
+    "kitchen": "KITCHEN",
     "kitchen_summer": "Summer Dish",
     "kitchen_main": "Main Dish",
     "kitchen_side": "Side Dish",
     "kitchen_dessert": "Dessert",
     "kitchen_food": "Food Items",
 
-    "uncommon": "Uncommon",
+    "uncommon": "UNCOMMON",
     "lifeItem": "Lifestyle",
     "bag": "Bags",
     "apparel": "Apparel",
@@ -256,12 +259,12 @@
     "fashion": "Fashion",
     "thai": "Thai-It",
 
-    "selection": "Selection",
+    "selection": "SELECTION",
     "new": "New",
     "best": "Best",
     "sale": "Sale",
 
-    "brand": "Brand",
+    "brand": "BRAND",
     "hamblepie": "Hamblepie",
     "puco": "Puco",
     "phutawan": "Phutawan",
@@ -269,7 +272,7 @@
     "orumm": "Orumm",
     "backstage": "Backstage",
 
-    "community": "Community",
+    "community": "COMMUNITY",
     "notice": "Notice",
     "faq": "FAQ",
     "qna": "Q&A",

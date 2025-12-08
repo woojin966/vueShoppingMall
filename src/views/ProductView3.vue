@@ -54,7 +54,7 @@ const keyword = ref(route.query.q || '')
 const category = computed(() => 'all')
 
 // filter
-const filterType = ref('등록순')
+const filterType = ref('filters.latest')
 
 const onChangeFilter = (option) => {
   filterType.value = option

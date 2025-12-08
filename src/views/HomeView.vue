@@ -28,7 +28,7 @@
         <img class="logo" src="../assets/img/favicon/initial.svg" />
       </div>
       <div>
-        <p class="small n">ⓒ 2025 미식부터 라이프웨어까지</p>
+        <p class="small n">ⓒ 2025 {{ t('home.tagline') }}</p>
       </div>
     </section>
 
@@ -84,11 +84,7 @@ onMounted(async () => {
   const all = [...menu1, ...menu2]
 
   // 브랜드 추출 후 중복 제거
-  const uniqueBrands = [
-    ...new Set(
-      all.map((p) => p.brand).filter(Boolean), // null/undefined 제거
-    ),
-  ]
+  const uniqueBrands = [...new Set(all.map((p) => p.brand).filter(Boolean))]
 
   const brandSubs = uniqueBrands.map((brand) => ({
     label: brand.toUpperCase(),
@@ -99,7 +95,7 @@ onMounted(async () => {
     {
       label: 'nav.kitchen',
       subs: [
-        { label: 'nav.all', path: '/kitchen' }, // "전체"를 위한 key (추가 필요)
+        { label: 'nav.all', path: '/kitchen' },
         { label: 'nav.kitchen_summer', path: '/kitchen/summerdish' },
         { label: 'nav.kitchen_main', path: '/kitchen/maindish' },
         { label: 'nav.kitchen_side', path: '/kitchen/sidedish' },

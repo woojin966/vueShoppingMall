@@ -61,7 +61,7 @@ const filters = [
   'filter-willow',
 ]
 const randomFilter = ref('')
-const filterType = ref('등록순')
+const filterType = ref('filters.latest')
 
 onMounted(async () => {
   // 검색 페이지는 항상 전체 상품 로딩

@@ -7,6 +7,11 @@
           <img src="@/assets/img/favicon/reias_logo.png" alt="logo" />
         </router-link>
         <ul class="etc_menu_list">
+          <li>
+            <a href="javascript:void(0)" class="text n lang_btn" @click="toggleLang">
+              {{ locale === 'ko' ? 'KO' : 'EN' }}
+            </a>
+          </li>
           <li v-if="!isLoggedIn">
             <router-link to="/login" class="text n">{{ $t('common.login') }}</router-link>
           </li>
@@ -39,9 +44,9 @@
           type="text"
           v-model="keyword"
           @keyup.enter="onSearch"
-          placeholder="상품명을 입력하세요"
+          :placeholder="t('common.search_placeholder')"
         />
-        <button @click="onSearch">검색</button>
+        <button @click="onSearch">{{ t('common.search') }}</button>
       </div>
       <div class="nav_wrapper">
         <a
@@ -108,6 +113,9 @@
           <img src="@/assets/img/favicon/reias_logo.png" alt="logo" />
         </router-link>
         <div class="menu_box">
+          <a href="javascript:void(0)" class="text n lang_btn" @click="toggleLang">
+            {{ locale === 'ko' ? 'EN' : 'KO' }}
+          </a>
           <router-link to="/cart" class="cart_icon">
             <font-awesome-icon icon="fa-solid fa-cart-shopping" />
             <span v-if="cartCount" class="cart_count">{{ cartCount }}</span>
@@ -122,9 +130,9 @@
           type="text"
           v-model="keyword"
           @keyup.enter="onSearch"
-          placeholder="상품명을 입력하세요"
+          :placeholder="t('common.search_placeholder')"
         />
-        <button @click="onSearch">검색</button>
+        <button @click="onSearch">{{ t('common.search') }}</button>
       </div>
       <div class="nav_wrapper mo" v-show="isMoMenuVisible">
         <div class="menulist_top_box">
@@ -163,10 +171,17 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import { getCart } from '@/api/cart.js'
 import { useAuth } from '@/composables/useAuth.js'
 
 const router = useRouter()
+const { t, locale } = useI18n()
+const toggleLang = () => {
+  const next = locale.value === 'ko' ? 'en' : 'ko'
+  locale.value = next
+  localStorage.setItem('locale', next)
+}
 
 /* ------------------ Auth ------------------ */
 const { user, logout, loadAuth } = useAuth()

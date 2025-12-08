@@ -17,7 +17,9 @@
     "cancel": "취소",
     "join": "Join",
     "more": "More",
-    "currency": "원"
+    "currency": "원",
+    "search": "검색",
+    "search_placeholder": "검색어를 입력해주세요."
   },
   "login": {
     "title": "로그인",
@@ -99,7 +101,8 @@
       "new": "NEW",
       "sale": "SALE",
       "best": "BEST"
-    }
+    },
+    "tagline": "미식부터 라이프웨어까지"
   },
   "product": {
     "new": "New",

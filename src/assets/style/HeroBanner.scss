@@ -68,19 +68,29 @@
       font-family: $bbh;
       color: #fff;
     }
-
-    .hero_btn {
-      padding: 12px 20px;
-      transition: 0.2s ease;
-      cursor: pointer;
-      border: 1px solid #fff;
-      background-color: rgba(255, 255, 255, 0.2);
-      color: #fff;
-
-      &:hover {
-        background: white;
-        transform: translateY(-2px);
-        color: $pointRed;
+    div {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      a,
+      button {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 20px;
+        height: 52px;
+        transition: 0.2s ease;
+        cursor: pointer;
+        border: 1px solid #fff;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        &:hover {
+          background: white;
+          transform: translateY(-2px);
+          color: $pointRed;
+        }
       }
     }
 
@@ -92,8 +102,11 @@
       .hero_subtitle {
         font-size: 24px;
       }
-      .hero_btn {
-        padding: 12px 16px;
+      div {
+        a,
+        button {
+          padding: 12px 16px;
+        }
       }
     }
 
@@ -104,8 +117,12 @@
       .hero_subtitle {
         font-size: 5vw;
       }
-      .hero_btn {
-        padding: 8px 12px;
+      div {
+        a,
+        button {
+          padding: 8px 12px;
+          height: 48px;
+        }
       }
     }
   }

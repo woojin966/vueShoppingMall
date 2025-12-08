@@ -55,7 +55,7 @@
     .selected_filter {
       display: flex;
       padding: 12px;
-      width: 120px;
+      width: 140px;
       gap: 8px;
       justify-content: space-between;
       align-items: center;
@@ -72,7 +72,7 @@
     .filter_options {
       position: absolute;
       top: 100%;
-      width: 120px;
+      width: 140px;
       right: 40px;
       margin-top: 4px;
       padding: 0;
@@ -85,6 +85,12 @@
         &:hover {
           background: $selectPoint;
         }
+      }
+      @media all and (max-width: 1024px) {
+        right: 20px;
+      }
+      @media all and (max-width: 480px) {
+        right: 16px;
       }
     }
   }

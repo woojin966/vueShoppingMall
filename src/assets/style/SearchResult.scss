@@ -20,19 +20,15 @@
     object-fit: cover;
   }
   @media all and (max-width: 1024px) {
-    .page_banner_box {
-      height: 200px;
-      p {
-        font-size: 28px;
-      }
+    height: 200px;
+    p {
+      font-size: 28px;
     }
   }
   @media all and (max-width: 480px) {
-    .page_banner_box {
-      height: 140px;
-      p {
-        font-size: 24px;
-      }
+    height: 140px;
+    p {
+      font-size: 24px;
     }
   }
 }

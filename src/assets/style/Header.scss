@@ -35,6 +35,11 @@ header {
     li {
       a {
         color: $pointRed;
+        &.lang_btn {
+          padding: 4px 8px;
+          border-radius: 4px;
+          border: 1px solid $pointRed;
+        }
         &.cart_icon {
           position: relative;
           span {
@@ -195,14 +200,22 @@ header {
     img {
       height: 40px;
       width: auto;
+      margin-left: 76px;
     }
   }
   .menu_box {
     display: flex;
     gap: 12px;
+    align-items: center;
     a {
-      font-size: 20px;
+      font-size: 18px;
       color: $pointRed;
+      &.lang_btn {
+        padding: 4px 8px;
+        border-radius: 4px;
+        border: 1px solid $pointRed;
+        font-size: 14px;
+      }
       &.cart_icon {
         position: relative;
         span {
@@ -258,6 +271,10 @@ header {
       align-items: center;
       padding: 20px;
       color: #fff;
+      .login_btn_box {
+        display: flex;
+        gap: 8px;
+      }
       .login_btn {
         font-size: 28px;
         font-family: $bbh;
@@ -311,10 +328,6 @@ header {
   @media all and (max-width: 768px) {
     .nav_wrapper {
       .menulist_top_box {
-        .login_btn_box {
-          display: flex;
-          gap: 8px;
-        }
         .login_btn {
           font-size: 24px;
         }

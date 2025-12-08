@@ -4,10 +4,10 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import i18n from './i18n'
+import i18n from './i18n' // ✅ 다시 "준비된 i18n 인스턴스"를 그대로 import
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -17,11 +17,12 @@ import unsplash from '@/api/unsplash'
 unsplash.get('/photos/random')
 
 const app = createApp(App)
-// unsplash 전역 등록
+
+// ✅ unsplash 전역 등록
 app.config.globalProperties.$unsplash = unsplash
 
 app.use(store)
 app.use(router)
-app.use(i18n)
+app.use(i18n) // ✅ 여기 유지
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.mount('#app')
