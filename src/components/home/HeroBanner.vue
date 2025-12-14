@@ -9,7 +9,7 @@
       <div>
         <button class="hero_btn medium sb" @click="goToShop">Shop Now</button>
         <a href="javascript:void(0)" class="medium sb lang_btn" @click="toggleLang">
-          {{ locale === 'ko' ? 'EN' : 'KO' }}
+          {{ locale === 'ko' ? 'KO' : 'EN' }}
         </a>
       </div>
     </div>
