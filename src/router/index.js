@@ -90,7 +90,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const { isLoggedIn } = useAuth()
 
-  const authPages = ['/mypage', '/order/detail']
+  const authPages = ['/mypage', '/order', '/order/complete', '/order/detail']
 
   if (authPages.some((path) => to.path.startsWith(path))) {
     if (!isLoggedIn()) {

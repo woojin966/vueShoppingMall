@@ -14,7 +14,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 library.add(fas, far, fab)
 
 import unsplash from '@/api/unsplash'
-unsplash.get('/photos/random')
+// unsplash.get('/photos/random')
 
 const app = createApp(App)
 

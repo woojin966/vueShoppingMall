@@ -68,7 +68,8 @@
       "email": "Email",
       "recipient": "Recipient",
       "adress": "Adress",
-      "ship_msg": "Note"
+      "ship_msg": "Note",
+      "go_orderHistory": "View Order History"
     },
     "check": {
       "addressSearch": "Search",

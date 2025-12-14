@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <article class="order_complete_wrap">
+  <article v-if="orderNumber" class="order_complete_wrap">
     <section class="order_complete_top_box">
       <div class="check_success"></div>
       <h2 class="bb">{{ t('order.completeTitle') }}</h2>
@@ -63,10 +63,12 @@
         </li>
       </ul>
     </section>
-    <!-- <section class="order_complte_btn_box">
-      <router-link to="/" class="btn home medium n">홈으로</router-link>
-      <router-link to="/mypage/orders" class="btn medium n">주문 내역 보기</router-link>
-    </section> -->
+    <section class="order_complte_btn_box">
+      <!-- <router-link to="/" class="btn home medium n">홈으로</router-link> -->
+      <router-link :to="`/order/detail/${orderNumber}`" class="btn medium n">{{
+        t('order.complete_order.go_orderHistory')
+      }}</router-link>
+    </section>
   </article>
   <Footer />
 </template>

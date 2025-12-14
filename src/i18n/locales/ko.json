@@ -68,7 +68,8 @@
       "email": "이메일",
       "recipient": "수령인",
       "adress": "주소",
-      "ship_msg": "배송메시지"
+      "ship_msg": "배송메시지",
+      "go_orderHistory": "주문 내역 보기"
     },
     "check": {
       "addressSearch": "주소찾기",
