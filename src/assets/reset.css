@@ -115,7 +115,7 @@ ol,
 dl,
 li {
   display: block;
-  overscroll-behavior: contain;
+  /*overscroll-behavior: contain;*/
 }
 ol,
 ul {
